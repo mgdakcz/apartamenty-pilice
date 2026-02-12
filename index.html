@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamenty Pilice - Guest Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        :root { --blue: #2c3e50; --sand: #f4f1ea; --white: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--sand); margin: 0; padding: 20px; color: var(--blue); }
+        header { text-align: center; padding-bottom: 20px; }
+        .card { background: var(--white); border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card h2 { margin-top: 0; color: #1a5a96; font-size: 1.2rem; }
+        .btn { display: block; background: #1a5a96; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; margin-top: 10px; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Apartamenty Pilice</h1>
+    <p>Twój cyfrowy przewodnik</p>
+</header>
+
+<div class="card">
+    <h2>🔑 Zameldowanie</h2>
+    <p>Kod do drzwi: <strong>1234#</strong></p>
+    <p>Check-out: do 10:00</p>
+</div>
+
+<div class="card">
+    <h2>📶 WiFi</h2>
+    <p>Sieć: Apartamenty_Pilice</p>
+    <p>Hasło: <em>baltyk2024</em></p>
+    <a href="#" class="btn" onclick="navigator.clipboard.writeText('baltyk2024')">Kopiuj hasło</a>
+</div>
+
+<div class="card">
+    <h2>🏊‍♂️ Papaj Resort (Free)</h2>
+    <p>Basen i sauna dostępne bezpłatnie w godzinach 08:00 - 15:00.</p>
+    <div class="grid">
+        <a href="https://google.com/maps?q=Papaj+Resort" class="btn">Mapa</a>
+        <a href="tel:+48728833477" class="btn">Zadzwoń</a>
+    </div>
+</div>
+
+<div class="card">
+    <h2>🍽️ Restauracja Papaj</h2>
+    <p>Pokaż tę stronę przy zamówieniu, aby otrzymać <strong>10% rabatu</strong>!</p>
+</div>
+
+<script>
+    // Rejestracja Service Workera (wymagana dla PWA)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+
+</body>
+</html>
