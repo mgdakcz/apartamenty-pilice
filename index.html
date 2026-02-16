@@ -6,41 +6,81 @@
     <title>Apartamenty Pilice - Guest Guide</title>
     <link rel="manifest" href="manifest.json">
     <style>
+        /* --- 1. Paleta de Colores Boho/Tierra --- */
         :root { 
-            --blue: #1a5a96; 
-            --dark-blue: #113a63;
-            --sand: #f4f1ea; 
-            --white: #ffffff; 
-            --text-color: #333;
-            --frame-bg: #eaf2f8;
+            /* Color principal (Terracota suave) */
+            --primary: #B07D62; 
+            /* Color secundario para hover (Marrón tierra más oscuro) */
+            --secondary: #8A5A44;
+            /* Color de fondo general (Crema cálido/Lino) */
+            --bg-color: #F8F4E3;
+            /* Color de fondo de las tarjetas (Blanco roto cálido) */
+            --card-bg: #FFFAF0; 
+            /* Color del texto (Marrón café oscuro, más suave que el negro) */
+            --text-color: #3E2723;
+            /* Color para los marcos destacados (Beige un poco más oscuro) */
+            --frame-bg: #EFEBD6;
+             /* Color de los bordes y divisores */
+            --border-color: #DCC8B4;
         }
         
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--sand); 
             margin: 0; 
             color: var(--text-color); 
             display: flex;
             line-height: 1.6;
+            /* --- 2. Fondo con Placeholder y Overlay --- */
+            /* Reemplaza 'ruta-a-tu-foto-de-fondo.jpg' por tu imagen real */
+            background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('ruta-a-tu-foto-de-fondo.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        /* Botón Hamburguesa para Móvil (oculto en escritorio) */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 2000;
+            background: var(--primary);
+            color: var(--card-bg);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         /* Navigation Sidebar */
         .sidebar {
-            width: 250px;
-            background-color: var(--blue);
-            color: var(--white);
+            width: 260px;
+            background-color: var(--primary);
+            color: var(--card-bg);
             height: 100vh;
             position: fixed;
+            top: 0;
+            left: 0;
             overflow-y: auto;
-            padding: 20px;
+            padding: 30px 20px;
             box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
+            z-index: 1500;
+            /* Sombra sutil para el menú */
+            box-shadow: 2px 0 10px rgba(62, 39, 35, 0.1);
         }
 
         .sidebar h2 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,250,240,0.3);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: normal;
         }
 
         .sidebar ul {
@@ -49,72 +89,98 @@
             margin: 0;
         }
 
-        .sidebar li { margin-bottom: 15px; }
+        .sidebar li { margin-bottom: 12px; }
         
         .sidebar a {
-            color: var(--white);
+            color: var(--card-bg);
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: opacity 0.3s;
+            font-size: 1rem;
+            display: block;
+            padding: 8px 0;
+            transition: color 0.3s;
+            border-bottom: 1px dotted rgba(255,250,240,0.1);
         }
 
-        .sidebar a:hover { opacity: 0.7; }
+        .sidebar a:hover { color: var(--border-color); }
+
+        /* Overlay para cuando el menú móvil está abierto */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(62, 39, 35, 0.5); /* Sombra marrón oscura */
+            z-index: 1400;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
 
         /* Main Content */
         .main-content {
-            margin-left: 250px;
-            padding: 20px 40px;
+            margin-left: 260px; /* Mismo ancho que la sidebar */
+            padding: 30px 40px;
             flex: 1;
             max-width: 900px;
         }
 
         /* Cards & Sections */
         .card { 
-            background: var(--white); 
-            border-radius: 12px; 
-            padding: 25px; 
-            margin-bottom: 25px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            background: var(--card-bg); 
+            border-radius: 16px; /* Bordes más redondeados para estilo boho */
+            padding: 30px; 
+            margin-bottom: 30px; 
+            /* Sombra más suave y cálida */
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.08); 
+            border: 1px solid var(--border-color);
         }
 
         .card h2 { 
             margin-top: 0; 
-            color: var(--blue); 
-            font-size: 1.4rem; 
-            border-bottom: 2px solid var(--sand);
-            padding-bottom: 10px;
+            color: var(--primary); 
+            font-size: 1.5rem; 
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: normal;
         }
 
         /* Buttons */
         .btn { 
             display: inline-block; 
-            background: var(--blue); 
-            color: var(--white); 
+            background: var(--primary); 
+            color: var(--card-bg); 
             text-align: center; 
-            padding: 12px 20px; 
-            border-radius: 8px; 
+            padding: 12px 24px; 
+            border-radius: 25px; /* Botones más redondeados estilo píldora */
             text-decoration: none; 
             margin-top: 15px; 
-            font-weight: bold; 
-            transition: background 0.3s;
+            font-weight: 600; 
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            box-shadow: 0 3px 6px rgba(62, 39, 35, 0.15);
         }
 
-        .btn:hover { background: var(--dark-blue); }
+        .btn:hover { 
+            background: var(--secondary); 
+            transform: translateY(-2px);
+        }
         .btn-full { display: block; width: 100%; box-sizing: border-box; }
 
         /* Layout Utilities */
         .grid-2-col { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-            align-items: center;
+            gap: 30px; 
+            align-items: start;
         }
 
         .grid-2-col-btns {
             display: grid; 
             grid-template-columns: 1fr 1fr; 
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         /* Carousels */
@@ -122,101 +188,152 @@
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 10px;
-            padding-bottom: 10px;
+            gap: 15px;
+            padding-bottom: 15px;
         }
 
         .carousel img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
             flex-shrink: 0;
             scroll-snap-align: center;
-            background-color: #ddd; /* Fallback color */
+            background-color: var(--border-color); 
         }
 
         /* Frames / Highlight Boxes */
         .frame {
             background-color: var(--frame-bg);
-            border: 2px dashed var(--blue);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
+            border: 2px dashed var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-style: italic;
         }
 
         /* Accordions (Dropdowns) */
         details {
-            background: var(--sand);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            background: var(--bg-color);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
         }
 
         summary {
-            font-weight: bold;
-            color: var(--blue);
+            font-weight: 600;
+            color: var(--primary);
             cursor: pointer;
             outline: none;
         }
         
-        details p { margin-top: 10px; margin-bottom: 0; }
+        details p { margin-top: 15px; margin-bottom: 0; }
 
         /* Footers */
         .footer-section {
-            background: var(--blue);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            background: var(--primary);
+            color: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
             text-align: center;
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.08);
         }
 
         .footer-section .btn {
-            background: white;
-            color: var(--blue);
+            background: var(--card-bg);
+            color: var(--primary);
         }
 
-        /* Responsive Design for Mobile */
+        /* --- 4. Footer Final con Logo --- */
+        .final-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--primary);
+        }
+
+        .footer-logo {
+            max-width: 150px; /* Ajusta este tamaño según necesites */
+            height: auto;
+            margin-bottom: 15px;
+            opacity: 0.8; /* Un poco transparente para que se integre mejor */
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* --- 3. Responsive Design & Mobile Navigation --- */
         @media (max-width: 768px) {
-            body { flex-direction: column; }
+            /* Mostrar el botón del menú */
+            .menu-toggle { display: block; }
+
+            /* Ocultar la sidebar fuera de la pantalla por defecto */
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 15px;
+                transform: translateX(-100%);
+                width: 280px; /* Un poco más ancho en móvil */
+                padding-top: 70px; /* Espacio para el botón de cierre si se quisiera añadir */
             }
-            .main-content { margin-left: 0; padding: 15px; }
-            .grid-2-col { grid-template-columns: 1fr; }
-            .sidebar ul { display: flex; overflow-x: auto; gap: 15px; white-space: nowrap; padding-bottom: 10px; }
-            .sidebar li { margin-bottom: 0; }
+
+            /* Clase para mostrar la sidebar cuando está activa */
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+             /* Mostrar y animar el overlay */
+            .menu-overlay.active {
+                display: block;
+                opacity: 1;
+            }
+
+            /* Ajustar el contenido principal para que ocupe todo el ancho */
+            .main-content { 
+                margin-left: 0; 
+                padding: 20px 20px 70px 20px; /* Padding extra abajo */
+            }
+
+            .grid-2-col { grid-template-columns: 1fr; gap: 20px; }
+            
+            .card h2 { font-size: 1.3rem; }
+
+            .final-footer {
+                padding-bottom: 80px; /* Espacio extra para que no lo tape la interfaz del navegador móvil */
+            }
         }
     </style>
 </head>
 <body>
 
-<nav class="sidebar">
+<button class="menu-toggle" id="menuToggle">☰ Menú</button>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<nav class="sidebar" id="sidebarNav">
     <h2>Spis Treści</h2>
     <ul>
-        <li><a href="#zameldowanie">Zameldowanie / Wymeldowanie</a></li>
-        <li><a href="#wifi">WiFi</a></li>
-        <li><a href="#rekreacja">Strefa Rekreacyjna</a></li>
-        <li><a href="#basen">Basen i Sauna</a></li>
-        <li><a href="#masaze">Masaże i Zabiegi</a></li>
-        <li><a href="#restauracja">Restauracja Papaj</a></li>
-        <li><a href="#wedzarnia">Wędzarnia Przypiecek</a></li>
-        <li><a href="#rowerownia">Rowerownia</a></li>
-        <li><a href="#przewodnik-jg">Przewodnik po Jastrzębiej Górze</a></li>
-        <li><a href="#przewodnik-podroze">Podróże małe i duże</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#zameldowanie" onclick="closeMenu()">Zameldowanie / Wymeldowanie</a></li>
+        <li><a href="#wifi" onclick="closeMenu()">WiFi</a></li>
+        <li><a href="#rekreacja" onclick="closeMenu()">Strefa Rekreacyjna</a></li>
+        <li><a href="#basen" onclick="closeMenu()">Basen i Sauna</a></li>
+        <li><a href="#masaze" onclick="closeMenu()">Masaże i Zabiegi</a></li>
+        <li><a href="#restauracja" onclick="closeMenu()">Restauracja Papaj</a></li>
+        <li><a href="#wedzarnia" onclick="closeMenu()">Wędzarnia Przypiecek</a></li>
+        <li><a href="#rowerownia" onclick="closeMenu()">Rowerownia</a></li>
+        <li><a href="#przewodnik-jg" onclick="closeMenu()">Przewodnik po Jastrzębiej Górze</a></li>
+        <li><a href="#przewodnik-podroze" onclick="closeMenu()">Podróże małe i duże</a></li>
+        <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
     </ul>
 </nav>
 
 <main class="main-content">
 
-    <header style="text-align: center; margin-bottom: 30px;">
-        <h1 style="color: var(--blue);">Apartamenty Pilice</h1>
-        <p>Twój cyfrowy przewodnik</p>
+    <header style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+        <h1 style="color: var(--primary); font-weight: normal; font-size: 2.5rem; margin-bottom: 10px;">Apartamenty Pilice</h1>
+        <p style="font-size: 1.1rem; font-style: italic;">Twój cyfrowy przewodnik</p>
     </header>
 
     <div id="zameldowanie" class="card">
@@ -231,31 +348,34 @@
     </div>
 
     <div id="rekreacja" class="card">
-        <h2>Strefa Rekreacyjna - Papaj Resort - siłownia, gry, sala zabaw</h2>
+        <h2>Strefa Rekreacyjna - Papaj Resort</h2>
         <div class="grid-2-col">
             <div>
                 <p>Nasi Goście mogą do woli korzystać z Atrakcji Papaj Resort. Sprawdź jak wiele zabawy czeka Cię na poziomie -1 budynku B, w Papaju!</p>
-                <ul>
+                <ul style="color: var(--secondary);">
                     <li>bilard</li>
                     <li>tenis stołowy</li>
                     <li>sala zabaw</li>
                     <li>siłownia</li>
                 </ul>
                 <p><strong>Bez limitów czasowych</strong></p>
-                <a href="#" class="btn">Jak dojść?</a> </div>
+                <a href="#" class="btn">Jak dojść?</a> 
+            </div>
             <div class="carousel">
-                <img src="placeholder1.jpg" alt="Zdjęcie strefy rekreacyjnej 1">
-                <img src="placeholder2.jpg" alt="Zdjęcie strefy rekreacyjnej 2">
+                <img src="placeholder1.jpg" alt="Strefa rekreacyjna 1">
+                <img src="placeholder2.jpg" alt="Strefa rekreacyjna 2">
             </div>
         </div>
     </div>
 
     <div id="basen" class="card">
-        <h2>Basen, Sauna - Papaj Resort - codziennie do 15:00</h2>
+        <h2>Basen, Sauna - Papaj Resort</h2>
+        <p style="margin-bottom: 20px; font-style: italic; color: var(--secondary);">Codziennie do 15:00</p>
         <div class="grid-2-col">
             <div>
                 <p>Strefa saun oraz basen z brodzikiem dla dzieci.</p>
-                <a href="#" class="btn">Jak dojść?</a> </div>
+                <a href="#" class="btn">Jak dojść?</a>
+            </div>
             <div class="carousel">
                 <img src="placeholder3.jpg" alt="Basen 1">
                 <img src="placeholder4.jpg" alt="Basen 2">
@@ -264,10 +384,12 @@
     </div>
 
     <div id="masaze" class="card">
-        <h2>Masaże, zabiegi - Papaj Resort - zarezerwuj w Papaju</h2>
+        <h2>Masaże, zabiegi - Papaj Resort</h2>
         <p>Goście Pilic mogą skorzystać z oferty SPA Papaj Resort. Sprawdź ofertę i zarezerwuj sobie trochę czasu na relaks!</p>
         <div class="grid-2-col-btns">
-            <a href="#" class="btn btn-full">Oferta</a> <a href="tel:+48000000000" class="btn btn-full">Zarezerwuj</a> </div>
+            <a href="#" class="btn btn-full">Oferta</a>
+            <a href="tel:+48000000000" class="btn btn-full">Zarezerwuj (Zadzwoń)</a>
+        </div>
     </div>
 
     <div id="restauracja" class="card">
@@ -277,18 +399,21 @@
             Zapomniałeś wykupić śniadanie lub obiadokolacje na pobyt? Nic nie szkodzi! Po pokazaniu tej strony w restauracji (lub karty rabatowej jaką zostawiliśmy w Twoim apartamencie) otrzymasz <strong>10% zniżki</strong> na śniadania oraz wszystkie dania z karty.
         </div>
         <div class="grid-2-col-btns">
-            <a href="#" class="btn btn-full">Jak dojść?</a> <a href="#" class="btn btn-full">Menu</a> </div>
+            <a href="#" class="btn btn-full">Jak dojść?</a>
+            <a href="#" class="btn btn-full">Menu</a>
+        </div>
     </div>
 
     <div id="wedzarnia" class="card">
         <h2>Wędzarnia Przypiecek</h2>
         <p>Kultowe miejsce na mapie JG</p>
         <div class="frame">Otwarta od maja do września.</div>
-        <a href="#" class="btn">Jak dojść?</a> </div>
+        <a href="#" class="btn">Jak dojść?</a>
+    </div>
 
     <div id="rowerownia" class="card">
-        <h2>Rowerownia - rowery, kije do nordic walking</h2>
-        <p>Dla naszych Gości rowery i kija za darmo!</p>
+        <h2>Rowerownia</h2>
+        <p>Dla naszych Gości rowery i kije do nordic walking za darmo!</p>
     </div>
 
     <div id="przewodnik-jg" class="card">
@@ -297,18 +422,21 @@
         <details>
             <summary>Najbliższy sklep</summary>
             <p>Skorpion, czyli mały ale dobrze wyposażony sklep tuż za rogiem.</p>
-            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść?</a> </details>
+            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść? (Google Maps)</a>
+        </details>
 
         <details>
             <summary>Piekarnia</summary>
             <p>Piekarnia Konkol, lokalna piekarnia gdzie oprócz pysznego chleba kupisz ciasta i ciasteczka na słodkie popołudnie w apartamencie.</p>
-            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść?</a> </details>
+            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść? (Google Maps)</a>
+        </details>
     </div>
 
     <div id="przewodnik-podroze" class="card">
         <h2>Przewodnik Gościa na podróże małe i duże</h2>
         <p>Nasz Przewodnik po okolicy. W sam raz na jednodniowe wypady, albo dłuższe wycieczki.</p>
-        <a href="#" class="btn">Zobacz nasz przewodnik</a> </div>
+        <a href="#" class="btn">Zobacz nasz przewodnik</a>
+    </div>
 
     <div id="faq" class="card">
         <h2>FAQ - najczęstsze pytania Gości</h2>
@@ -327,20 +455,62 @@
     <footer>
         <div class="footer-section">
             <p>Załoga Pilic pozostaje do dyspozycji codziennie od 8 do 20</p>
-            <a href="tel:+48000000000" class="btn btn-full">Zadzwoń do nas</a> </div>
+            <a href="tel:+48000000000" class="btn btn-full">Zadzwoń do nas</a>
+        </div>
 
         <div class="footer-section">
-            <p>Telefon awaryjny</p>
-            <a href="tel:+48000000000" class="btn btn-full">Zadzwoń</a> </div>
+            <p style="font-weight: bold;">Telefon awaryjny</p>
+            <a href="tel:+48000000000" class="btn btn-full" style="background-color: #d32f2f; color: white;">Zadzwoń (Awaryjny)</a>
+        </div>
 
-        <div class="grid-2-col-btns" style="margin-bottom: 20px;">
-            <a href="#" class="btn btn-full">Oceń nas na Google</a> <a href="#" class="btn btn-full">Dowiedz się więcej na naszym blogu</a> </div>
+        <div class="grid-2-col-btns" style="margin-bottom: 40px;">
+            <a href="#" class="btn btn-full">Oceń nas na Google</a>
+            <a href="#" class="btn btn-full">Blog</a>
+        </div>
     </footer>
+
+    <div class="final-footer">
+        <img src="image_0.png" alt="Apartamenty Pilice Logo" class="footer-logo">
+        <p class="disclaimer">© 2024 Wszelkie prawa zastrzeżone dla Apartamenty Pilice Jastrzębia Góra.</p>
+    </div>
 
 </main>
 
 <script>
-    // Rejestracja Service Workera (wymagana dla PWA)
+    // Elementos del DOM
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarNav = document.getElementById('sidebarNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    // Función para abrir el menú
+    function openMenu() {
+        sidebarNav.classList.add('active');
+        menuOverlay.classList.add('active');
+        // Cambiar el icono del botón a una X
+        menuToggle.innerHTML = '✕ Cerrar';
+    }
+
+    // Función para cerrar el menú
+    function closeMenu() {
+        sidebarNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        // Devolver el icono al estado original
+        menuToggle.innerHTML = '☰ Menú';
+    }
+
+    // Event Listener para el botón de menú
+    menuToggle.addEventListener('click', () => {
+        if (sidebarNav.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Cerrar el menú si se hace click en el overlay
+    menuOverlay.addEventListener('click', closeMenu());
+
+    // Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/service-worker.js');
