@@ -205,6 +205,23 @@
         /* Utils */
         .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         @media (max-width: 600px) { .grid-2-col { grid-template-columns: 1fr; } }
+
+        .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out; /* Smooth fade effect */
+    display: block !important; /* Override the previous 'none' */
+}
+
+.carousel img.active {
+    opacity: 1;
+    position: relative; /* Ensures the container keeps its height */
+}
     </style>
 </head>
 <body>
@@ -245,6 +262,11 @@
         <h2>Strefa Rekreacyjna</h2>
         <div class="grid-2-col">
             <div>
+    <div class="carousel" data-interval="5000">
+    <img src="atr07.jpg" alt="Sala zabaw" class="active">
+    <img src="atr01.jpg" alt="Koszykówka">
+    <img src="pool.jpg" alt="Basen">
+    </div>
                 <p>Nasi Goście mogą korzystać z atrakcji Papaj Resort (budynek B, poziom -1).</p>
                 <p><strong>Dostępne 9:00 - 22:00:</strong></p>
                 <ul style="padding-left: 20px;">
@@ -282,6 +304,60 @@
 </main>
 
 <script>
+
+    // Dynamic Carousel Logic
+const carousels = document.querySelectorAll('.carousel');
+
+carousels.forEach(carousel => {
+    const images = carousel.querySelectorAll('img');
+    if (images.length <= 1) return; // Don't animate if there's only 1 photo
+
+    let currentIndex = 0;
+    let autoPlayTimer;
+
+    // --- Function to change slides ---
+    function showSlide(index) {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (index + images.length) % images.length;
+        images[currentIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // --- Timer Management ---
+    function startAutoPlay() {
+        // Change image every 5000ms (5 seconds)
+        autoPlayTimer = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayTimer);
+        startAutoPlay();
+    }
+
+    // --- Initialize Controls ---
+    const prevArrow = document.createElement('span');
+    prevArrow.className = 'carousel-arrow prev';
+    prevArrow.innerHTML = '❮';
+    prevArrow.onclick = (e) => { e.stopPropagation(); prevSlide(); resetAutoPlay(); };
+
+    const nextArrow = document.createElement('span');
+    nextArrow.className = 'carousel-arrow next';
+    nextArrow.innerHTML = '❯';
+    nextArrow.onclick = (e) => { e.stopPropagation(); nextSlide(); resetAutoPlay(); };
+
+    carousel.appendChild(prevArrow);
+    carousel.appendChild(nextArrow);
+
+    // Start the 5-second cycle
+    startAutoPlay();
+});
     const menuToggle = document.getElementById('menuToggle');
     const sidebarNav = document.getElementById('sidebarNav');
     const menuOverlay = document.getElementById('menuOverlay');
@@ -307,3 +383,4 @@
 
 </body>
 </html>
+
