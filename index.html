@@ -32,7 +32,7 @@
             line-height: 1.6;
             /* --- 2. Fondo con Placeholder y Overlay --- */
             /* Reemplaza 'ruta-a-tu-foto-de-fondo.jpg' por tu imagen real */
-            background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('bcgr.JPG');
+            background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('./img/atr10.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -199,17 +199,18 @@
         }
 
         /* Carousels */
-        /* Desktop: show gallery grid so it matches text/buttons height */
+        /* Desktop: show single image carousel with nav arrows */
         .carousel {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 1fr;
-            gap: 15px;
-            padding-bottom: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             height: 100%;
-            min-height: 0;
+            min-height: 350px;
             overflow: hidden;
+            border-radius: 12px;
+            background-color: var(--border-color);
         }
 
         .carousel img {
@@ -217,7 +218,44 @@
             height: 100%;
             object-fit: cover;
             border-radius: 12px;
-            background-color: var(--border-color);
+            cursor: pointer;
+            transition: opacity 0.3s;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel img:hover {
+            opacity: 0.85;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            user-select: none;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+
+        .carousel-arrow.next {
+            right: 10px;
         }
 
         /* Frames / Highlight Boxes */
@@ -321,16 +359,12 @@
             }
             
             .carousel {
-                display: flex;
-                flex-direction: row;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-snap-type: x mandatory;
                 min-height: 220px;
             }
 
-            .carousel img {
-                height: 220px;
+            .carousel-arrow {
+                font-size: 24px;
+                padding: 8px 12px;
             }
             
             .card h2 { font-size: 1.3rem; }
@@ -417,14 +451,6 @@
             transform: scale(1.3);
         }
 
-        .carousel img {
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .carousel img:hover {
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
@@ -644,66 +670,90 @@
     // Cerrar el menú si se hace click en el overlay
     menuOverlay.addEventListener('click', closeMenu());
 
-    // Lightbox Gallery
+    // Carousel Gallery Navigation
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        if (images.length === 0) return;
+        
+        let currentIndex = 0;
+        
+        // Show the first image
+        images[0].classList.add('active');
+        
+        // Create navigation arrows
+        const prevArrow = document.createElement('span');
+        prevArrow.className = 'carousel-arrow prev';
+        prevArrow.innerHTML = '&#10094;';
+        prevArrow.addEventListener('click', () => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        });
+        
+        const nextArrow = document.createElement('span');
+        nextArrow.className = 'carousel-arrow next';
+        nextArrow.innerHTML = '&#10095;';
+        nextArrow.addEventListener('click', () => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        });
+        
+        // Add click to lightbox
+        images.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = document.getElementById('lightboxImage');
+                lightboxImage.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        carousel.appendChild(prevArrow);
+        carousel.appendChild(nextArrow);
+    });
+    
+    // Lightbox Controls
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
-    let currentImageIndex = 0;
-    let allGalleryImages = [];
-
-    // Initialize lightbox for all carousel images
-    function initLightbox() {
-        allGalleryImages = Array.from(document.querySelectorAll('.carousel img'));
-        
-        allGalleryImages.forEach((img, index) => {
-            img.addEventListener('click', function() {
-                currentImageIndex = index;
-                openLightbox(img.src);
-            });
-        });
-    }
-
-    function openLightbox(src) {
-        lightboxImage.src = src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+    let allGalleryImages = Array.from(document.querySelectorAll('.carousel img'));
+    let lightboxImageIndex = 0;
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
 
-    function showPrevImage() {
-        currentImageIndex = (currentImageIndex - 1 + allGalleryImages.length) % allGalleryImages.length;
-        lightboxImage.src = allGalleryImages[currentImageIndex].src;
+    function showLightboxPrevImage() {
+        lightboxImageIndex = (lightboxImageIndex - 1 + allGalleryImages.length) % allGalleryImages.length;
+        lightboxImage.src = allGalleryImages[lightboxImageIndex].src;
     }
 
-    function showNextImage() {
-        currentImageIndex = (currentImageIndex + 1) % allGalleryImages.length;
-        lightboxImage.src = allGalleryImages[currentImageIndex].src;
+    function showLightboxNextImage() {
+        lightboxImageIndex = (lightboxImageIndex + 1) % allGalleryImages.length;
+        lightboxImage.src = allGalleryImages[lightboxImageIndex].src;
     }
 
-    // Event listeners
     lightboxClose.addEventListener('click', closeLightbox);
-    lightboxPrev.addEventListener('click', showPrevImage);
-    lightboxNext.addEventListener('click', showNextImage);
+    lightboxPrev.addEventListener('click', showLightboxPrevImage);
+    lightboxNext.addEventListener('click', showLightboxNextImage);
     lightbox.addEventListener('click', function(e) {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Keyboard navigation
+    // Keyboard navigation for lightbox
     document.addEventListener('keydown', function(e) {
         if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'ArrowLeft') showPrevImage();
-        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showLightboxPrevImage();
+        if (e.key === 'ArrowRight') showLightboxNextImage();
         if (e.key === 'Escape') closeLightbox();
     });
-
-    // Initialize lightbox on page load
-    window.addEventListener('load', initLightbox);
 
     // Service Worker
     if ('serviceWorker' in navigator) {
@@ -715,6 +765,5 @@
 
 </body>
 </html>
-
 
 
