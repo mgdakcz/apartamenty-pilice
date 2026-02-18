@@ -4,43 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamenty Pilice - Guest Guide</title>
-    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. Paleta de Colores Boho/Tierra --- */
+        /* --- 1. Coastal Palette Inspired by your Photo --- */
         :root { 
-            /* Color principal (Terracota suave) */
-            --primary: #B07D62; 
-            /* Color secundario para hover (Marrón tierra más oscuro) */
-            --secondary: #8A5A44;
-            /* Color de fondo general (Crema cálido/Lino) */
-            --bg-color: #F8F4E3;
-            /* Color de fondo de las tarjetas (Blanco roto cálido) */
-            --card-bg: #FFFAF0; 
-            /* Color del texto (Marrón café oscuro, más suave que el negro) */
-            --text-color: #3E2723;
-            /* Color para los marcos destacados (Beige un poco más oscuro) */
-            --frame-bg: #EFEBD6;
-             /* Color de los bordes y divisores */
-            --border-color: #DCC8B4;
+            /* Deep Ocean Blue from the water */
+            --primary: #2C5F78; 
+            /* Soft Sky Blue for accents */
+            --secondary: #5B8DA3;
+            /* Light Sand/Cloud color for backgrounds */
+            --bg-color: #F4F7F9;
+            /* White with a hint of blue for cards */
+            --card-bg: rgba(255, 255, 255, 0.92); 
+            /* Dark Slate for text (readable and soft) */
+            --text-color: #334756;
+            /* Muted Pebble color for frames */
+            --frame-bg: #E8EEF2;
+            /* Subtle border color */
+            --border-color: #D1DBE1;
         }
         
         body { 
-            font-family: 'Quicksand', 'Courier New', Courier, monospace; 
+            font-family: 'Montserrat', sans-serif; 
             margin: 0; 
             color: var(--text-color); 
             display: flex;
             line-height: 1.6;
-            /* --- 2. Fondo con Placeholder y Overlay --- */
-            /* Reemplaza 'ruta-a-tu-foto-de-fondo.jpg' por tu imagen real */
-           <!-- background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('background.jpg'); -->
-            background-image: 'background.jpg';
+            
+            /* --- 2. Background Photo (Overlay Removed) --- */
+            background-image: url('background.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
             min-height: 100vh;
         }
 
-        /* Botón Hamburguesa para Móvil (oculto en escritorio) */
+        /* Mobile Burger Button */
         .menu-toggle {
             display: none;
             position: fixed;
@@ -48,20 +47,21 @@
             left: 15px;
             z-index: 2000;
             background: var(--primary);
-            color: var(--card-bg);
+            color: white;
             border: none;
             border-radius: 5px;
             padding: 10px 15px;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* Navigation Sidebar */
+        /* Sidebar Navigation */
         .sidebar {
             width: 260px;
             background-color: var(--primary);
-            color: var(--card-bg);
+            color: white;
             height: 100vh;
             position: fixed;
             top: 0;
@@ -71,210 +71,105 @@
             box-sizing: border-box;
             transition: transform 0.3s ease-in-out;
             z-index: 1500;
-            /* Sombra sutil para el menú */
-            box-shadow: 2px 0 10px rgba(62, 39, 35, 0.1);
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
         }
 
         .sidebar h2 {
-            font-size: 1.3rem;
-            margin-top: 0;
-            border-bottom: 2px solid rgba(255,250,240,0.3);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             padding-bottom: 15px;
             margin-bottom: 20px;
-            font-weight: normal;
         }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar li { margin-bottom: 12px; }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar li { margin-bottom: 10px; }
         
         .sidebar a {
-            color: var(--card-bg);
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: block;
-            padding: 8px 0;
-            transition: color 0.3s;
-            border-bottom: 1px dotted rgba(255,250,240,0.1);
+            padding: 10px 0;
+            transition: 0.3s;
         }
 
-        .sidebar a:hover { color: var(--border-color); }
+        .sidebar a:hover { color: white; padding-left: 5px; }
 
-        /* Overlay para cuando el menú móvil está abierto */
         .menu-overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(62, 39, 35, 0.5); /* Sombra marrón oscura */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3);
             z-index: 1400;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
         }
 
         /* Main Content */
         .main-content {
-            margin-left: 260px; /* Mismo ancho que la sidebar */
-            padding: 30px 40px;
+            margin-left: 260px;
+            padding: 40px;
             flex: 1;
             max-width: 900px;
         }
 
-        /* Cards & Sections */
+        /* Cards - Adding a slight glassmorphism effect */
         .card { 
             background: var(--card-bg); 
-            border-radius: 16px; /* Bordes más redondeados para estilo boho */
-            padding: 30px; 
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 35px; 
             margin-bottom: 30px; 
-            /* Sombra más suave y cálida */
-            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.08); 
-            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
         .card h2 { 
             margin-top: 0; 
             color: var(--primary); 
-            font-size: 1.5rem; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            letter-spacing: -0.5px;
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-            font-weight: normal;
+            padding-bottom: 10px;
         }
 
-        /* Buttons */
+        /* Modern Buttons */
         .btn { 
             display: inline-block; 
             background: var(--primary); 
-            color: var(--card-bg); 
-            text-align: center; 
-            padding: 12px 24px; 
-            border-radius: 25px; /* Botones más redondeados estilo píldora */
+            color: white; 
+            padding: 12px 28px; 
+            border-radius: 6px; 
             text-decoration: none; 
-            margin-top: 15px; 
             font-weight: 600; 
-            transition: background 0.3s, transform 0.2s;
+            font-size: 0.85rem;
+            transition: all 0.3s;
             border: none;
-            box-shadow: 0 3px 6px rgba(62, 39, 35, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn:hover { 
             background: var(--secondary); 
             transform: translateY(-2px);
-        }
-        .btn-full { display: block; width: 100%; box-sizing: border-box; }
-
-        /* Layout Utilities */
-        .grid-2-col { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            align-items: stretch;
-            min-height: 350px;
+            box-shadow: 0 5px 15px rgba(44, 95, 120, 0.3);
         }
 
-        .grid-2-col > div:first-child {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        /* Ensure both columns stretch to equal height */
-        .grid-2-col > div { height: 100%; }
-
-        .grid-2-col > div:last-child {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .grid-2-col-btns {
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        /* Carousels */
-        /* Desktop: show single image carousel with nav arrows */
-        .carousel {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            min-height: 350px;
-            overflow: hidden;
-            border-radius: 12px;
-            background-color: var(--border-color);
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-            display: none;
-        }
-
-        .carousel img.active {
-            display: block;
-        }
-
-        .carousel img:hover {
-            opacity: 0.85;
-        }
-
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 36px;
-            cursor: pointer;
-            user-select: none;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 10px 15px;
-            border-radius: 4px;
-            transition: background 0.3s;
-            z-index: 10;
-        }
-
-        .carousel-arrow:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .carousel-arrow.prev {
-            left: 10px;
-        }
-
-        .carousel-arrow.next {
-            right: 10px;
-        }
-
-        /* Frames / Highlight Boxes */
         .frame {
             background-color: var(--frame-bg);
-            border: 2px dashed var(--primary);
+            border-left: 4px solid var(--primary);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 4px;
             margin: 20px 0;
-            font-style: italic;
+            font-size: 0.95rem;
         }
 
-        /* Accordions (Dropdowns) */
         details {
-            background: var(--bg-color);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
             border: 1px solid var(--border-color);
         }
 
@@ -282,493 +177,133 @@
             font-weight: 600;
             color: var(--primary);
             cursor: pointer;
-            outline: none;
         }
-        
-        details p { margin-top: 15px; margin-bottom: 0; }
 
-        /* Footers */
         .footer-section {
             background: var(--primary);
-            color: var(--card-bg);
+            color: white;
             padding: 30px;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.08);
         }
 
         .footer-section .btn {
-            background: var(--card-bg);
+            background: white;
             color: var(--primary);
         }
 
-        /* --- 4. Footer Final con Logo --- */
-        .final-footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            color: var(--primary);
-        }
-
-        .footer-logo {
-            max-width: 150px; /* Ajusta este tamaño según necesites */
-            height: auto;
-            margin-bottom: 15px;
-            opacity: 0.8; /* Un poco transparente para que se integre mejor */
-        }
-
-        .disclaimer {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* --- 3. Responsive Design & Mobile Navigation --- */
         @media (max-width: 768px) {
-            /* Mostrar el botón del menú */
             .menu-toggle { display: block; }
-
-            /* Ocultar la sidebar fuera de la pantalla por defecto */
-            .sidebar {
-                transform: translateX(-100%);
-                width: 280px; /* Un poco más ancho en móvil */
-                padding-top: 70px; /* Espacio para el botón de cierre si se quisiera añadir */
-            }
-
-            /* Clase para mostrar la sidebar cuando está activa */
-            .sidebar.active {
-                transform: translateX(0);
-            }
-
-             /* Mostrar y animar el overlay */
-            .menu-overlay.active {
-                display: block;
-                opacity: 1;
-            }
-
-            /* Ajustar el contenido principal para que ocupe todo el ancho */
-            .main-content { 
-                margin-left: 0; 
-                padding: 20px 20px 70px 20px; /* Padding extra abajo */
-            }
-
-            .grid-2-col { 
-                grid-template-columns: 1fr; 
-                gap: 20px;
-                min-height: auto;
-            }
-            
-            .carousel {
-                min-height: 220px;
-            }
-
-            .carousel-arrow {
-                font-size: 24px;
-                padding: 8px 12px;
-            }
-            
-            .card h2 { font-size: 1.3rem; }
-
-            .final-footer {
-                padding-bottom: 80px; /* Espacio extra para que no lo tape la interfaz del navegador móvil */
-            }
+            .sidebar { transform: translateX(-100%); width: 280px; }
+            .sidebar.active { transform: translateX(0); }
+            .menu-overlay.active { display: block; }
+            .main-content { margin-left: 0; padding: 80px 20px; }
+            .card { padding: 20px; }
         }
 
-        /* Lightbox Modal */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 3000;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: auto;
-        }
-
-        .lightbox.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-            transition: transform 0.2s;
-        }
-
-        .lightbox-close:hover {
-            transform: scale(1.2);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-            user-select: none;
-            padding: 10px 20px;
-            transition: transform 0.2s;
-        }
-
-        .lightbox-prev {
-            left: 20px;
-        }
-
-        .lightbox-next {
-            right: 20px;
-        }
-
-        .lightbox-nav:hover {
-            transform: scale(1.3);
-        }
-
+        /* Utils */
+        .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .grid-2-col { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<button class="menu-toggle" id="menuToggle"> ☰ MENU </Menu:c></button>
-
+<button class="menu-toggle" id="menuToggle">☰ MENU</button>
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
-    <div class="lightbox-content">
-        <img id="lightboxImage" src="" alt="">
-    </div>
-    <span class="lightbox-next" id="lightboxNext">&#10095;</span>
-</div>
-
 <nav class="sidebar" id="sidebarNav">
-    <h2>Spis Rzeczy </h2>
+    <h2>Przewodnik</h2>
     <ul>
-        <li><a href="#zameldowanie" onclick="closeMenu()">Zameldowanie / Wymeldowanie</a></li>
+        <li><a href="#zameldowanie" onclick="closeMenu()">Zameldowanie</a></li>
         <li><a href="#wifi" onclick="closeMenu()">WiFi</a></li>
-        <li><a href="#rekreacja" onclick="closeMenu()">Strefa Rekreacyjna</a></li>
+        <li><a href="#rekreacja" onclick="closeMenu()">Rekreacja</a></li>
         <li><a href="#basen" onclick="closeMenu()">Basen i Sauna</a></li>
-        <li><a href="#masaze" onclick="closeMenu()">Masaże i Zabiegi</a></li>
-        <li><a href="#restauracja" onclick="closeMenu()">Restauracja Papaj</a></li>
-        <li><a href="#wedzarnia" onclick="closeMenu()">Wędzarnia Przypiecek</a></li>
-        <li><a href="#rowerownia" onclick="closeMenu()">Rowerownia</a></li>
-        <li><a href="#przewodnik-jg" onclick="closeMenu()">Przewodnik po Jastrzębiej Górze</a></li>
-        <li><a href="#przewodnik-podroze" onclick="closeMenu()">Podróże małe i duże</a></li>
+        <li><a href="#restauracja" onclick="closeMenu()">Restauracja</a></li>
         <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
     </ul>
 </nav>
 
 <main class="main-content">
-
-    <header style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
-        <h1 style="color: var(--primary); font-weight: bold; font-size: 2.5rem; margin-bottom: 10px;">Apartamenty Pilice</h1>
-        <p style="font-size: 1.1rem; font-style: italic;">Przewodnik Gościa</p>
+    <header style="text-align: center; margin-bottom: 50px;">
+        <h1 style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3); font-size: 2.8rem; margin-bottom: 0;">Apartamenty Pilice</h1>
+        <p style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.3); font-weight: 300; letter-spacing: 2px; text-transform: uppercase;">Przewodnik Gościa</p>
     </header>
 
     <div id="zameldowanie" class="card">
         <h2>Zameldowanie / Wymeldowanie</h2>
-        <p>Check in od 16:00, check out do 10:00.</p>
+        <p>Check in od <strong>16:00</strong>, check out do <strong>10:00</strong>.</p>
     </div>
 
     <div id="wifi" class="card">
         <h2>WiFi</h2>
-        <p>User: <strong>Gość</strong></p>
+        <p>Sieć: <strong>Gość</strong></p>
         <p>Hasło: <strong>Pilice123</strong></p>
     </div>
 
     <div id="rekreacja" class="card">
-        <h2>Strefa Rekreacyjna - Papaj Resort</h2>
+        <h2>Strefa Rekreacyjna</h2>
         <div class="grid-2-col">
             <div>
-                <p>Nasi Goście mogą do woli korzystać z Atrakcji Papaj Resort. Sprawdź jak wiele zabawy czeka Cię na poziomie -1 budynku B, w Papaju!</p>
-                <br>
-                <p><strong>Codziennie od 9:00 do 22:00, zupełnie za darmo dla Gości Apartamentów Pilice.</strong></p>
-                <ul style="color: var(--secondary);">
-                    <li>bilard</li>
-                    <li>tenis stołowy</li>
-                    <li>sala zabaw</li>
-                    <li>siłownia</li>
-                    <li>unihokej</li>
-                    <li>koszykówka</li>
+                <p>Nasi Goście mogą korzystać z atrakcji Papaj Resort (budynek B, poziom -1).</p>
+                <p><strong>Dostępne 9:00 - 22:00:</strong></p>
+                <ul style="padding-left: 20px;">
+                    <li>Bilard & Tenis stołowy</li>
+                    <li>Sala zabaw dla dzieci</li>
+                    <li>Siłownia</li>
                 </ul>
-                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a> 
+                <a href="#" class="btn">Jak dojść?</a> 
             </div>
-            <div class="carousel">
-                <img src="atr07.jpg" alt="Sala zabaw">
-                <img src="atr01.jpg" alt="Koszykówka">
-            </div>
-        </div>
-    </div>
-
-    <div id="basen" class="card">
-        <h2>Basen, Sauna - Papaj Resort</h2>
-        <p style="margin-bottom: 20px; font-style: italic; color: var(--secondary);">Codziennie od 9:00 do 15:00.</p>
-        <div class="grid-2-col">
-            <div>
-                <p>Strefa saun oraz basen z brodzikiem dla dzieci.</p>
-                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a>
-            </div>
-            <div class="carousel">
-                <img src="placeholder3.jpg" alt="Basen 1">
-                <img src="placeholder4.jpg" alt="Basen 2">
+            <div style="background: var(--frame-bg); border-radius: 8px; min-height: 150px; display: flex; align-items: center; justify-content: center; color: #999;">
+                [ Galeria Zdjęć ]
             </div>
         </div>
-    </div>
-
-    <div id="masaze" class="card">
-        <h2>Masaże, zabiegi - Papaj Resort</h2>
-        <p>Goście Pilic mogą skorzystać z oferty SPA Papaj Resort. Sprawdź ofertę i zarezerwuj sobie trochę czasu na relaks!</p>
-        <div class="grid-2-col-btns">
-            <a href="https://www.papaj-resort.pl/menu-spa" class="btn btn-full">Oferta</a>
-            <a href="tel:+48 882 173 366" class="btn btn-full">Zarezerwuj (Zadzwoń)</a>
-        </div>
-    </div>
-
-    <div id="restauracja" class="card">
-        <h2>Restauracja Papaj</h2>
-        <p>Restauracja Papaj oferuje śniadania i pyszne dania.</p>
-        <div class="frame">
-            Zapomniałeś wykupić śniadanie lub obiadokolacje na pobyt? Nic nie szkodzi! Po pokazaniu tej strony w restauracji (lub karty rabatowej jaką zostawiliśmy w Twoim apartamencie) otrzymasz <strong>10% zniżki</strong> na śniadania oraz wszystkie dania z karty.
-        </div>
-        <div class="grid-2-col-btns">
-            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn btn-full">Jak dojść?</a>
-            <a href="https://www.papaj-resort.pl/menu-restauracja" class="btn btn-full">Menu</a>
-        </div>
-    </div>
-
-    <div id="wedzarnia" class="card"> 
-        <h2>Wędzarnia Przypiecek</h2>
-        <p>Kultowe miejsce na mapie JG</p>
-        <div class="frame">Otwarta od maja do września.</div>
-        <a href="#" class="btn">Jak dojść?</a>
-    </div> 
-
-    <div id="rowerownia" class="card">
-        <h2>Rowerownia</h2>
-        <p>Dla naszych Gości rowery i kije do nordic walking za darmo!</p>
-    </div>
-
-    <div id="przewodnik-jg" class="card">
-        <h2>Praktyczny przewodnik po Jastrzębiej Górze</h2>
-        
-        <details>
-            <summary>Najbliższy sklep</summary>
-            <p>Skorpion, czyli mały ale dobrze wyposażony sklep tuż za rogiem.</p>
-            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść? (Google Maps)</a>
-        </details>
-
-        <details>
-            <summary>Piekarnia</summary>
-            <p>Piekarnia Konkol, lokalna piekarnia gdzie oprócz pysznego chleba kupisz ciasta i ciasteczka na słodkie popołudnie w apartamencie.</p>
-            <a href="https://maps.google.com/..." class="btn" target="_blank">Jak dojść? (Google Maps)</a>
-        </details>
-    </div>
-
-    <div id="przewodnik-podroze" class="card">
-        <h2>Przewodnik Gościa na podróże małe i duże</h2>
-        <p>Nasz Przewodnik po okolicy. W sam raz na jednodniowe wypady, albo dłuższe wycieczki.</p>
-        <a href="https://www.apartamenty-pilice.pl/przewodnik-jastrzebia-gora" class="btn">Zobacz nasz przewodnik</a>
     </div>
 
     <div id="faq" class="card">
-        <h2>FAQ - najczęstsze pytania Gości</h2>
-        
+        <h2>Częste Pytania (FAQ)</h2>
         <details>
-            <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
-            <p>Zadzwoń do nas!</p>
+            <summary>Gdzie znajdę kapsułki do kawy?</summary>
+            <p>W szufladzie w aneksie kuchennym, tuż obok lodówki.</p>
         </details>
-
         <details>
-            <summary>Gdzie znajdę tabletki do zmywarki i kapsułki do ekspresu?</summary>
-            <p>W szufladzie przy lodówce.</p>
+            <summary>Kod do drzwi nie działa</summary>
+            <p>Upewnij się, że wpisujesz kod zakończony znakiem #. Jeśli problem trwa, zadzwoń do nas!</p>
         </details>
     </div>
 
     <footer>
         <div class="footer-section">
-            <p>Załoga Pilic pozostaje do dyspozycji codziennie od 8 do 20</p>
-            <a href="tel:+48000000000" class="btn btn-full">Zadzwoń do nas</a>
+            <p>Jesteśmy do Twojej dyspozycji codziennie 8:00 - 20:00</p>
+            <a href="tel:+48000000000" class="btn">Zadzwoń do nas</a>
         </div>
-
-        <div class="footer-section">
-            <p style="font-weight: bold;">Telefon awaryjny</p>
-            <a href="tel:+48000000000" class="btn btn-full" style="background-color: #d32f2f; color: white;">Zadzwoń (Awaryjny)</a>
-        </div>
-
-        <div class="grid-2-col-btns" style="margin-bottom: 40px;">
-            <a href="#" class="btn btn-full">Oceń nas na Google</a>
-            <a href="#" class="btn btn-full">Blog</a>
-        </div>
+        <p style="text-align: center; color: white; font-size: 0.8rem; opacity: 0.8;">© 2024 Apartamenty Pilice Jastrzębia Góra</p>
     </footer>
-
-    <div class="final-footer">
-        <img src="image_0.png" alt="Apartamenty Pilice Logo" class="footer-logo">
-        <p class="disclaimer">© 2024 Wszelkie prawa zastrzeżone dla Apartamenty Pilice Jastrzębia Góra.</p>
-    </div>
-
 </main>
 
 <script>
-    // Elementos del DOM
     const menuToggle = document.getElementById('menuToggle');
     const sidebarNav = document.getElementById('sidebarNav');
     const menuOverlay = document.getElementById('menuOverlay');
 
-    // Función para abrir el menú
     function openMenu() {
         sidebarNav.classList.add('active');
         menuOverlay.classList.add('active');
-        // Cambiar el icono del botón a una X
-        menuToggle.innerHTML = '✕ Cerrar';
+        menuToggle.innerHTML = '✕ ZAMKNIJ';
     }
 
-    // Función para cerrar el menú
     function closeMenu() {
         sidebarNav.classList.remove('active');
         menuOverlay.classList.remove('active');
-        // Devolver el icono al estado original
-        menuToggle.innerHTML = '☰ Menú';
+        menuToggle.innerHTML = '☰ MENU';
     }
 
-    // Event Listener para el botón de menú
     menuToggle.addEventListener('click', () => {
-        if (sidebarNav.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+        sidebarNav.classList.contains('active') ? closeMenu() : openMenu();
     });
 
-    // Cerrar el menú si se hace click en el overlay
-    menuOverlay.addEventListener('click', closeMenu());
-
-    // Carousel Gallery Navigation
-    const carousels = document.querySelectorAll('.carousel');
-    
-    carousels.forEach(carousel => {
-        const images = carousel.querySelectorAll('img');
-        if (images.length === 0) return;
-        
-        let currentIndex = 0;
-        
-        // Show the first image
-        images[0].classList.add('active');
-        
-        // Create navigation arrows
-        const prevArrow = document.createElement('span');
-        prevArrow.className = 'carousel-arrow prev';
-        prevArrow.innerHTML = '&#10094;';
-        prevArrow.addEventListener('click', () => {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            images[currentIndex].classList.add('active');
-        });
-        
-        const nextArrow = document.createElement('span');
-        nextArrow.className = 'carousel-arrow next';
-        nextArrow.innerHTML = '&#10095;';
-        nextArrow.addEventListener('click', () => {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
-        });
-        
-        // Add click to lightbox
-        images.forEach((img, index) => {
-            img.addEventListener('click', function() {
-                const lightbox = document.getElementById('lightbox');
-                const lightboxImage = document.getElementById('lightboxImage');
-                lightboxImage.src = img.src;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        carousel.appendChild(prevArrow);
-        carousel.appendChild(nextArrow);
-    });
-    
-    // Lightbox Controls
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-    let allGalleryImages = Array.from(document.querySelectorAll('.carousel img'));
-    let lightboxImageIndex = 0;
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function showLightboxPrevImage() {
-        lightboxImageIndex = (lightboxImageIndex - 1 + allGalleryImages.length) % allGalleryImages.length;
-        lightboxImage.src = allGalleryImages[lightboxImageIndex].src;
-    }
-
-    function showLightboxNextImage() {
-        lightboxImageIndex = (lightboxImageIndex + 1) % allGalleryImages.length;
-        lightboxImage.src = allGalleryImages[lightboxImageIndex].src;
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxPrev.addEventListener('click', showLightboxPrevImage);
-    lightboxNext.addEventListener('click', showLightboxNextImage);
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    // Keyboard navigation for lightbox
-    document.addEventListener('keydown', function(e) {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'ArrowLeft') showLightboxPrevImage();
-        if (e.key === 'ArrowRight') showLightboxNextImage();
-        if (e.key === 'Escape') closeLightbox();
-    });
-
-    // Service Worker
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
-        });
-    }
+    menuOverlay.addEventListener('click', closeMenu);
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
