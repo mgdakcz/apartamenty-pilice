@@ -25,14 +25,14 @@
         }
         
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Quicksand', 'Courier New', Courier, monospace; 
             margin: 0; 
             color: var(--text-color); 
             display: flex;
             line-height: 1.6;
             /* --- 2. Fondo con Placeholder y Overlay --- */
             /* Reemplaza 'ruta-a-tu-foto-de-fondo.jpg' por tu imagen real */
-            background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('ruta-a-tu-foto-de-fondo.jpg');
+            background-image: linear-gradient(rgba(248, 244, 227, 0.9), rgba(248, 244, 227, 0.9)), url('bcgr.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -173,7 +173,19 @@
             display: grid; 
             grid-template-columns: 1fr 1fr; 
             gap: 30px; 
-            align-items: start;
+            align-items: stretch;
+            min-height: 350px;
+        }
+
+        .grid-2-col > div:first-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .grid-2-col > div:last-child {
+            display: flex;
+            flex-direction: column;
         }
 
         .grid-2-col-btns {
@@ -186,15 +198,20 @@
         /* Carousels */
         .carousel {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            flex-direction: column;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
             gap: 15px;
             padding-bottom: 15px;
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
         }
 
         .carousel img {
             width: 100%;
-            height: 220px;
+            min-height: 200px;
+            height: auto;
             object-fit: cover;
             border-radius: 12px;
             flex-shrink: 0;
@@ -296,7 +313,23 @@
                 padding: 20px 20px 70px 20px; /* Padding extra abajo */
             }
 
-            .grid-2-col { grid-template-columns: 1fr; gap: 20px; }
+            .grid-2-col { 
+                grid-template-columns: 1fr; 
+                gap: 20px;
+                min-height: auto;
+            }
+            
+            .carousel {
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                min-height: 220px;
+            }
+
+            .carousel img {
+                height: 220px;
+            }
             
             .card h2 { font-size: 1.3rem; }
 
@@ -308,12 +341,12 @@
 </head>
 <body>
 
-<button class="menu-toggle" id="menuToggle">☰ Menú</button>
+<button class="menu-toggle" id="menuToggle">☰ MENU </Menu:c></button>
 
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <nav class="sidebar" id="sidebarNav">
-    <h2>Spis Treści</h2>
+    <h2>Spis Rzeczy </h2>
     <ul>
         <li><a href="#zameldowanie" onclick="closeMenu()">Zameldowanie / Wymeldowanie</a></li>
         <li><a href="#wifi" onclick="closeMenu()">WiFi</a></li>
@@ -332,8 +365,8 @@
 <main class="main-content">
 
     <header style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
-        <h1 style="color: var(--primary); font-weight: normal; font-size: 2.5rem; margin-bottom: 10px;">Apartamenty Pilice</h1>
-        <p style="font-size: 1.1rem; font-style: italic;">Twój cyfrowy przewodnik</p>
+        <h1 style="color: var(--primary); font-weight: bold; font-size: 2.5rem; margin-bottom: 10px;">Apartamenty Pilice</h1>
+        <p style="font-size: 1.1rem; font-style: italic;">Przewodnik Gościa</p>
     </header>
 
     <div id="zameldowanie" class="card">
@@ -352,29 +385,32 @@
         <div class="grid-2-col">
             <div>
                 <p>Nasi Goście mogą do woli korzystać z Atrakcji Papaj Resort. Sprawdź jak wiele zabawy czeka Cię na poziomie -1 budynku B, w Papaju!</p>
+                <br>
+                <p><strong>Codziennie od 9:00 do 22:00, zupełnie za darmo dla Gości Apartamentów Pilice.</strong></p>
                 <ul style="color: var(--secondary);">
                     <li>bilard</li>
                     <li>tenis stołowy</li>
                     <li>sala zabaw</li>
                     <li>siłownia</li>
+                    <li>unihokej</li>
+                    <li>koszykówka</li>
                 </ul>
-                <p><strong>Bez limitów czasowych</strong></p>
-                <a href="#" class="btn">Jak dojść?</a> 
+                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a> 
             </div>
             <div class="carousel">
-                <img src="placeholder1.jpg" alt="Strefa rekreacyjna 1">
-                <img src="placeholder2.jpg" alt="Strefa rekreacyjna 2">
+                <img src="atr07.jpg" alt="Sala zabaw">
+                <img src="atr01.jpg" alt="Koszykówka">
             </div>
         </div>
     </div>
 
     <div id="basen" class="card">
         <h2>Basen, Sauna - Papaj Resort</h2>
-        <p style="margin-bottom: 20px; font-style: italic; color: var(--secondary);">Codziennie do 15:00</p>
+        <p style="margin-bottom: 20px; font-style: italic; color: var(--secondary);">Codziennie od 9:00 do 15:00.</p>
         <div class="grid-2-col">
             <div>
                 <p>Strefa saun oraz basen z brodzikiem dla dzieci.</p>
-                <a href="#" class="btn">Jak dojść?</a>
+                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a>
             </div>
             <div class="carousel">
                 <img src="placeholder3.jpg" alt="Basen 1">
@@ -387,8 +423,8 @@
         <h2>Masaże, zabiegi - Papaj Resort</h2>
         <p>Goście Pilic mogą skorzystać z oferty SPA Papaj Resort. Sprawdź ofertę i zarezerwuj sobie trochę czasu na relaks!</p>
         <div class="grid-2-col-btns">
-            <a href="#" class="btn btn-full">Oferta</a>
-            <a href="tel:+48000000000" class="btn btn-full">Zarezerwuj (Zadzwoń)</a>
+            <a href="https://www.papaj-resort.pl/menu-spa" class="btn btn-full">Oferta</a>
+            <a href="tel:+48 882 173 366" class="btn btn-full">Zarezerwuj (Zadzwoń)</a>
         </div>
     </div>
 
@@ -399,17 +435,17 @@
             Zapomniałeś wykupić śniadanie lub obiadokolacje na pobyt? Nic nie szkodzi! Po pokazaniu tej strony w restauracji (lub karty rabatowej jaką zostawiliśmy w Twoim apartamencie) otrzymasz <strong>10% zniżki</strong> na śniadania oraz wszystkie dania z karty.
         </div>
         <div class="grid-2-col-btns">
-            <a href="#" class="btn btn-full">Jak dojść?</a>
-            <a href="#" class="btn btn-full">Menu</a>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn btn-full">Jak dojść?</a>
+            <a href="https://www.papaj-resort.pl/menu-restauracja" class="btn btn-full">Menu</a>
         </div>
     </div>
 
-    <div id="wedzarnia" class="card">
+    /* <div id="wedzarnia" class="card"> 
         <h2>Wędzarnia Przypiecek</h2>
         <p>Kultowe miejsce na mapie JG</p>
         <div class="frame">Otwarta od maja do września.</div>
         <a href="#" class="btn">Jak dojść?</a>
-    </div>
+    </div> */
 
     <div id="rowerownia" class="card">
         <h2>Rowerownia</h2>
