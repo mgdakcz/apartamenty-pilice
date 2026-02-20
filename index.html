@@ -4,425 +4,460 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamenty Pilice - Guest Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. Coastal Palette Inspired by your Photo --- */
         :root { 
-            /* Deep Ocean Blue from the water */
             --primary: #2C5F78; 
-            /* Soft Sky Blue for accents */
             --secondary: #5B8DA3;
-            /* Light Sand/Cloud color for backgrounds */
             --bg-color: #F4F7F9;
-            /* White with a hint of blue for cards */
-            --card-bg: rgba(255, 255, 255, 0.92); 
-            /* Dark Slate for text (readable and soft) */
+            --card-bg: #FFFFFF; 
             --text-color: #334756;
-            /* Muted Pebble color for frames */
             --frame-bg: #E8EEF2;
-            /* Subtle border color */
             --border-color: #D1DBE1;
+            --nav-bg: rgba(255, 255, 255, 0.95);
         }
         
         body { 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; 
+            padding: 0;
             color: var(--text-color); 
-            display: flex;
+            background-color: var(--bg-color);
             line-height: 1.6;
-            
-            /* --- 2. Background Photo (Overlay Removed) --- */
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            min-height: 100vh;
         }
 
-        /* Mobile Burger Button */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 2000;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 260px;
-            background-color: var(--primary);
-            color: white;
-            height: 100vh;
+        /* --- 1. Top Navigation --- */
+        .top-nav {
             position: fixed;
             top: 0;
             left: 0;
-            overflow-y: auto;
-            padding: 30px 20px;
-            box-sizing: border-box;
-            transition: transform 0.3s ease-in-out;
-            z-index: 1500;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
         }
 
-        .sidebar h2 {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .sidebar ul { list-style: none; padding: 0; }
-        .sidebar li { margin-bottom: 10px; }
-        
-        .sidebar a {
-            color: rgba(255,255,255,0.8);
+        .top-nav a {
             text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
             font-size: 0.9rem;
-            display: block;
-            padding: 10px 0;
-            transition: 0.3s;
+            text-transform: uppercase;
+            transition: color 0.3s;
         }
 
-        .sidebar a:hover { color: white; padding-left: 5px; }
+        .top-nav a:hover {
+            color: var(--primary);
+        }
 
-        .menu-overlay {
-            display: none;
-            position: fixed;
+        /* --- 2. Hero Section --- */
+        .hero {
+            margin-top: 60px; /* Space for fixed nav */
+            width: 100%;
+            height: 60vh;
+            background-image: url('main.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1400;
+            background: rgba(0,0,0,0.3);
         }
 
-        /* Main Content */
-        .main-content {
-            margin-left: 260px;
-            padding: 40px;
-            flex: 1;
-            max-width: 900px;
+        .hero h1, .hero p {
+            position: relative;
+            color: white;
+            z-index: 1;
+            margin: 0;
         }
 
-        /* Cards - Adding a slight glassmorphism effect */
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        /* --- 3. Layout & Cards --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
         .card { 
             background: var(--card-bg); 
-            backdrop-filter: blur(5px);
             border-radius: 12px;
-            padding: 35px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            border: 1px solid rgba(255,255,255,0.5);
+            padding: 30px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+            border: 1px solid var(--border-color);
+        }
+
+        .card.big-card {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
         }
 
         .card h2 { 
             margin-top: 0; 
             color: var(--primary); 
-            font-size: 1.4rem; 
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            font-size: 1.5rem; 
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        /* Modern Buttons */
+        /* --- 4. Elements --- */
         .btn { 
             display: inline-block; 
             background: var(--primary); 
             color: white; 
-            padding: 12px 28px; 
+            padding: 10px 20px; 
             border-radius: 6px; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
             border: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-align: center;
+            margin-top: 10px;
+            margin-right: 10px;
         }
 
-        .btn:hover { 
-            background: var(--secondary); 
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44, 95, 120, 0.3);
-        }
+        .btn:hover { background: var(--secondary); }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
 
         .frame {
             background-color: var(--frame-bg);
             border-left: 4px solid var(--primary);
-            padding: 20px;
+            padding: 15px;
             border-radius: 4px;
-            margin: 20px 0;
+            margin: 15px 0;
             font-size: 0.95rem;
+            font-style: italic;
         }
 
+        bold { font-weight: bold; } /* Based on your request to use <bold> */
+
+        /* --- 5. Carousel --- */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ddd; /* Placeholder background */
+        }
+
+        .carousel img, .carousel .placeholder-slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e0e0e0;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .carousel img.active, .carousel .placeholder-slide.active { opacity: 1; }
+
+        /* --- 6. FAQ --- */
         details {
-            background: white;
+            background: var(--bg-color);
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 10px;
             border: 1px solid var(--border-color);
         }
+        summary { font-weight: 600; color: var(--primary); cursor: pointer; outline: none; }
+        details p { margin-top: 10px; margin-bottom: 0; }
 
-        summary {
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        .footer-section {
+        /* --- 7. Footer --- */
+        footer {
             background: var(--primary);
             color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             text-align: center;
         }
 
-        .footer-section .btn {
-            background: white;
-            color: var(--primary);
-        }
+        .footer-section p { margin-bottom: 15px; }
+        .footer-section .btn { background: white; color: var(--primary); }
+        .footer-section .btn:hover { background: var(--frame-bg); }
 
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .sidebar { transform: translateX(-100%); width: 280px; }
-            .sidebar.active { transform: translateX(0); }
-            .menu-overlay.active { display: block; }
-            .main-content { margin-left: 0; padding: 80px 20px; }
-            .card { padding: 20px; }
+            .row, .card.big-card, .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .top-nav { padding: 10px; }
+            .top-nav ul { gap: 10px; font-size: 0.8rem; }
+            .hero { margin-top: 80px; height: 40vh; }
         }
-
-        /* Utils */
-        .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 600px) { .grid-2-col { grid-template-columns: 1fr; } }
-
-        .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out; /* Smooth fade effect */
-    display: block !important; /* Override the previous 'none' */
-}
-
-.carousel img.active {
-    opacity: 1;
-    position: relative; /* Ensures the container keeps its height */
-}
     </style>
 </head>
 <body>
 
-<button class="menu-toggle" id="menuToggle">☰ MENU</button>
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<nav class="sidebar" id="sidebarNav">
-    <h2>Przewodnik</h2>
+<nav class="top-nav">
     <ul>
-        <li><a href="#zameldowanie" onclick="closeMenu()">Zameldowanie</a></li>
-        <li><a href="#wifi" onclick="closeMenu()">WiFi</a></li>
-        <li><a href="#atrakcje" onclick="closeMenu()">Atrakcje</a></li>
-        <li><a href="#basen" onclick="closeMenu()">Basen i Sauna</a></li>
-        <li><a href="#restauracja" onclick="closeMenu()">Restauracja</a></li>
-        <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+        <li><a href="#info">Info</a></li>
+        <li><a href="#rekreacja">Rekreacja</a></li>
+        <li><a href="#restauracja">Restauracja</a></li>
+        <li><a href="#przewodnik">Przewodnik</a></li>
+        <li><a href="#faq">FAQ</a></li>
     </ul>
 </nav>
 
-<main class="main-content">
-    <header style="text-align: center; margin-bottom: 50px;">
-        <h1 style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3); font-size: 2.8rem; margin-bottom: 0;">Apartamenty Pilice</h1>
-        <p style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.3); font-weight: 300; letter-spacing: 2px; text-transform: uppercase;">Przewodnik Gościa</p>
-    </header>
+<header class="hero">
+    <h1>Apartamenty Pilice</h1>
+    <p>Przewodnik Gościa</p>
+</header>
 
-    <div id="zameldowanie" class="card">
-        <h2>Zameldowanie / Wymeldowanie</h2>
-        <p>Check in od <strong>16:00</strong>, check out do <strong>10:00</strong>.</p>
+<main class="container">
+    
+    <div id="info" class="row">
+        <div class="card">
+            <h2>Zameldowanie / Wymeldowanie</h2>
+            <p>Check in od <strong>16:00</strong>, check out do <strong>10:00</strong>.</p>
+        </div>
+        <div class="card">
+            <h2>WiFi</h2>
+            <p>User: <strong>Gość</strong></p>
+            <p>Hasło: <strong>Pilice123</strong></p>
+        </div>
     </div>
 
-    <div id="wifi" class="card">
-        <h2>WiFi</h2>
-        <p>Sieć: <strong>Gość</strong></p>
-        <p>Hasło: <strong>Pilice123</strong></p>
+    <div id="rekreacja" class="card big-card">
+        <div>
+            <h2>Strefa Rekreacyjna - Papaj Resort - siłownia, gry, sala zabaw</h2>
+            <p>Nasi Goście mogą do woli korzystać z Atrakcji Papaj Resort. Sprawdź jak wiele zabawy czeka Cię na poziomie -1 budynku B, w Papaju!</p>
+            <p><bold>Bez limitów czasowych</bold></p>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
+        </div>
+        <div class="carousel-container carousel" data-interval="5000">
+            <img src="atr01.jpg" alt="Atrakcja 1" class="active">
+            <img src="atr03.jpg" alt="Atrakcja 3">
+            <img src="atr04.jpg" alt="Atrakcja 4">
+            <img src="atr07.jpg" alt="Atrakcja 7">
+            <img src="atr10.jpg" alt="Atrakcja 10">
+        </div>
     </div>
 
-    <div id="atrakcje" class="card">
-        <h2>Strefa Rekreacyjna</h2>
-        <div class="grid-2-col">
-            <div>
-    <div class="carousel" data-interval="5000">
-    <img src="atr07.jpg" alt="Sala zabaw" class="active">
-    <img src="atr01.jpg" alt="Koszykówka">
+    <div class="card big-card">
+        <div>
+            <h2>Basen, Sauna - Papaj Resort - codziennie do 15:00</h2>
+            <p>Strefa saun oraz basen z brodzikiem dla dzieci.</p>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
+        </div>
+        <div class="carousel-container carousel" data-interval="5000">
+            <div class="placeholder-slide active">Placeholder 1</div>
+            <div class="placeholder-slide">Placeholder 2</div>
+            <div class="placeholder-slide">Placeholder 3</div>
+            <div class="placeholder-slide">Placeholder 4</div>
+        </div>
     </div>
-                <p>Nasi Goście mogą korzystać z atrakcji Papaj Resort (budynek B, poziom -1).</p>
-                <p><strong>Dostępne 9:00 - 22:00:</strong></p>
-                <ul style="padding-left: 20px;">
-                    <li>Bilard & Tenis stołowy</li>
-                    <li>Sala zabaw dla dzieci</li>
-                    <li>Siłownia</li>
-                </ul>
-                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a> 
+
+    <div class="row">
+        <div class="card">
+            <h2>Masaże, zabiegi - Papaj Resort - zarezerwuj w Papaju</h2>
+            <p>Goście Pilic mogą skorzystać z oferty SPA Papaj Resort. Sprawdź ofertę i zarezerwuj sobie trochę czasu na relaks!</p>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <a href="https://www.papaj-resort.pl/menu-spa" target="_blank" class="btn">Oferta</a>
+                <a href="tel:+48882173366" class="btn btn-outline">Zarezerwuj</a>
             </div>
-
-             <div id="basen i sauna" class="card">
-        <h2>Basen i sauna w Papaj Resort</h2>
-        <div class="grid-2-col">
-            <div>
-    <div class="carousel" data-interval="5000">
-    <img src="atr07.jpg" alt="Sala zabaw" class="active">
-    <img src="atr01.jpg" alt="Koszykówka">
+        </div>
+        <div class="card">
+            <h2>Rowerownia - rowery, kije do nordic walking</h2>
+            <p>Dla naszych Gości rowery i kija za darmo!</p>
+        </div>
     </div>
-                <p>Nasi Goście mogą korzystać z basenu i strefy saun w Papaj Resort.</p>
-                <p><strong> Od 9:00 do 15:00 każdego dnia. </strong></p>
-                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a> 
-            </div>
 
- <div id="Restauracja" class="card">
-        <h2> Restauracja Papaj </h2>
-        <div class="grid-2-col">
-            <div>
-    <div class="carousel" data-interval="5000">
-    <img src="atr07.jpg" alt="Sala zabaw" class="active">
-    <img src="atr01.jpg" alt="Koszykówka">
-    </div>
-                <p>Nasi Goście mogą korzystać z atrakcji Papaj Resort (budynek B, poziom -1).</p>
-                <p><strong>Dla Gości Apartamentów Pilice zniżka 10 % na wszystkie dania z karty po okazaniu karty rabatowej (w apartamencie, obok informatora) lub tej strony. </strong></p>
-        
-                <a href="https://www.youtube.com/shorts/94AWpfgoGmA" class="btn">Jak dojść?</a> 
-                 <a href="https://www.papaj-resort.pl/menu-restauracja" class="btn">Menu</a> 
+    <div id="restauracja" class="card big-card">
+        <div>
+            <h2>Restauracja Papaj</h2>
+            <p>Restauracja Papaj oferuje śniadania i pyszne dania.</p>
+            <div class="frame">
+                Zapomniałeś wykupić śniadanie lub obiadokolacje na pobyt? Nic nie szkodzi! Po pokazaniu tej strony w restauracji (lub karty rabatowej jaką zostawiliśmy w Twoim apartamencie) otrzymasz 10 % zniżki na śniadania oraz wszystkie dania z karty.
             </div>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
+            <a href="https://www.papaj-resort.pl/restauracja" target="_blank" class="btn btn-outline">Menu</a>
+        </div>
+        <div class="carousel-container carousel" data-interval="5000">
+            <div class="placeholder-slide active">Foto Restauracja 1</div>
+            <div class="placeholder-slide">Foto Restauracja 2</div>
+            <div class="placeholder-slide">Foto Restauracja 3</div>
+        </div>
+    </div>
 
-     <div id="atrakcje" class="card">
-        <h2>Strefa Rekreacyjna</h2>
-        <div class="grid-2-col">
-            <div>
-    <div class="carousel" data-interval="5000">
-    <img src="atr07.jpg" alt="Sala zabaw" class="active">
-    <img src="atr01.jpg" alt="Koszykówka">
-    </div>
-                <p>Nasi Goście mogą korzystać z atrakcji Papaj Resort (budynek B, poziom -1).</p>
-                <p><strong>Dostępne 9:00 - 22:00:</strong></p>
-                <ul style="padding-left: 20px;">
-                    <li>Bilard & Tenis stołowy</li>
-                    <li>Sala zabaw dla dzieci</li>
-                    <li>Siłownia</li>
-                </ul>
-                <a href="#" class="btn">Jak dojść?</a> 
+    <div class="card big-card">
+        <div>
+            <h2>Wędzarnia Przypiecek</h2>
+            <p>Kultowe miejsce na mapie JG</p>
+            <div class="frame">
+                Otwarta od maja do września.
             </div>
+        </div>
+        <div class="carousel-container carousel" data-interval="5000">
+            <div class="placeholder-slide active">Foto Wędzarnia 1</div>
+            <div class="placeholder-slide">Foto Wędzarnia 2</div>
+            <div class="placeholder-slide">Foto Wędzarnia 3</div>
+        </div>
+    </div>
+
+    <div id="przewodnik" class="card big-card">
+        <div>
+            <h2>Przewodnik Gościa na podróże małe i duże</h2>
+            <p>Nasz Przewodnik po okolicy. W sam raz na jednodniowe wypady, albo dłuższe wycieczki.</p>
+            <a href="przewodnik.pdf" target="_blank" class="btn">Zobacz nasz przewodnik</a>
+        </div>
+        <div style="background: var(--frame-bg); display: flex; align-items: center; justify-content: center; height: 300px; border-radius: 8px;">
+            <p style="color: var(--secondary); font-weight: bold;">[ Preview Przewodnika PDF ]</p>
+        </div>
+    </div>
 
     <div id="faq" class="card">
-        <h2>Częste Pytania (FAQ)</h2>
+        <h2>FAQ - najczęstsze pytania Gości</h2>
+        
         <details>
-            <summary>Gdzie znajdę kapsułki do kawy w apartamencie?</summary>
-            <p>W szufladzie w aneksie kuchennym, tuż obok lodówki.</p>
+            <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
+            <p>Zadzwoń do nas!</p>
         </details>
         <details>
-            <summary>Kod do drzwi nie działa</summary>
-            <p>Upewnij się, że wpisujesz kod zakończony znakiem #. Jeśli problem trwa, zadzwoń do nas!</p>
+            <summary>Gdzie znajdę tabletki do zmywarki i kapsułki do ekspresu?</summary>
+            <p>W szufladzie przy lodówce.</p>
+        </details>
+        <details>
+            <summary>Najbliższy sklep</summary>
+            <p>Skorpion, czyli mały ale dobrze wyposażony sklep tuż na rogiem. Zawsze otwarty w niedziele. Delikatesy Skorpion, Rozewska 1, 84-104 Jastrzębia Góra.</p>
+        </details>
+        <details>
+            <summary>Sklep otwarty w niedzielę?</summary>
+            <p>Delikatesy Skorpion, tuż za rogiem. Delikatesy Skorpion, Rozewska 1, 84-104 Jastrzębia Góra.</p>
+        </details>
+        <details>
+            <summary>Najbliższa piekarnia</summary>
+            <p>Piekarnia Konkol, lokalna piekarnia gdzie oprócz pysznego chleba kupisz ciasta i ciasteczka na słodkie popołudnie w apartamencie.</p>
+        </details>
+        <details>
+            <summary>Market spożywczy</summary>
+            <p>Polo Market oraz Biedronka w Mieroszynie</p>
+        </details>
+        <details>
+            <summary>Najbliższa Apteka</summary>
+            <p>JG Apteka</p>
+        </details>
+        <details>
+            <summary>Drogeria</summary>
+            <p>Rossmann w Mieroszynie.</p>
+        </details>
+        <details>
+            <summary>Szpital</summary>
+            <p>Puck i Wejherowo</p>
+        </details>
+        <details>
+            <summary>Taksówka?</summary>
+            <p>Pan Mietek</p>
         </details>
     </div>
 
-    <footer>
-        <div class="footer-section">
-            <p>Jesteśmy do Twojej dyspozycji codziennie 8:00 - 20:00</p>
-            <a href="tel:+48000000000" class="btn">Zadzwoń do nas</a>
-        </div>
-        <p style="text-align: center; color: white; font-size: 0.8rem; opacity: 0.8;">© 2024 Apartamenty Pilice Jastrzębia Góra</p>
-    </footer>
 </main>
 
+<footer>
+    <div class="footer-grid">
+        <div class="footer-section">
+            <p>Załoga Pilic pozostaje do dyspozycji codziennie od 8 do 20</p>
+            <a href="tel:+48000000000" class="btn">Zadzwoń do nas</a>
+        </div>
+        <div class="footer-section">
+            <p>Telefon awaryjny</p>
+            <a href="tel:+48000000000" class="btn">Zadzwoń</a>
+        </div>
+        <div class="footer-section">
+            <p>Bądźmy w kontakcie</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                <a href="#" class="btn" style="width: 80%;">Oceń nas na Google</a>
+                <a href="#" class="btn" style="width: 80%;">Dowiedz się więcej na naszym blogu</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <script>
+    // Lógica para todos los carruseles dinámicos
+    const carousels = document.querySelectorAll('.carousel');
 
-    // Dynamic Carousel Logic
-const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+        // Seleccionamos tanto imágenes reales como placeholders (divs)
+        const slides = carousel.querySelectorAll('img, .placeholder-slide');
+        if (slides.length <= 1) return; 
 
-carousels.forEach(carousel => {
-    const images = carousel.querySelectorAll('img');
-    if (images.length <= 1) return; // Don't animate if there's only 1 photo
+        let currentIndex = 0;
+        const intervalTime = parseInt(carousel.getAttribute('data-interval')) || 5000;
 
-    let currentIndex = 0;
-    let autoPlayTimer;
+        function showSlide(index) {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
 
-    // --- Function to change slides ---
-    function showSlide(index) {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (index + images.length) % images.length;
-        images[currentIndex].classList.add('active');
-    }
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
 
-    function nextSlide() {
-        showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentIndex - 1);
-    }
-
-    // --- Timer Management ---
-    function startAutoPlay() {
-        // Change image every 5000ms (5 seconds)
-        autoPlayTimer = setInterval(nextSlide, 5000);
-    }
-
-    function resetAutoPlay() {
-        clearInterval(autoPlayTimer);
-        startAutoPlay();
-    }
-
-    // --- Initialize Controls ---
-    const prevArrow = document.createElement('span');
-    prevArrow.className = 'carousel-arrow prev';
-    prevArrow.innerHTML = '❮';
-    prevArrow.onclick = (e) => { e.stopPropagation(); prevSlide(); resetAutoPlay(); };
-
-    const nextArrow = document.createElement('span');
-    nextArrow.className = 'carousel-arrow next';
-    nextArrow.innerHTML = '❯';
-    nextArrow.onclick = (e) => { e.stopPropagation(); nextSlide(); resetAutoPlay(); };
-
-    carousel.appendChild(prevArrow);
-    carousel.appendChild(nextArrow);
-
-    // Start the 5-second cycle
-    startAutoPlay();
-});
-    const menuToggle = document.getElementById('menuToggle');
-    const sidebarNav = document.getElementById('sidebarNav');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    function openMenu() {
-        sidebarNav.classList.add('active');
-        menuOverlay.classList.add('active');
-        menuToggle.innerHTML = '✕ ZAMKNIJ';
-    }
-
-    function closeMenu() {
-        sidebarNav.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        menuToggle.innerHTML = '☰ MENU';
-    }
-
-    menuToggle.addEventListener('click', () => {
-        sidebarNav.classList.contains('active') ? closeMenu() : openMenu();
+        // Iniciar rotación automática
+        setInterval(nextSlide, intervalTime);
     });
-
-    menuOverlay.addEventListener('click', closeMenu);
 </script>
 
 </body>
 </html>
-
-
-
