@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamenty Pilice - Guest Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { 
             --primary: #2C5F78; 
@@ -15,6 +16,7 @@
             --frame-bg: #E8EEF2;
             --border-color: #D1DBE1;
             --nav-bg: rgba(255, 255, 255, 0.95);
+            --footer-alt: #1E4254; /* Color para el footer secundario */
         }
         
         body { 
@@ -58,6 +60,9 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .top-nav a:hover {
@@ -118,7 +123,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            margin-bottom: 40px; /* Espaciado aumentado entre filas */
+            margin-bottom: 40px;
         }
 
         .card { 
@@ -135,7 +140,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             align-items: center;
-            margin-bottom: 40px; /* Espaciado aumentado entre secciones grandes */
+            margin-bottom: 40px;
         }
 
         .card h2 { 
@@ -144,11 +149,16 @@
             font-size: 1.5rem; 
             font-weight: 700;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* --- 4. Elements --- */
         .btn { 
-            display: inline-block; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: var(--primary); 
             color: white; 
             padding: 10px 20px; 
@@ -164,7 +174,7 @@
         }
 
         .btn:hover { background: var(--secondary); }
-        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 8px 18px; }
         .btn-outline:hover { background: var(--primary); color: white; }
 
         .frame {
@@ -223,11 +233,12 @@
             margin-bottom: 10px;
             border: 1px solid var(--border-color);
         }
-        summary { font-weight: 600; color: var(--primary); cursor: pointer; outline: none; }
-        details p { margin-top: 10px; margin-bottom: 0; }
+        summary { font-weight: 600; color: var(--primary); cursor: pointer; outline: none; display: flex; align-items: center; gap: 8px; }
+        details p { margin-top: 10px; margin-bottom: 0; padding-left: 20px; }
 
-        /* --- 8. Footer --- */
-        footer {
+        /* --- 8. Footers --- */
+        /* Footer Principal (Contactos) */
+        .footer-main {
             background: var(--primary);
             color: white;
             padding: 40px 20px;
@@ -235,17 +246,42 @@
         }
         
         .footer-grid {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr; /* Ahora son 2 columnas */
             gap: 30px;
             text-align: center;
         }
 
-        .footer-section p { margin-bottom: 15px; }
+        .footer-section p { margin-bottom: 15px; font-weight: 600; font-size: 1.1rem; }
         .footer-section .btn { background: white; color: var(--primary); }
         .footer-section .btn:hover { background: var(--frame-bg); }
+
+        /* Footer Secundario (Google y Blog) */
+        .footer-secondary {
+            background: var(--footer-alt);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-secondary-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-secondary .btn-outline {
+            border-color: white;
+            color: white;
+        }
+        
+        .footer-secondary .btn-outline:hover {
+            background: white;
+            color: var(--footer-alt);
+        }
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
@@ -261,11 +297,11 @@
 
 <nav class="top-nav">
     <ul>
-        <li><a href="#info">Info</a></li>
-        <li><a href="#rekreacja">Rekreacja</a></li>
-        <li><a href="#restauracja">Restauracja</a></li>
-        <li><a href="#przewodnik">Przewodnik</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#info"><i class="fa-solid fa-circle-info"></i> Info</a></li>
+        <li><a href="#rekreacja"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Rekreacja</a></li>
+        <li><a href="#restauracja"><i class="fa-solid fa-utensils"></i> Restauracja</a></li>
+        <li><a href="#przewodnik"><i class="fa-solid fa-map-location-dot"></i> Przewodnik</a></li>
+        <li><a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
     </ul>
 </nav>
 
@@ -278,11 +314,11 @@
     
     <div id="info" class="row">
         <div class="card">
-            <h2>Zameldowanie / Wymeldowanie</h2>
+            <h2><i class="fa-solid fa-key"></i> Zameldowanie / Wymeldowanie</h2>
             <p>Check in od <strong>16:00</strong>, check out do <strong>10:00</strong>.</p>
         </div>
         <div class="card">
-            <h2>WiFi</h2>
+            <h2><i class="fa-solid fa-wifi"></i> WiFi</h2>
             <p>User: <strong>Gość</strong></p>
             <p>Hasło: <strong>Pilice123</strong></p>
         </div>
@@ -290,10 +326,10 @@
 
     <div id="rekreacja" class="card big-card">
         <div>
-            <h2>Strefa Rekreacyjna - Papaj Resort - siłownia, gry, sala zabaw</h2>
+            <h2><i class="fa-solid fa-gamepad"></i> Strefa Rekreacyjna - Papaj Resort - siłownia, gry, sala zabaw</h2>
             <p>Nasi Goście mogą do woli korzystać z Atrakcji Papaj Resort. Sprawdź jak wiele zabawy czeka Cię na poziomie -1 budynku B, w Papaju!</p>
             <p><bold>Bez limitów czasowych</bold></p>
-            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </div>
         <div class="carousel-container carousel" data-interval="5000">
             <img src="atr01.jpg" alt="Atrakcja 1" class="active">
@@ -306,9 +342,9 @@
 
     <div class="card big-card">
         <div>
-            <h2>Basen, Sauna - Papaj Resort - codziennie do 15:00</h2>
+            <h2><i class="fa-solid fa-water-ladder"></i> Basen, Sauna - Papaj Resort - codziennie do 15:00</h2>
             <p>Strefa saun oraz basen z brodzikiem dla dzieci.</p>
-            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </div>
         <div class="carousel-container carousel" data-interval="5000">
             <div class="placeholder-slide active">Placeholder 1</div>
@@ -320,28 +356,28 @@
 
     <div class="row">
         <div class="card">
-            <h2>Masaże, zabiegi - Papaj Resort - zarezerwuj w Papaju</h2>
+            <h2><i class="fa-solid fa-spa"></i> Masaże, zabiegi - Papaj Resort - zarezerwuj w Papaju</h2>
             <p>Goście Pilic mogą skorzystać z oferty SPA Papaj Resort. Sprawdź ofertę i zarezerwuj sobie trochę czasu na relaks!</p>
             <div style="display: flex; gap: 10px; margin-top: 15px;">
-                <a href="https://www.papaj-resort.pl/menu-spa" target="_blank" class="btn">Oferta</a>
-                <a href="tel:+48882173366" class="btn btn-outline">Zarezerwuj</a>
+                <a href="https://www.papaj-resort.pl/menu-spa" target="_blank" class="btn"><i class="fa-solid fa-book-open"></i> Oferta</a>
+                <a href="tel:+48882173366" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Zarezerwuj</a>
             </div>
         </div>
         <div class="card">
-            <h2>Rowerownia - rowery, kije do nordic walking</h2>
+            <h2><i class="fa-solid fa-bicycle"></i> Rowerownia - rowery, kije do nordic walking</h2>
             <p>Dla naszych Gości rowery i kija za darmo!</p>
         </div>
     </div>
 
     <div id="restauracja" class="card big-card">
         <div>
-            <h2>Restauracja Papaj</h2>
+            <h2><i class="fa-solid fa-bell-concierge"></i> Restauracja Papaj</h2>
             <p>Restauracja Papaj oferuje śniadania i pyszne dania.</p>
             <div class="frame">
                 Zapomniałeś wykupić śniadanie lub obiadokolacje na pobyt? Nic nie szkodzi! Po pokazaniu tej strony w restauracji (lub karty rabatowej jaką zostawiliśmy w Twoim apartamencie) otrzymasz 10 % zniżki na śniadania oraz wszystkie dania z karty.
             </div>
-            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn">Jak dojść?</a>
-            <a href="https://www.papaj-resort.pl/restauracja" target="_blank" class="btn btn-outline">Menu</a>
+            <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
+            <a href="https://www.papaj-resort.pl/restauracja" target="_blank" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Menu</a>
         </div>
         <div class="carousel-container carousel" data-interval="5000">
             <div class="placeholder-slide active">Foto Restauracja 1</div>
@@ -352,7 +388,7 @@
 
     <div class="card big-card">
         <div>
-            <h2>Wędzarnia Przypiecek</h2>
+            <h2><i class="fa-solid fa-fire-burner"></i> Wędzarnia Przypiecek</h2>
             <p>Kultowe miejsce na mapie JG</p>
             <div class="frame">
                 Otwarta od maja do września.
@@ -367,9 +403,9 @@
 
     <div id="przewodnik" class="card big-card">
         <div>
-            <h2>Przewodnik Gościa na podróże małe i duże</h2>
+            <h2><i class="fa-solid fa-map"></i> Przewodnik Gościa na podróże małe i duże</h2>
             <p>Nasz Przewodnik po okolicy. W sam raz na jednodniowe wypady, albo dłuższe wycieczki.</p>
-            <a href="przewodnik.pdf" target="_blank" class="btn">Zobacz nasz przewodnik</a>
+            <a href="przewodnik.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-pdf"></i> Zobacz nasz przewodnik</a>
         </div>
         <div class="pdf-container">
             <iframe src="przewodnik.pdf" width="100%" height="100%" style="border: none;">
@@ -379,71 +415,71 @@
     </div>
 
     <div id="faq" class="card">
-        <h2>FAQ - najczęstsze pytania Gości</h2>
+        <h2><i class="fa-solid fa-comments"></i> FAQ - najczęstsze pytania Gości</h2>
         
         <details>
-            <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Co zrobić jak nie działa mi kod do drzwi?</summary>
             <p>Zadzwoń do nas!</p>
         </details>
         <details>
-            <summary>Gdzie znajdę tabletki do zmywarki i kapsułki do ekspresu?</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajdę tabletki do zmywarki i kapsułki do ekspresu?</summary>
             <p>W szufladzie przy lodówce.</p>
         </details>
         <details>
-            <summary>Najbliższy sklep</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Najbliższy sklep</summary>
             <p>Skorpion, czyli mały ale dobrze wyposażony sklep tuż na rogiem. Zawsze otwarty w niedziele. Delikatesy Skorpion, Rozewska 1, 84-104 Jastrzębia Góra.</p>
         </details>
         <details>
-            <summary>Sklep otwarty w niedzielę?</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Sklep otwarty w niedzielę?</summary>
             <p>Delikatesy Skorpion, tuż za rogiem. Delikatesy Skorpion, Rozewska 1, 84-104 Jastrzębia Góra.</p>
         </details>
         <details>
-            <summary>Najbliższa piekarnia</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Najbliższa piekarnia</summary>
             <p>Piekarnia Konkol, lokalna piekarnia gdzie oprócz pysznego chleba kupisz ciasta i ciasteczka na słodkie popołudnie w apartamencie.</p>
         </details>
         <details>
-            <summary>Market spożywczy</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Market spożywczy</summary>
             <p>Polo Market oraz Biedronka w Mieroszynie</p>
         </details>
         <details>
-            <summary>Najbliższa Apteka</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Najbliższa Apteka</summary>
             <p>JG Apteka</p>
         </details>
         <details>
-            <summary>Drogeria</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Drogeria</summary>
             <p>Rossmann w Mieroszynie.</p>
         </details>
         <details>
-            <summary>Szpital</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Szpital</summary>
             <p>Puck i Wejherowo</p>
         </details>
         <details>
-            <summary>Taksówka?</summary>
+            <summary><i class="fa-solid fa-angle-down"></i> Taksówka?</summary>
             <p>Pan Mietek</p>
         </details>
     </div>
 
 </main>
 
-<footer>
+<footer class="footer-main">
     <div class="footer-grid">
         <div class="footer-section">
-            <p>Załoga Pilic pozostaje do dyspozycji codziennie od 8 do 20</p>
-            <a href="tel:+48000000000" class="btn">Zadzwoń do nas</a>
+            <p><i class="fa-regular fa-clock"></i> Załoga Pilic pozostaje do dyspozycji codziennie od 8 do 20</p>
+            <a href="tel:+48000000000" class="btn"><i class="fa-solid fa-phone"></i> Zadzwoń do nas</a>
         </div>
         <div class="footer-section">
-            <p>Telefon awaryjny</p>
-            <a href="tel:+48000000000" class="btn">Zadzwoń</a>
-        </div>
-        <div class="footer-section">
-            <p>Bądźmy w kontakcie</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-                <a href="#" class="btn" style="width: 80%;">Oceń nas na Google</a>
-                <a href="#" class="btn" style="width: 80%;">Dowiedz się więcej na naszym blogu</a>
-            </div>
+            <p><i class="fa-solid fa-triangle-exclamation"></i> Telefon awaryjny</p>
+            <a href="tel:+48000000000" class="btn"><i class="fa-solid fa-phone"></i> Zadzwoń</a>
         </div>
     </div>
 </footer>
+
+<div class="footer-secondary">
+    <div class="footer-secondary-links">
+        <a href="https://www.google.com/travel/search?gsas=1&ts=EggKAggDCgIIAxocEhoSFAoHCOoPEAIYFhIHCOoPEAIYGBgCMgIQAA&qs=MhNDZ29JOU5ENXBkNjF6WjV5RUFFOAI&ap=ugEHcmV2aWV3cw&ictx=111&hl=es-419&ved=0CAAQ5JsGahcKEwjA1PjMiemSAxUAAAAAHQAAAAAQBA" target="_blank" class="btn"><i class="fa-brands fa-google"></i> Oceń nas na Google</a>
+        <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" class="btn btn-outline"><i class="fa-solid fa-blog"></i> Czytaj więcej na naszym blogu</a>
+    </div>
+</div>
 
 <script>
     const carousels = document.querySelectorAll('.carousel');
