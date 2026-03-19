@@ -29,6 +29,12 @@
         }
 
         /* --- 1. Top Navigation --- */
+
+   <nav class="top-nav">
+    <ul>
+        <li><a href="index_pl.html"><i class="fa-solid fa-globe"></i> EN</a></li>
+    </ul>
+</nav>
         .top-nav {
             position: fixed;
             top: 0;
