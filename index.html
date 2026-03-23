@@ -165,6 +165,109 @@
             .top-nav a { font-size: 0.75rem; }
             .container { padding: 0 15px; }
         }
+        /* --- Estilos para el FAQ en Bloques --- */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espacio entre bloques */
+    margin-top: 20px;
+}
+
+details.faq-item {
+    background: #E8EEF2; /* Color de bloque suave */
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+details.faq-item:hover {
+    background: #D1DBE1; /* Cambio de color al pasar el ratón */
+}
+
+details.faq-item summary {
+    padding: 18px 20px;
+    list-style: none; /* Quita la flecha por defecto */
+    font-weight: 700;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/* Quitar la flecha en navegadores específicos */
+details.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+details.faq-item p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+    .footer-main { 
+        background: var(--primary); 
+        color: white; 
+        padding: 40px 20px; 
+        margin-top: 50px; 
+    }
+
+    .footer-container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 250px; /* Evita que se compriman demasiado */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-section p {
+        margin: 0;
+        font-weight: 400;
+        font-size: 0.95rem;
+    }
+
+    /* Footer Secundario (Gris/Azul oscuro) */
+    .footer-secondary { 
+        background: var(--footer-alt); 
+        color: white; 
+        padding: 25px 20px; 
+        text-align: center; 
+    }
+
+    .footer-links-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Ajustes para móviles */
+    @media (max-width: 600px) {
+        .footer-section {
+            min-width: 100%; /* Se apilan uno sobre otro */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+        .footer-section:last-child { border-bottom: none; }
+        
+        .footer-section .btn {
+            width: 100%; /* Botones grandes en móvil */
+            box-sizing: border-box;
+        }
+    }
     </style>
 </head>
 <body>
@@ -310,74 +413,64 @@
         </div>
     </div>
 <div id="faq" class="card">
-    <h2><i class="fa-solid fa-comments"></i> FAQ - najczęstsze pytania Gości</h2>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Co zrobić jak nie działa mi kod do drzwi?</summary>
-            <p>Jeśli nie masz ze sobą klucza, zadzwoń do nas.</p>
+    <h2 style="margin-bottom: 20px;">Często zadawane pytania (FAQ)</h2>
+    
+    <div class="faq-container">
+        <details class="faq-item">
+            <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
+            <p>Jeśli nie masz ze sobą klucza, zadzwoń do nas pod numer awaryjny widoczny w stopce strony.</p>
         </details>      
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Czy na terenie obiektu można paplić?</summary>
-            <p>We wszystkich apartamentach obowiązuje zakaz palenia papierosów i papierosów elektronicznych. Palić można na balkonach i w ogródkach. Popielniczka znajduje się w szufladzie, w łazience.</p>
+
+        <details class="faq-item">
+            <summary>Czy na terenie obiektu można palić?</summary>
+            <p>We wszystkich apartamentach obowiązuje zakaz palenia. Palić można wyłącznie na balkonach i w ogródkach. Popielniczka znajduje się w szufladzie w łazience.</p>
         </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższy sklep?</summary>
-            <p>Delikatesy Skorpion, czyli mały ale dobrze wyposażony sklep tuż na rogiem. Zawsze otwarty w niedziele. Delikatesy Skorpion, Rozewska 1.</p>
+
+        <details class="faq-item">
+            <summary>Gdzie znajduje się najbliższy sklep?</summary>
+            <p>Delikatesy Skorpion (Rozewska 1) to mały, ale dobrze wyposażony sklep tuż za rogiem, otwarty również w niedziele.</p>
         </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najblizszy market spożywczy?</summary>
-            <p>Polo Market w Jastrzębiej Górze, oraz Biedronka w Mieroszynie.</p>
+
+        <details class="faq-item">
+            <summary>Gdzie znajduje się najbliższa apteka?</summary>
+            <p>Apteka Bursztynowa znajduje się na ulicy Królewskiej 9, około 300 metrów od Apartamentów Pilice.</p>
         </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Jaki najbliższy sklep jest otwarty w niedzielę?</summary>
-            <p>Delikatesy Skorpion, Rozewska 1.</p>
-        </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższa piekarnia?</summary>
-            <p>Piekarnia Konkol, lokalna piekarnia gdzie oprócz pysznego chleba kupisz ciasta i ciasteczka na słodkie popołudnie w apartamencie. Punkt na Rozewskiej 4 jest otwarty cały rok.  
-            W sezonie letnim w chleb i bułki zaopatrzysz się również na Topolowej 14. </p>
-        </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższa apteka?</summary>
-            <p> W Jastrzębiej Górze jest apteka Bursztynowa, na ulicy Królewskiej 9, 300 metrów od Apartamentów Pilice. 
-            </p>
-        </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższa drogeria?</summary>
-            <p>Drogeria Rossmann w Mieroszynie, 4 km od Pilic.</p>
-        </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższy szpital?</summary>
-            <p>Szpital miejski w Pucku i Szpital Specjalistyczny w Wejherowie.</p>
-        </details>
-        <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajdę najbliższy postój taksówek w Jastrzębiej Górze?</summary>
-            <p>Tuż obok hotelu Ara. Poza sezonem można skorzystać z taksówek z Władysławowa.</p>
-        </details>
-     <details>
-            <summary><i class="fa-solid fa-angle-down"></i> Gdzie znajduje się najbliższa stacja paliw?</summary>
-            <p>Lokalna stacja paliw (Stacja Paliw Renusz) - Łebcz, 9 km. Sieciowe stacje palic (Circle K i Orlen) - Władysławowo, 10.5 km. </p>
+
+        <details class="faq-item">
+            <summary>Gdzie znajdę najbliższy postój taksówek?</summary>
+            <p>Postój znajduje się tuż obok hotelu Ara. Poza sezonem polecamy zamawiać taksówki z Władysławowa.</p>
         </details>
     </div>
+</div>
 
 </main>
 
 <footer class="footer-main">
-    <div class="footer-grid">
+    <div class="footer-container">
         <div class="footer-section">
             <p><i class="fa-regular fa-clock"></i> Załoga Pilic (8:00 - 20:00)</p>
-            <a href="tel:+48728833477" class="btn"><i class="fa-solid fa-phone"></i> Zadzwoń</a>
+            <a href="tel:+48728833477" class="btn">
+                <i class="fa-solid fa-phone"></i> +48 728 833 477
+            </a>
         </div>
+
         <div class="footer-section">
             <p><i class="fa-solid fa-triangle-exclamation"></i> Telefon awaryjny</p>
-            <a href="tel:+48798752989" class="btn"><i class="fa-solid fa-phone"></i> Zadzwoń</a>
+            <a href="tel:+48798752989" class="btn">
+                <i class="fa-solid fa-phone"></i> +48 798 752 989
+            </a>
         </div>
     </div>
 </footer>
 
 <div class="footer-secondary">
-    <div class="footer-secondary-links" style="display: flex; justify-content: center; gap: 15px;">
-        <a href="https://www.google.com/search?newwindow=1&sca_esv=63d44ac5fb776b6b&sxsrf=ANbL-n6z5u-7iGXSoozxXPN9tGpkC_IZ2g:1773953708697&q=apartamenty+pilice+google&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qObY2blCio1CSoSScwdcbx3Sd1XIV_N6cEb-26GOGW4jTx8cSsYo43sYwsvcPtNFRVuL7cWM%3D&uds=ALYpb_kgbr9WnQ7cqOGSWrVQwMIXngAookl6iQW6ZiNV3CYBgtyGW7huaDKRoPoSM8bJqHVF0LDYdfMC8khUOZeVHmzfxoNbqQIKoOGceitVl7KO9Y661I5M5TKW4q4fB-h93VxfMDfp&sa=X&ved=2ahUKEwivqZ7F7KyTAxX8HhAIHTxMFjQQ3PALegQIHBAE&biw=2304&bih=1094&dpr=0.83" target="_blank" rel="noopener" class="btn"><i class="fa-brands fa-google"></i> Oceń nas</a>
-        <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-solid fa-blog"></i> Blog</a>
+    <div class="footer-links-container">
+        <a href="https://www.google.com/search?..." target="_blank" rel="noopener" class="btn">
+            <i class="fa-brands fa-google"></i> Oceń nas
+        </a>
+        <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" rel="noopener" class="btn btn-outline" style="color: white; border-color: white;">
+            <i class="fa-solid fa-blog"></i> Blog
+        </a>
     </div>
 </div>
 
