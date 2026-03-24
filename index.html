@@ -290,79 +290,60 @@ details.faq-item p {
         }
     }
 
-        /* Alineación del selector en la misma línea que los otros <li> */
-.nav-item-lang {
+       /* Selector de idioma sin forma (estilo limpio) */
+.nav-lang-item {
     display: flex;
     align-items: center;
-    margin-left: 10px; /* Espaciado respecto a la última sección */
+    gap: 5px; /* Espacio idéntico al de tus otros iconos */
 }
 
-.lang-dropdown-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--frame-bg); /* Fondo gris suave de tu :root */
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+.nav-lang-item i {
+    color: var(--text-color);
+    font-size: 0.85rem;
 }
 
-.lang-dropdown-wrapper:hover {
-    border-color: var(--primary);
-}
-
-/* Estilo del Dropdown invisible nativo para usar el diseño del wrapper */
 #language-selector {
-    appearance: none; /* Elimina el estilo por defecto de Windows/Mac */
-    -webkit-appearance: none;
     background: transparent;
     border: none;
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     cursor: pointer;
-    padding-right: 15px; /* Espacio para la flecha personalizada */
     outline: none;
+    padding: 0;
+    appearance: none; /* Elimina la flecha predeterminada del sistema */
+    -webkit-appearance: none;
 }
 
-/* Icono de globo y flecha */
-.lang-dropdown-wrapper i {
-    font-size: 0.9rem;
+#language-selector option {
+    background-color: white; /* Fondo para que las opciones sean legibles */
+    color: var(--text-color);
+}
+
+/* Cambio de color al pasar el mouse para coincidir con el menú */
+.nav-lang-item:hover i, 
+.nav-lang-item:hover #language-selector {
     color: var(--primary);
-}
-
-.custom-arrow {
-    position: absolute;
-    right: 10px;
-    font-size: 0.6rem !important;
-    pointer-events: none; /* Permite hacer clic a través del icono al select */
 }
     </style>
 </head>
 <body>
 
-    
-<nav class="top-nav">
+        <nav class="top-nav">
     <ul>
         <li><a href="#info"><i class="fa-solid fa-circle-info"></i> Info</a></li>
         <li><a href="#rekreacja">Atrakcje</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li class="nav-item-lang">
-   <li class="nav-item-lang">
-    <div class="lang-dropdown-wrapper">
-        <i class="fa-solid fa-globe"></i>
-        <select id="language-selector" onchange="location = this.value;">
-            <option value="index.html">Polski</option>
-            <option value="index_en.html">English</option>
-            <option value="index_de.html" selected>Deutsch</option>
-        </select>
-        <i class="fa-solid fa-chevron-down custom-arrow"></i>
-    </div>
-</li>
+        <li class="nav-lang-item">
+            <i class="fa-solid fa-globe"></i>
+            <select id="language-selector" onchange="location = this.value;">
+                <option value="index.html" selected>PL</option>
+                <option value="index_en.html">EN</option>
+                <option value="index_de.html">DE</option>
+            </select>
+        </li>
     </ul>
 </nav>
 
