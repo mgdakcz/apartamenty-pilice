@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -298,7 +298,12 @@ details.faq-item p {
         <li><a href="#info"><i class="fa-solid fa-circle-info"></i> Info</a></li>
         <li><a href="#rekreacja">Attraktionen</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="index_en.html"><i class="fa-solid fa-globe"></i> English</a></li>
+         <li class="nav-item-lang">
+    <i class="fa-solid fa-globe"></i>
+    <select id="language-selector" onchange="location = this.value;" style="border: none; background: transparent; font-family: 'Montserrat', sans-serif; font-weight: 600; cursor: pointer; color: var(--text-color);">
+        <option value="index.html">PL</option>
+        <option value="index_en.html">EN</option>
+        <option value="index_de.html" selected>DE</option>
     </ul>
 </nav>
 
