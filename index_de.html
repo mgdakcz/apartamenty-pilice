@@ -289,6 +289,55 @@ details.faq-item p {
             box-sizing: border-box;
         }
     }
+
+        /* Contenedor principal en la nav */
+.lang-toggle-container {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+/* La "pastilla" de fondo */
+.lang-switch {
+    display: flex;
+    background: var(--frame-bg);
+    border-radius: 20px;
+    padding: 3px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* Estilo de cada enlace de idioma */
+.lang-link {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+/* El idioma activo resalta */
+.lang-link.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Efecto al pasar el mouse sobre los no activos */
+.lang-link:hover:not(.active) {
+    background: rgba(44, 95, 120, 0.1); /* Un toque de tu color --primary */
+}
+
+/* Ajuste para móviles en tu nav existente */
+@media (max-width: 768px) {
+    .lang-toggle-container {
+        margin: 10px 0;
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
@@ -299,11 +348,13 @@ details.faq-item p {
         <li><a href="#rekreacja">Attraktionen</a></li>
         <li><a href="#faq">FAQ</a></li>
          <li class="nav-item-lang">
-    <i class="fa-solid fa-globe"></i>
-    <select id="language-selector" onchange="location = this.value;" style="border: none; background: transparent; font-family: 'Montserrat', sans-serif; font-weight: 600; cursor: pointer; color: var(--text-color);">
-        <option value="index.html">PL</option>
-        <option value="index_en.html">EN</option>
-        <option value="index_de.html" selected>DE</option>
+  <li class="lang-toggle-container">
+    <div class="lang-switch">
+        <a href="index.html" class="lang-link">PL</a>
+        <a href="index_en.html" class="lang-link">EN</a>
+        <a href="index_de.html" class="lang-link active">DE</a>
+    </div>
+</li>
     </ul>
 </nav>
 
