@@ -290,53 +290,56 @@ details.faq-item p {
         }
     }
 
-        /* Contenedor principal en la nav */
-.lang-toggle-container {
-    list-style: none;
+        /* Alineación del selector en la misma línea que los otros <li> */
+.nav-item-lang {
     display: flex;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 10px; /* Espaciado respecto a la última sección */
 }
 
-/* La "pastilla" de fondo */
-.lang-switch {
+.lang-dropdown-wrapper {
+    position: relative;
     display: flex;
-    background: var(--frame-bg);
+    align-items: center;
+    gap: 6px;
+    background: var(--frame-bg); /* Fondo gris suave de tu :root */
+    padding: 4px 12px;
     border-radius: 20px;
-    padding: 3px;
     border: 1px solid var(--border-color);
-    overflow: hidden;
-}
-
-/* Estilo de cada enlace de idioma */
-.lang-link {
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-color);
-    padding: 5px 10px;
-    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
-/* El idioma activo resalta */
-.lang-link.active {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.lang-dropdown-wrapper:hover {
+    border-color: var(--primary);
 }
 
-/* Efecto al pasar el mouse sobre los no activos */
-.lang-link:hover:not(.active) {
-    background: rgba(44, 95, 120, 0.1); /* Un toque de tu color --primary */
+/* Estilo del Dropdown invisible nativo para usar el diseño del wrapper */
+#language-selector {
+    appearance: none; /* Elimina el estilo por defecto de Windows/Mac */
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-right: 15px; /* Espacio para la flecha personalizada */
+    outline: none;
 }
 
-/* Ajuste para móviles en tu nav existente */
-@media (max-width: 768px) {
-    .lang-toggle-container {
-        margin: 10px 0;
-        justify-content: center;
-    }
+/* Icono de globo y flecha */
+.lang-dropdown-wrapper i {
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.custom-arrow {
+    position: absolute;
+    right: 10px;
+    font-size: 0.6rem !important;
+    pointer-events: none; /* Permite hacer clic a través del icono al select */
 }
     </style>
 </head>
@@ -349,11 +352,15 @@ details.faq-item p {
         <li><a href="#rekreacja">Atrakcje</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li class="nav-item-lang">
-   <li class="lang-toggle-container">
-    <div class="lang-switch">
-        <a href="index.html" class="lang-link">PL</a>
-        <a href="index_en.html" class="lang-link">EN</a>
-        <a href="index_de.html" class="lang-link active">DE</a>
+   <li class="nav-item-lang">
+    <div class="lang-dropdown-wrapper">
+        <i class="fa-solid fa-globe"></i>
+        <select id="language-selector" onchange="location = this.value;">
+            <option value="index.html">Polski</option>
+            <option value="index_en.html">English</option>
+            <option value="index_de.html" selected>Deutsch</option>
+        </select>
+        <i class="fa-solid fa-chevron-down custom-arrow"></i>
     </div>
 </li>
     </ul>
