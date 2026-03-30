@@ -221,13 +221,18 @@ details.faq-item summary::-webkit-details-marker {
     display: none;
 }
 
-details.faq-item p {
-    padding: 0 20px 20px 20px;
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    line-height: 1.5;
+    details.faq-item p {
+padding: 0 20px 20px 20px;
+margin: 0;
+font-size: 0.9rem;
+color: var(--text-color);
+line-height: 1.8; /* Aumentamos un poco el interlineado */
+display: flex;    /* Permite que los botones se alineen mejor si hay varios */
+flex-wrap: wrap;
+gap: 10px;
+align-items: center;
 }
+        
     .footer-main { 
         background: var(--primary); 
         color: white; 
@@ -482,36 +487,76 @@ details.faq-item p {
     <h2 style="margin-bottom: 20px;">Häufig gestellte Fragen (FAQ)</h2>
     
     <div class="faq-container">
-        <details class="faq-item">
-            <summary>Was tun, wenn der Türcode nicht funktioniert?</summary>
-            <p>Wenn du keinen Schlüssel hast, ruf bitte die Notfallnummer im Footer an.</p>
-        </details>      
 
-        <details class="faq-item">
-            <summary>Ist Rauchen erlaubt?</summary>
-            <p>In den Apartments ist Rauchen verboten. Nur auf Balkonen oder im Garten erlaubt. Ein Aschenbecher ist im Badezimmerschrank.</p>
-        </details>
+    <details class="faq-item">
+        <summary>Was tun, wenn mein Türcode nicht funktioniert?</summary>
+        <p>Wenn Sie keinen Schlüssel dabei haben, rufen Sie uns unter der im Footer der Seite angegebenen Nummer an.</p>
+    </details>
 
-        <details class="faq-item">
-            <summary>Wo sind die Müllcontainer?</summary>
-            <p>Die Müllcontainer befinden sich bei der Einfahrt zur Tiefgarage.</p>
-        </details>
+    <details class="faq-item">
+        <summary>Darf auf dem Gelände geraucht werden?</summary>
+        <p>In allen Apartments gilt ein striktes Rauchverbot. Das Rauchen ist nur auf den Balkonen und in den Gärten gestattet. Ein Aschenbecher befindet sich in der Badezimmerschublade.</p>
+    </details>
 
-        <details class="faq-item">
-            <summary>Wo ist der nächste Laden?</summary>
-            <p>Delikatesy Skorpion (Rozewska 1) to mały, ale dobrze wyposażony sklep tuż za rogiem, otwarty również w niedziele.</p>
-        </details>
+    <details class="faq-item">
+        <summary>Wo befinden sich die Mülltonnen?</summary>
+        <p>Die Mülltonnen befinden sich an der Einfahrt zur Tiefgarage. Der Zugang erfolgt über die Tiefgarage oder vom Innenhof aus.</p>
+    </details>
 
-        <details class="faq-item">
-            <summary>Wo ist die nächste Apotheke?</summary>
-            <p>Apteka Bursztynowa znajduje się na ulicy Królewskiej 9, około 300 metrów od Apartamentów Pilice.</p>
-        </details>
+    <details class="faq-item">
+        <summary>Wo ist das nächste Geschäft?</summary>
+        <p>Delikatesy Skorpion (Rozewska 1) ist ein kleiner, aber gut sortierter Laden direkt um die Ecke, der auch sonntags geöffnet ist.
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Delikatesy+Skorpion+Sklep+Spożywczo-Monopolowy+całodobowy,+Rozewska+1,+84-104+Jastrzębia+Góra/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adb6228eb7b:0x12db8e718bc178e5!2m2!1d18.3002992!2d54.8328395!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a>
+        </p>
+    </details>
 
-        <details class="faq-item">
-            <summary>Wo ist der nächste Taxistand?</summary>
-            <p>Postój znajduje się tuż obok hotelu Ara. Poza sezonem polecamy zamawiać taksówki z Władysławowa.</p>
-        </details>
-    </div>
+     <details class="faq-item">
+        <summary>Wo ist der nächste Supermarkt?</summary>
+         <p> Am nächsten liegt der Polo Market, 160 m von Pilice entfernt. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/POLOmarket,+Rozewska+1,+84-104+Jastrzębia+Góra/@54.8335061,18.3048659,47m/data=!3m3!1e3!4b1!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adc86070cb1:0x2bd1bc6ae9f49c07!2m2!1d18.3011086!2d54.8334565!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt </a> <br>
+             In Mieroszyno, 4 km von Pilice entfernt, gibt es eine Biedronka-Filiale. <a href="https://www.google.com/maps/place/Biedronka/@54.8004866,18.2955787,3009m/am=t/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2sApartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra!2m2!1d18.3013622!2d54.8320816!1m6!1m2!1s0x46fdb536be24117b:0xa218b0607b84c6d!2sBiedronka,+Szkolna+3,+84-103+Mieroszyno!2m2!1d18.3127693!2d54.8004866!3m5!1s0x46fdb536be24117b:0xa218b0607b84c6d!8m2!3d54.8004866!4d18.3127693!16s%2Fg%2F11xvr563n9!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt </a>
+         </p>
+    </details>
+
+    <details class="faq-item">
+        <summary>Wo ist die nächste Tankstelle?</summary>
+        <p>
+            Am nächsten in Łebcz, die lokale Tankstelle Renusz, 8 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Renusz,+Pucka+14,+84-103+Łebcz/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb4802199ce3d:0xc464ce5bc63ae8b!2m2!1d18.3400267!2d54.765153!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a> <br>
+            Weiter entfernt, in Władysławowo, gibt es Orlen und CircleK, 10 km. <br>
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Stacja+Paliw+ORLEN,+Gdańska+107,+84-120+Władysławowo/@54.8335061,18.3048659,47m/data=!3m3!1e3!4b1!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb31888d83a4f:0x1c8ea6f73e88b07e!2m2!1d18.405257!2d54.7756203!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Orlen-Anfahrt </a>
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Circle+K,+Starowiejska+25,+84-120+Władysławowo/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb32982a1dd83:0xaad8b3a80a8a6cfd!2m2!1d18.424131!2d54.790386!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> CircleK-Anfahrt </a>
+        </p>
+    </details>
+
+    <details class="faq-item">
+        <summary>Wo ist die nächste Apotheke?</summary>
+        <p>Die Apotheke Bursztynowa befindet sich in der Królewska-Straße 9, etwa 300 Meter von den Apartamenty Pilice entfernt.
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Apteka+Bursztynowa,+Królewska+9,+84-104+Jastrzębia+Góra/@54.8325028,18.3078206,819m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adb455c0605:0x7e8aeb1973e6adba!2m2!1d18.2982302!2d54.8324953!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a>
+        </p>
+    </details>
+
+    <details class="faq-item">
+        <summary>Wo finde ich den nächsten Taxistand?</summary>
+        <p>Der Taxistand befindet sich direkt neben dem Hotel Ara. Außerhalb der Saison empfehlen wir, Taxis aus Władysławowo zu bestellen.
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/54.833583,18.3052729/@54.8335061,18.3048659,47m/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m9!4m8!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m0!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a>
+        </p>
+    </details>
+
+     <details class="faq-item">
+        <summary>Wo ist die nächste Bushaltestelle?</summary>
+        <p>Die nächste Haltestelle ist ganz in der Nähe, nur 190 Meter von Pilice entfernt. <a href="https://www.google.com/maps/place/Jastrz%C4%99bia+G%C3%B3ra/@54.8314032,18.2983857,17z/data=!4m23!1m16!4m15!1m6!1m2!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2sApartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra!2m2!1d18.3013622!2d54.8320816!1m6!1m2!1s0x46fc4adc7d001285:0x8e950176aa26ae4f!2zSmFzdHJ6xJliaWEgR8OzcmEsIDg0LTEwNCBKYXN0cnrEmWJpYSBHw7NyYQ!2m2!1d18.301801!2d54.833198!3e0!3m5!1s0x46fc4adc7d001285:0x8e950176aa26ae4f!8m2!3d54.833198!4d18.301801!16s%2Fg%2F11vf1nq_dx?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D"  target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a>. <br>
+            Nach Gdynia und Karwia gelangen Sie mit der PKS-Buslinie 650. Nach Puck und Władysławowo mit der Linie 668.
+            <a href="https://pksgdynia.pl/"  target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Fahrplan hier prüfen.</a>
+        </p>
+    </details>
+
+    <details class="faq-item">
+        <summary>Wo ist das nächste Krankenhaus?</summary>
+        <p>
+            Städtisches Krankenhaus in Puck, 18 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Hospital+Puck+Ltd.,+1+Maja+13A,+84-100+Puck/@54.7739152,18.2748339,12z/am=t/data=!3m1!5s0x46fdba23debb45ad:0xa23daf4417c20268!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb23d9fbc8907:0x37d823db87c58ea3!2m2!1d18.4138439!2d54.7212345!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a> <br>
+            Fachkrankenhaus in Wejherowie, 38 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Szpital+Specjalistyczny+im.+Floriana+Ceynowy,+dr+Alojzego+Jagalskiego+10,+84-200+Wejherowo/@54.72131,18.0826968,11z/am=t/data=!3m2!4b1!5s0x46fdba23debb45ad:0xa23daf4417c20268!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdba2389df4d81:0xe2cdf954fe394542!2m2!1d18.2449269!2d54.6147397!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Anfahrt</a>
+        </p>
+    </details>
+</div>
 </div>
 
 </main>
@@ -536,7 +581,7 @@ details.faq-item p {
 
 <div class="footer-secondary">
     <div class="footer-links-container">
-        <a href="https://www.google.com/search?..." target="_blank" rel="noopener" class="btn">
+        <a href="https://www.google.com/travel/search?gsas=1&ts=EggKAggDCgIIAxocEhoSFAoHCOoPEAMYHhIHCOoPEAQYARgCMgIQAA&qs=MhNDZ29JOU5ENXBkNjF6WjV5RUFFOAI&ap=ugEHcmV2aWV3cw&ictx=111&hl=es-419&ved=0CAAQ5JsGahcKEwjom9SBtsiTAxUAAAAAHQAAAAAQBA" target="_blank" rel="noopener" class="btn">
             <i class="fa-brands fa-google"></i> Bewerte uns
         </a>
         <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" rel="noopener" class="btn btn-outline" style="color: white; border-color: white;">
