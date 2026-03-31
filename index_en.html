@@ -564,8 +564,20 @@ align-items: center;
 </div>
 
 <script>
-    // unchanged
+    // Carusel Logic
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('img');
+        if (slides.length <= 1) return; 
+        let currentIndex = 0;
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 3500);
+    });
 </script>
+
 
 </body>
 </html>
