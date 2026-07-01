@@ -357,6 +357,23 @@ details.faq-item p {
     font-size: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+        .search-container {
+    padding: 20px 20px 10px 20px;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-family: 'Montserrat', sans-serif;
+}
     </style>
 </head>
 <body>
@@ -378,6 +395,10 @@ details.faq-item p {
 </nav>
 
 <header class="hero"></header>
+    
+    <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Szukaj informacji..." onkeyup="filterContent()">
+</div>
 
 <main class="container">
     
@@ -654,6 +675,21 @@ details.faq-item p {
             card.style.display = "";
         } else {
             card.style.display = "none";
+        }
+    });
+}
+    function filterContent() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    // Seleccionamos las tarjetas y los ítems del FAQ
+    let items = document.querySelectorAll('.card, .faq-item');
+    
+    items.forEach(item => {
+        let text = item.innerText.toLowerCase();
+        // Si el texto del elemento contiene lo escrito, lo mostramos
+        if (text.includes(input)) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
         }
     });
 }
