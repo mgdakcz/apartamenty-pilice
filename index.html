@@ -39,6 +39,9 @@
             z-index: 1000; 
             padding: 10px 0;
         }
+        <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Szukaj informacji..." onkeyup="filterContent()">
+</div>
         .top-nav ul { 
             list-style: none; 
             margin: 0; 
@@ -338,6 +341,22 @@ details.faq-item p {
 .nav-lang-item:hover #language-selector {
     color: var(--primary);
 }
+        .search-container {
+    margin-top: 70px; /* Para que quede debajo del nav fijo */
+    text-align: center;
+    padding: 10px;
+}
+
+#searchInput {
+    width: 90%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
     </style>
 </head>
 <body>
@@ -615,6 +634,22 @@ details.faq-item p {
             slides[currentIndex].classList.add('active');
         }, 3500);
     });
+
+    function filterContent() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    // Seleccionamos las tarjetas y los ítems del FAQ
+    let cards = document.querySelectorAll('.card, .faq-item');
+    
+    cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        // Si el texto de la tarjeta incluye lo que escribes, la muestra, si no, la oculta
+        if (text.includes(input)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
 </script>
 
 </body>
