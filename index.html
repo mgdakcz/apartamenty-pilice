@@ -219,7 +219,7 @@ details.faq-item summary {
     margin: 0;
     font-size: 0.9rem;
     color: var(--text-color);
-    line-height: 1.8; /* Aumentamos un poco el interlineado */
+    line-height: 1.5;
     display: flex;    /* Permite que los botones se alineen mejor si hay varios */
     flex-wrap: wrap;
     gap: 10px;
@@ -229,14 +229,6 @@ details.faq-item summary {
 /* Quitar la flecha en navegadores específicos */
 details.faq-item summary::-webkit-details-marker {
     display: none;
-}
-
-details.faq-item p {
-    padding: 0 20px 20px 20px;
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    line-height: 1.5;
 }
     .footer-main { 
         background: var(--primary); 
@@ -307,9 +299,20 @@ details.faq-item p {
     gap: 5px; /* Espacio idéntico al de tus otros iconos */
 }
 
-.nav-lang-item i {
-    color: var(--text-color);
-    font-size: 0.85rem;
+/* Flaga kraju zamiast ikony globusa */
+.lang-flag {
+    display: inline-flex;
+    width: 21px;
+    height: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15); /* delikatna ramka, żeby biel flagi PL była widoczna */
+    flex-shrink: 0;
+}
+.lang-flag svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 #language-selector {
@@ -333,7 +336,6 @@ details.faq-item p {
 }
 
 /* Cambio de color al pasar el mouse para coincidir con el menú */
-.nav-lang-item:hover i, 
 .nav-lang-item:hover #language-selector {
     color: var(--primary);
 }
@@ -467,7 +469,7 @@ details.faq-item p {
         <li><a href="#rekreacja">Atrakcje</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li class="nav-lang-item">
-            <i class="fa-solid fa-globe"></i>
+            <span class="lang-flag" id="lang-flag" aria-hidden="true"><svg viewBox="0 0 16 10" preserveAspectRatio="none"><rect width="16" height="5" fill="#fff"/><rect y="5" width="16" height="5" fill="#DC143C"/></svg></span>
             <select id="language-selector" onchange="location = this.value;">
                 <option value="index.html" selected>PL</option>
                 <option value="index_en.html">EN</option>
@@ -512,7 +514,7 @@ details.faq-item p {
             </ul>
             
             <div class="frame">
-                Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobię kartę rabatową do Restauracji Papaj. 
+                Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobie kartę rabatową do Restauracji Papaj. 
             </div>
             
             <a href="mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Zobacz mapę atrakcji</a>
@@ -543,7 +545,7 @@ details.faq-item p {
             </ul>
 
              <div class="frame">
-                Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobię kartę rabatową do Restauracji Papaj. 
+                Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobie kartę rabatową do Restauracji Papaj. 
             </div>
             <a href="mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Zobacz mapę atrakcji</a>
             <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
@@ -571,7 +573,7 @@ details.faq-item p {
         <div class="frame">Kod do rowerów: <strong>2109</strong></div>
        <div class="frame">Pamiętaj żeby nie jeździć rowerem po plaży.</div>
     </div>
-       
+    </div>
 
     <div id="restauracja" class="card big-card">
         <div>
@@ -622,8 +624,6 @@ details.faq-item p {
     <h2 style="margin-bottom: 20px;">Często zadawane pytania (FAQ)</h2>
     
     <div class="faq-container">
-       
-            <div class="faq-container">
     <details class="faq-item">
         <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
         <p>Jeśli nie masz ze sobą klucza, zadzwoń do nas pod numer widoczny w stopce strony.</p>
@@ -698,9 +698,6 @@ details.faq-item p {
         <p> Tak, bezpośrednio przed budynkiem znajdują się dwie ładowarki gdzie za 2 zł za kWh naładujesz swój samochód elektryczny. Skontaktuj się z Recepcją żeby skorzystać z ładowarki.    
         </p>
     </details>
-                
-</div>
-        
     </div>
 </div>
 
@@ -757,6 +754,23 @@ details.faq-item p {
     updateNavHeight();
     window.addEventListener('resize', updateNavHeight);
     window.addEventListener('load', updateNavHeight);
+
+    // Language flag: shows the flag of the currently selected language.
+    // Works on every language version (PL / EN / DE) without changes.
+    const FLAGS = {
+        PL: '<svg viewBox="0 0 16 10" preserveAspectRatio="none"><rect width="16" height="5" fill="#fff"/><rect y="5" width="16" height="5" fill="#DC143C"/></svg>',
+        EN: '<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="uk-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#uk-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>',
+        DE: '<svg viewBox="0 0 5 3" preserveAspectRatio="none"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>'
+    };
+    function updateLangFlag() {
+        const select = document.getElementById('language-selector');
+        const flag = document.getElementById('lang-flag');
+        if (!select || !flag) return;
+        const code = select.options[select.selectedIndex].text.trim().toUpperCase();
+        if (FLAGS[code]) flag.innerHTML = FLAGS[code];
+    }
+    updateLangFlag();
+    document.getElementById('language-selector').addEventListener('change', updateLangFlag);
 
     // Carusel Logic
     const carousels = document.querySelectorAll('.carousel');
