@@ -1,9 +1,4 @@
 /* ==========================================================
-   TRASY – tu edytujesz treść planera.
-   Każda trasa to jeden blok { ... }. Aby dodać trasę, skopiuj
-   cały blok (od { do },), wklej pod spodem i zmień wartości.
-
-   Pola:
    id         – krótka unikalna nazwa bez spacji i polskich liter
    typ        – "rower" albo "nordic"
    gdzie      – "blisko" (rower do 10 km / NW na miejscu)
@@ -23,7 +18,7 @@
    zdjecia    – lista plików z folderu img/trasy; pierwsze to zdjęcie główne
    ========================================================== */
 
-// Link do wspólnej mapy Google My Maps (przycisk w nagłówku). Wklej go między cudzysłowy.
+// Link do wspólnej mapy Google My Maps (przycisk w nagłówku). 
 const MAPA_WSZYSTKICH_TRAS = "https://www.google.com/maps/d/viewer?mid=1xzSdIRzbyXlEwbVQaBLoFFLmO9Zby0c";
 
 const TRASY = [
@@ -321,7 +316,7 @@ const TRASY = [
     dojazd: "",
     zdjecia: ["wawoz-1.jpg", "wawoz-2.jpg", "wawoz-3.jpg"],
   },
-  {  // SZKIC – opis do sprawdzenia, brak danych o dzieciach, wózkach i jedzeniu
+  {  
     id: "hel-spacer",
     typ: "nordic",
     gdzie: "dalej",
@@ -330,19 +325,19 @@ const TRASY = [
     km: 5.1,
     minuty: 70,
     petla: true,
-    gondola: null,
-    gondolaUwagi: "",
-    wozekBiegowy: null,
-    dzieci: null,
+    gondola: true,
+    gondolaUwagi: "Można pominąć oglądanie bunkrów i zatrzymać się na rybę w okolicy portu.",
+    wozekBiegowy: true,
+    dzieci: true,
     dzieciOdLat: null,
-    jedzenie: null,
+    jedzenie: true,
     opis: ["Spokojna, płaska pętla po Helu, na samym końcu Mierzei Helskiej.", "Dobra propozycja na dzień, w którym i tak wybieracie się na Hel."],
-    wskazowka: "",
+    wskazowka: "Jeśli odwiedzacie fokarium, sprawdźcie godziny karmienia.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.61091,18.79897&destination=54.60962,18.80106&waypoints=54.60474,18.80155|54.60994,18.81429|54.61277,18.81348&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.61091,18.79897&travelmode=driving",
     zdjecia: ["hel-spacer-1.jpg", "hel-spacer-2.jpg"],
   },
-  {  // SZKIC – opis do sprawdzenia, brak danych o dzieciach, wózkach i jedzeniu
+  {  
     id: "puck",
     typ: "nordic",
     gdzie: "dalej",
@@ -351,16 +346,98 @@ const TRASY = [
     km: 7.3,
     minuty: 100,
     petla: true,
-    gondola: null,
+    gondola: true,
     gondolaUwagi: "",
-    wozekBiegowy: null,
-    dzieci: null,
+    wozekBiegowy: true,
+    dzieci: true,
     dzieciOdLat: null,
-    jedzenie: null,
+    jedzenie: true,
     opis: ["Płaska pętla po Pucku i jego okolicy nad Zatoką Pucką.", "Spokojny marsz w równym tempie, dobry na rozruch albo dzień odpoczynku od dłuższych tras."],
-    wskazowka: "",
+    wskazowka: "Zarezerwujcie chwilę na kawę lub pierogi w okolicy Starego Rynku. W sezonie letnim w Pucku traficie na wiele plenerowych koncertów, w tym koncerty Puckiej Orkiestry Dętej. Zwykle na Zielonym Mostku, nad Portem Jachtowym.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.72185,18.41854&destination=54.72250,18.41782&waypoints=54.72286,18.40273|54.72964,18.39335|54.72444,18.40276&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.72185,18.41854&travelmode=driving",
     zdjecia: ["puck-1.jpg"],
+  },
+   {  
+    id: "białogóra",
+    typ: "rower",
+    gdzie: "blisko",
+    nazwa: "Białogóra rowerem",
+    trudnosc: ["latwa"],
+    km: null,
+    minuty: null,
+    petla: null,
+    gondola: null,
+    gondolaUwagi: "",
+    wozekBiegowy: true,
+    dzieci: true,
+    dzieciOdLat: null,
+    jedzenie: true,
+    opis: [""],
+    wskazowka: "",
+    nawigacja: "",
+    dojazd: "null",
+    zdjecia: [""],
+  },
+      {  
+    id: "placeholder1",
+    typ: "rower",
+    gdzie: "blisko",
+    nazwa: "Białogóra rowerem",
+    trudnosc: ["latwa"],
+    km: null,
+    minuty: null,
+    petla: null,
+    gondola: null,
+    gondolaUwagi: "",
+    wozekBiegowy: true,
+    dzieci: true,
+    dzieciOdLat: null,
+    jedzenie: true,
+    opis: [""],
+    wskazowka: "",
+    nawigacja: "",
+    dojazd: "null",
+    zdjecia: [""],
+  },   {  
+    id: "placeholder2",
+    typ: "rower",
+    gdzie: "blisko",
+    nazwa: "Białogóra rowerem",
+    trudnosc: ["latwa"],
+    km: null,
+    minuty: null,
+    petla: null,
+    gondola: null,
+    gondolaUwagi: "",
+    wozekBiegowy: true,
+    dzieci: true,
+    dzieciOdLat: null,
+    jedzenie: true,
+    opis: [""],
+    wskazowka: "",
+    nawigacja: "",
+    dojazd: "null",
+    zdjecia: [""],
+  },   {  
+    id: "placeholder3",
+    typ: "rower",
+    gdzie: "blisko",
+    nazwa: "Białogóra rowerem",
+    trudnosc: ["latwa"],
+    km: null,
+    minuty: null,
+    petla: null,
+    gondola: null,
+    gondolaUwagi: "",
+    wozekBiegowy: true,
+    dzieci: true,
+    dzieciOdLat: null,
+    jedzenie: true,
+    opis: [""],
+    wskazowka: "",
+    nawigacja: "",
+    dojazd: "null",
+    zdjecia: [""],
   },
 ];
