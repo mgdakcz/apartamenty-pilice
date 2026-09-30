@@ -8,3 +8,4 @@ This is a project of an app that will serve the Guests of Apartamenty Pilice get
 - Look & colours for all pages: `css/style.css`
 - Page behaviour (menu, language switch, carousels, search, planner logic): `js/main.js`
 - Photos: `img/` (route photos in `img/trasy/`)
+- App icons: `favicon.ico` (browser tab) and `img/icons/` (home screen), listed in `manifest.json`
