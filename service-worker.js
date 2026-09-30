@@ -3,12 +3,16 @@
 // wersję strony. Kopia z pamięci podręcznej jest używana tylko offline.
 // Zmiana CACHE_NAME usuwa stare kopie zapisane u gości.
 
-const CACHE_NAME = 'pilice-v2';
+const CACHE_NAME = 'pilice-v4';
 const ASSETS = [
   '/',
   '/index.html',
   '/index_en.html',
   '/index_de.html',
+  '/trasy.html',
+  '/trasy.js',
+  '/css/style.css',
+  '/js/main.js',
   '/manifest.json'
 ];
 

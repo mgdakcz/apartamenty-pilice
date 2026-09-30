@@ -6,408 +6,18 @@
     <title>Apartamenty Pilice - Guest Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root { 
-            --primary: #2C5F78; 
-            --secondary: #5B8DA3;
-            --bg-color: #F4F7F9;
-            --card-bg: #FFFFFF; 
-            --text-color: #334756;
-            --frame-bg: #E8EEF2;
-            --border-color: #D1DBE1;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --footer-alt: #1E4254;
-        }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            color: var(--text-color); 
-            background-color: var(--bg-color); 
-            line-height: 1.6; 
-        }
-
-        /* --- Navigation --- */
-        .top-nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: var(--nav-bg); 
-            backdrop-filter: blur(10px); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-            z-index: 1000; 
-            padding: 10px 0;
-        }
-        .top-nav ul { 
-            list-style: none; 
-            margin: 0; 
-            padding: 0; 
-            display: flex; 
-            gap: 15px; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-        }
-        .top-nav a { 
-            text-decoration: none; 
-            color: var(--text-color); 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            display: flex; 
-            align-items: center; 
-            gap: 5px; 
-        }
-
-        /* --- Hero --- */
-        .hero { 
-            width: 100%; 
-            height: 40vh; 
-            background: var(--primary) url('hero1.jpg') center/cover no-repeat; 
-        }
-
-        /* --- Layout --- */
-        .container { max-width: 1100px; margin: 20px auto; padding: 0 20px; }
-        
-        .row { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
-            margin-bottom: 20px; 
-        }
-
-        .card { 
-            background: var(--card-bg); 
-            border-radius: 12px; 
-            padding: 25px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card.big-card { 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr; 
-            gap: 30px; 
-            margin-bottom: 30px; 
-        }
-
-        .card h2 { margin-top: 0; color: var(--primary); font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
-
-        /* --- Icon Lists --- */
-        .icon-list { 
-            list-style: none; 
-            padding: 0; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-            gap: 10px; 
-            margin: 15px 0;
-        }
-        .icon-list li { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-        .icon-list i { color: var(--primary); width: 18px; }
-/* --- Nueva Calibración del Carrusel (Punto 5 corregido) --- */
-.carousel {
-    position: relative;
-    width: 100%;
-    /* Definimos una proporción fija para evitar saltos de diseño */
-    aspect-ratio: 16 / 9; 
-    max-height: 450px;
-    border-radius: 8px;
-    overflow: hidden; /* Importante para ocultar las imágenes que no están activas */
-    background: #f0f0f0; /* Color de fondo mientras carga la imagen */
-}
-
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-    .carousel {
-        aspect-ratio: 4 / 3; /* Proporción más cuadrada en móviles */
-        max-height: 300px;
-    }
-}
-
-.carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Importante: asegura que la imagen cubra el espacio sin deformarse */
-    object-fit: cover; 
-    
-    /* Control de visibilidad */
-    opacity: 0; /* Invisibles por defecto */
-    transition: opacity 0.8s ease-in-out; /* Transición suave */
-    z-index: 1;
-}
-
-/* Clase que activa la visibilidad */
-.carousel img.active {
-    opacity: 1; /* Visible */
-    z-index: 2; /* Se coloca encima de las demás */
-}
-
-        /* --- UI Elements --- */
-        .btn { 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center;
-            gap: 8px; 
-            background: var(--primary); 
-            color: white; 
-            padding: 10px 18px; 
-            border-radius: 6px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.9rem;
-            transition: 0.3s; 
-            margin-top: 10px;
-        }
-        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
-        .frame { 
-            background-color: var(--frame-bg); 
-            border-left: 4px solid var(--primary); 
-            padding: 15px; 
-            border-radius: 4px; 
-            margin: 15px 0; 
-            font-size: 0.9rem; 
-        }
-
-        /* --- Responsiveness --- */
-        @media (max-width: 850px) {
-            .card.big-card { grid-template-columns: 1fr; }
-            .hero { height: 30vh; }
-            .icon-list { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 480px) {
-            .top-nav ul { gap: 10px; }
-            .top-nav a { font-size: 0.75rem; }
-            .container { padding: 0 15px; }
-        }
-        /* --- Estilos para el FAQ en Bloques --- */
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* Espacio entre bloques */
-    margin-top: 20px;
-}
-
-details.faq-item {
-    background: #E8EEF2; /* Color de bloque suave */
-    border: none;
-    border-radius: 8px;
-    padding: 0;
-    overflow: hidden;
-    transition: background 0.3s ease;
-}
-
-details.faq-item:hover {
-    background: #D1DBE1; /* Cambio de color al pasar el ratón */
-}
-
-details.faq-item summary {
-    padding: 18px 20px;
-    list-style: none; /* Quita la flecha por defecto */
-    font-weight: 700;
-    color: var(--primary);
-    cursor: pointer;
-    font-size: 0.95rem;
-}
-
-/* Quitar la flecha en navegadores específicos */
-details.faq-item summary::-webkit-details-marker {
-    display: none;
-}
-
-    details.faq-item p {
-padding: 0 20px 20px 20px;
-margin: 0;
-font-size: 0.9rem;
-color: var(--text-color);
-line-height: 1.5;
-display: flex;    /* Permite que los botones se alineen mejor si hay varios */
-flex-wrap: wrap;
-gap: 10px;
-align-items: center;
-}
-        
-    .footer-main { 
-        background: var(--primary); 
-        color: white; 
-        padding: 40px 20px; 
-        margin-top: 50px; 
-    }
-
-    .footer-container {
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        justify-content: space-around;
-        text-align: center;
-    }
-
-    .footer-section {
-        flex: 1;
-        min-width: 250px; /* Evita que se compriman demasiado */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .footer-section p {
-        margin: 0;
-        font-weight: 400;
-        font-size: 0.95rem;
-    }
-
-    /* Footer Secundario (Gris/Azul oscuro) */
-    .footer-secondary { 
-        background: var(--footer-alt); 
-        color: white; 
-        padding: 25px 20px; 
-        text-align: center; 
-    }
-
-    .footer-links-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    /* Ajustes para móviles */
-    @media (max-width: 600px) {
-        .footer-section {
-            min-width: 100%; /* Se apilan uno sobre otro */
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 20px;
-        }
-        .footer-section:last-child { border-bottom: none; }
-        
-        .footer-section .btn {
-            width: 100%; /* Botones grandes en móvil */
-            box-sizing: border-box;
-        }
-    }
-
-      /* Selector de idioma sin forma (estilo limpio) */
-.nav-lang-item {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Espacio idéntico al de tus otros iconos */
-}
-
-/* Flaga kraju zamiast ikony globusa */
-.lang-flag {
-    display: inline-flex;
-    width: 21px;
-    height: 14px;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.15); /* delikatna ramka, żeby biel flagi PL była widoczna */
-    flex-shrink: 0;
-}
-.lang-flag svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-#language-selector {
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    appearance: none; /* Elimina la flecha predeterminada del sistema */
-    -webkit-appearance: none;
-}
-
-#language-selector option {
-    background-color: white; /* Fondo para que las opciones sean legibles */
-    color: var(--text-color);
-}
-
-/* Cambio de color al pasar el mouse para coincidir con el menú */
-.nav-lang-item:hover #language-selector {
-    color: var(--primary);
-}
-        .search-container {
-    text-align: center;
-    padding: 18px 20px;
-    background-color: var(--bg-color);
-}
-
-#searchInput {
-    width: 100%;
-    max-width: 600px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 1px solid var(--border-color);
-    outline: none;
-    font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
-}
-
-/* --- Mobile nav adaptation ---
-   The nav is fixed to the top of the viewport. Its height changes
-   (it can wrap onto two lines on narrow screens), so we measure its
-   real height with JS and push the hero (and thus everything below
-   it, including the search bar) down by that exact amount instead of
-   relying on a fixed guess. This is what keeps the nav bar cleanly
-   above the search bar with a consistent, moderate gap on every
-   screen size. */
-:root { --nav-height: 56px; }
-
-.hero {
-    margin-top: var(--nav-height);
-}
-
-@media (max-width: 600px) {
-    .top-nav {
-        padding: 8px 0;
-    }
-    .top-nav ul {
-        gap: 12px 16px;
-        padding: 0 10px;
-    }
-    .top-nav a {
-        font-size: 0.72rem;
-    }
-    .hero {
-        height: 22vh;
-        min-height: 140px;
-    }
-    .search-container {
-        padding: 16px 15px;
-    }
-    #searchInput {
-        padding: 11px 16px;
-        font-size: 0.95rem;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="top-nav">
     <ul>
         <li><a href="#info"><i class="fa-solid fa-circle-info"></i> Info</a></li>
         <li><a href="#rekreacja">Attraktionen</a></li>
+        <li><a href="trasy.html">Routen</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li class="nav-lang-item">
             <span class="lang-flag" id="lang-flag" aria-hidden="true"><svg viewBox="0 0 5 3" preserveAspectRatio="none"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg></span>
-            <select id="language-selector" onchange="location = this.value;">
+            <select id="language-selector">
                 <option value="index.html">PL</option>
                 <option value="index_en.html">EN</option>
                 <option value="index_de.html" selected>DE</option>
@@ -419,7 +29,7 @@ align-items: center;
 <header class="hero"></header>
 
 <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Informationen suchen..." aria-label="Suche" onkeyup="filterContent()">
+    <input type="text" id="searchInput" placeholder="Informationen suchen..." aria-label="Suche">
 </div>
 
 <main class="container">
@@ -454,20 +64,20 @@ align-items: center;
                 Keine Anmeldung nötig – bring einfach deine Rabattkarte für das Papaj Restaurant mit. 
             </div>
 
-            <a href="mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Sehenswürdigkeiten-Karte anzeigen </a>
+            <a href="img/mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Sehenswürdigkeiten-Karte anzeigen </a>
             
             <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Wie kommt man hin?</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="boisko1.jpg" alt="Basketballfeld" class="active">
-            <img src="billard1.jpg" alt="Billard">
-            <img src="siłownia1.jpg" alt="Fitnessraum">
-            <img src="esport1.jpg" alt="E-Sport-Raum">
-            <img src="hokej1.jpg" alt="Unihockeyfeld">
-            <img src="salazabaw3.jpg" alt="Spielraum">
-            <img src="pingpong1.jpg" alt="Tischtennis">
-            <img src="piłkarzyki2.jpg" alt="Kicker">
-            <img src="salazabaw5.jpg" alt="Spielraum">
+            <img src="img/boisko1.jpg" alt="Basketballfeld" class="active">
+            <img src="img/billard1.jpg" alt="Billard">
+            <img src="img/siłownia1.jpg" alt="Fitnessraum">
+            <img src="img/esport1.jpg" alt="E-Sport-Raum">
+            <img src="img/hokej1.jpg" alt="Unihockeyfeld">
+            <img src="img/salazabaw3.jpg" alt="Spielraum">
+            <img src="img/pingpong1.jpg" alt="Tischtennis">
+            <img src="img/piłkarzyki2.jpg" alt="Kicker">
+            <img src="img/salazabaw5.jpg" alt="Spielraum">
         </div>
     </div>
 
@@ -485,16 +95,16 @@ align-items: center;
              <div class="frame">
                 Keine Anmeldung nötig – bring einfach deine Rabattkarte für das Papaj Restaurant mit. 
             </div>
-             <a href="mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Sehenswürdigkeiten-Karte anzeigen </a>
+             <a href="img/mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Sehenswürdigkeiten-Karte anzeigen </a>
             <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Wie kommt man hin?</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="sauna5.jpg" alt="Saunabereich" class="active">
-            <img src="basen5.jpg" alt="Pool">
-            <img src="sauna3.jpg" alt="Sauna">
-            <img src="basen1.jpg" alt="Pool">
-            <img src="sauna2.jpg" alt="Sauna">
-            <img src="basen2.jpg" alt="Pool">
+            <img src="img/sauna5.jpg" alt="Saunabereich" class="active">
+            <img src="img/basen5.jpg" alt="Pool">
+            <img src="img/sauna3.jpg" alt="Sauna">
+            <img src="img/basen1.jpg" alt="Pool">
+            <img src="img/sauna2.jpg" alt="Sauna">
+            <img src="img/basen2.jpg" alt="Pool">
         </div>
     </div>
 
@@ -502,7 +112,7 @@ align-items: center;
         <div class="card">
             <h2><i class="fa-solid fa-spa"></i> Massagen & Anwendungen</h2>
             <p>Schau dir das SPA-Angebot des Papaj Resort an und buche dir etwas Entspannung!</p>
-            <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <div class="btn-row">
                 <a href="https://www.papaj-resort.pl/menu-spa" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-book-open"></i> Angebot</a>
                 <a href="tel:+48882173366" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Jetzt buchen</a>
             </div>
@@ -512,6 +122,7 @@ align-items: center;
         <p>Ebene -1. Folge den Schildern an den Wänden. Fahrräder und Nordic-Walking-Stöcke sind <strong>kostenlos</strong>.</p>
         <div class="frame">Code für Fahrräder: <strong>2109</strong></div>
         <div class="frame">Bitte fahr nicht mit dem Fahrrad am Strand.</div>
+        <a href="trasy.html" class="btn btn-start"><i class="fa-solid fa-route"></i> Routenplaner (auf Polnisch)</a>
     </div>
     </div>
 
@@ -526,9 +137,9 @@ align-items: center;
             <a href="https://www.papaj-resort.pl/restauracja" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Speisekarte</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="papaj1.jpg" alt="Restaurant" class="active">
-            <img src="papaj2.jpg" alt="Restaurant">
-            <img src="papaj3.jpg" alt="Restaurant">
+            <img src="img/papaj1.jpg" alt="Restaurant" class="active">
+            <img src="img/papaj2.jpg" alt="Restaurant">
+            <img src="img/papaj3.jpg" alt="Restaurant">
         </div>
     </div>
 
@@ -543,9 +154,9 @@ align-items: center;
             <a href="https://www.wedzarnia-jastrzebiagora.pl/menu-restauracja" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Speisekarte</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="wedzarnia1.jpg" alt="Räucherei" class="active">
-            <img src="wedzarnia2.jpg" alt="Räucherei">
-            <img src="wedzarnia3.jpg" alt="Räucherei">
+            <img src="img/wedzarnia1.jpg" alt="Räucherei" class="active">
+            <img src="img/wedzarnia2.jpg" alt="Räucherei">
+            <img src="img/wedzarnia3.jpg" alt="Räucherei">
             
         </div>
     </div>
@@ -556,12 +167,12 @@ align-items: center;
             <p>Die besten Orte in der Umgebung für Tagesausflüge in einem praktischen Guide.</p>
             <a href="przewodnik.pdf" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> PDF ansehen</a>
         </div>
-        <div class="pdf-container" style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden;">
-            <iframe src="przewodnik.pdf" width="100%" height="100%" style="border: none;"></iframe>
+        <div class="pdf-container">
+            <iframe src="przewodnik.pdf" width="100%" height="100%" title="PDF"></iframe>
         </div>
     </div>
 <div id="faq" class="card">
-    <h2 style="margin-bottom: 20px;">Häufig gestellte Fragen (FAQ)</h2>
+    <h2 class="faq-title">Häufig gestellte Fragen (FAQ)</h2>
     
     <div class="faq-container">
 
@@ -666,73 +277,13 @@ align-items: center;
         <a href="https://www.google.com/travel/search?gsas=1&ts=EggKAggDCgIIAxocEhoSFAoHCOoPEAMYHhIHCOoPEAQYARgCMgIQAA&qs=MhNDZ29JOU5ENXBkNjF6WjV5RUFFOAI&ap=ugEHcmV2aWV3cw&ictx=111&hl=es-419&ved=0CAAQ5JsGahcKEwjom9SBtsiTAxUAAAAAHQAAAAAQBA" target="_blank" rel="noopener" class="btn">
             <i class="fa-brands fa-google"></i> Bewerte uns
         </a>
-        <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" rel="noopener" class="btn btn-outline" style="color: white; border-color: white;">
+        <a href="https://www.apartamenty-pilice.pl/blog" target="_blank" rel="noopener" class="btn btn-outline-light">
             <i class="fa-solid fa-blog"></i> Blog
         </a>
     </div>
 </div>
 
-<script>
-    // Keep the fixed nav bar from ever overlapping the content below it
-    // (hero + search bar) by measuring its real rendered height — this
-    // adapts automatically if the nav wraps onto a second line on
-    // small/mobile screens.
-    function updateNavHeight() {
-        const nav = document.querySelector('.top-nav');
-        if (nav) {
-            document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
-        }
-    }
-    updateNavHeight();
-    window.addEventListener('resize', updateNavHeight);
-    window.addEventListener('load', updateNavHeight);
-
-    // Language flag: shows the flag of the currently selected language.
-    // Works on every language version (PL / EN / DE) without changes.
-    const FLAGS = {
-        PL: '<svg viewBox="0 0 16 10" preserveAspectRatio="none"><rect width="16" height="5" fill="#fff"/><rect y="5" width="16" height="5" fill="#DC143C"/></svg>',
-        EN: '<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="uk-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#uk-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>',
-        DE: '<svg viewBox="0 0 5 3" preserveAspectRatio="none"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>'
-    };
-    function updateLangFlag() {
-        const select = document.getElementById('language-selector');
-        const flag = document.getElementById('lang-flag');
-        if (!select || !flag) return;
-        const code = select.options[select.selectedIndex].text.trim().toUpperCase();
-        if (FLAGS[code]) flag.innerHTML = FLAGS[code];
-    }
-    updateLangFlag();
-    document.getElementById('language-selector').addEventListener('change', updateLangFlag);
-
-    // Carusel Logic
-    const carousels = document.querySelectorAll('.carousel');
-    carousels.forEach(carousel => {
-        const slides = carousel.querySelectorAll('img');
-        if (slides.length <= 1) return; 
-        let currentIndex = 0;
-        setInterval(() => {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add('active');
-        }, 3500);
-    });
-
-    function filterContent() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    // Seleccionamos las tarjetas y los ítems del FAQ
-    let items = document.querySelectorAll('.card, .faq-item');
-    
-    items.forEach(item => {
-        let text = item.innerText.toLowerCase();
-        // Si el texto del elemento contiene lo escrito, lo mostramos
-        if (text.includes(input)) {
-            item.style.display = "";
-        } else {
-            item.style.display = "none";
-        }
-    });
-}
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
