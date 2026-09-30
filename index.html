@@ -117,6 +117,9 @@
     overflow: hidden; /* Importante para ocultar las imágenes que no están activas */
     background: #f0f0f0; /* Color de fondo mientras carga la imagen */
 }
+ .mobile-menu:not(.open) { 
+    visibility: hidden; pointer-events: none;  
+ }
 
 /* Ajustes para móviles */
 @media (max-width: 768px) {
