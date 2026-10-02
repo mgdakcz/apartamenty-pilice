@@ -22,6 +22,7 @@
 
 // Link do wspólnej mapy Google My Maps (przycisk w nagłówku).
 const MAPA_WSZYSTKICH_TRAS = "https://www.google.com/maps/d/viewer?mid=1xzSdIRzbyXlEwbVQaBLoFFLmO9Zby0c";
+const FOLDER_ZDJEC = "photos/";
 
 const TRASY = [
   {
