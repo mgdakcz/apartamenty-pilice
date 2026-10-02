@@ -9,7 +9,7 @@ const ASSETS = [
   '/index.html',
   '/index_en.html',
   '/index_de.html',
-  '/trasy.html',
+  '/trasy',
   '/trasy.js',
   '/css/style.css',
   '/js/main.js',

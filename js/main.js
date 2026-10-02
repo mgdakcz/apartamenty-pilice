@@ -1,12 +1,12 @@
 /* ==========================================================
    Apartamenty Pilice – wspólne skrypty
-   Used by: index.html, index_en.html, index_de.html, trasy.html
+   Used by: index.html, index_en.html, index_de.html, trasy
 
    1. Navigation height
    2. Language selector + flag
    3. Photo carousels            (guide pages)
    4. Search box                 (guide pages)
-   5. Route planner              (trasy.html – route content lives in trasy.js)
+   5. Route planner              (trasy – route content lives in trasy.js)
 
    Every part checks that its elements exist on the page,
    so the same file can be loaded everywhere.
@@ -90,7 +90,7 @@ function filterContent() {
 })();
 
 
-/* ---------- 5. Route planner (trasy.html) ----------
+/* ---------- 5. Route planner (trasy) ----------
    Routes come from TRASY in trasy.js – edit routes there, not here.
    This part only runs on the page that has the planner. */
 (function initPlanner() {
