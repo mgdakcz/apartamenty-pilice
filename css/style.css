@@ -139,6 +139,17 @@ select:focus-visible {
 .nav-lang-item:hover #language-selector {
     color: var(--primary);
 }
+/*----------info banner in the top nav---------*/
+
+.construction-banner {
+    background: #F2C94C;
+    color: #3A2F00;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    margin: -10px 0 10px; /* sits flush with the top of the nav bar */
+}
 
 
 /* ---------- 3. Hero & search ---------- */
