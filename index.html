@@ -4,44 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamenty Pilice - Guest Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- App icons: browser tab, home screen, installed app -->
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2C5F78">
-    <meta name="apple-mobile-web-app-title" content="Pilice Guide">
 </head>
 <body>
-
-        <nav class="top-nav">
+    
+<nav class="top-nav">
     <ul>
         <li><a href="#info"><i class="fa-solid fa-circle-info"></i> Info</a></li>
         <li><a href="#rekreacja">Atrakcje</a></li>
-        <li><a href="trasy">Trasy</a></li>
+        <li><a href="trasy/index.html">Trasy</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li class="nav-lang-item">
             <span class="lang-flag" id="lang-flag" aria-hidden="true"><svg viewBox="0 0 16 10" preserveAspectRatio="none"><rect width="16" height="5" fill="#fff"/><rect y="5" width="16" height="5" fill="#DC143C"/></svg></span>
-            <select id="language-selector">
+            <select id="language-selector" aria-label="Język">
                 <option value="index.html" selected>PL</option>
                 <option value="index_en.html">EN</option>
                 <option value="index_de.html">DE</option>
             </select>
         </li>
     </ul>
+    <div class="construction-banner">Już wkrótce :)</div>
 </nav>
-
-<header class="hero"></header>
     
-    <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Szukaj informacji...">
+<header class="hero"></header>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Szukaj informacji..." aria-label="Szukaj">
 </div>
 
 <main class="container">
-    
-<div id="info" class="row">
+    <div id="info" class="row">
         <div class="card">
             <h2><i class="fa-solid fa-key"></i> Zameldowanie</h2>
             <p>Check in od <strong>16:00</strong>, check out do <strong>10:00</strong>.</p>
@@ -51,12 +46,11 @@
             <p>Nazwa sieci: <strong>PILICE.GOŚCIE</strong><br>Hasło: <strong>pilice123</strong></p>
         </div>
     </div>
-
+    
     <div id="rekreacja" class="card big-card">
         <div>
             <h2><i class="fa-solid fa-gamepad"></i> Strefa Rekreacyjna - Papaj Resort</h2>
-            <p> Nasi Goście mogą korzystać z Atrakcji Papaj Resort codziennie <strong> od 8:00 do 21:30. </strong> </p>
-            
+            <p>Nasi Goście mogą korzystać z Atrakcji Papaj Resort codziennie <strong>od 8:00 do 21:30.</strong></p>
             <ul class="icon-list">
                 <li><i class="fa-solid fa-basketball"></i> wewnętrzne boisko do koszykówki</li>
                 <li><i class="fa-solid fa-hockey-puck"></i> unihokej</li>
@@ -66,17 +60,15 @@
                 <li><i class="fa-solid fa-futbol"></i> piłkarzyki</li>
                 <li><i class="fa-solid fa-bolt-lightning"></i> cymbergaj</li>
             </ul>
-            
             <div class="frame">
                 Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobie kartę rabatową do Restauracji Papaj. 
             </div>
-            
-            <a href="img/mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Zobacz mapę atrakcji</a>
-            
+             <a href="img/mapaAtrakcjiPapaj.jpg" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-file-pdf"></i> Zobacz mapę atrakcji</a>
             <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="img/boisko1.jpg" alt="Boisko do koszykówki" class="active"><img src="img/billard1.jpg" alt="Billard">
+            <img src="img/boisko1.jpg" alt="Boisko do koszykówki" class="active">
+            <img src="img/billard1.jpg" alt="Billard">
             <img src="img/siłownia1.jpg" alt="Siłownia">
             <img src="img/esport1.jpg" alt="Sala e-sport">
             <img src="img/hokej1.jpg" alt="Boisko do hokeja">
@@ -87,17 +79,17 @@
         </div>
     </div>
 
+  
     <div class="card big-card">
         <div>
             <h2><i class="fa-solid fa-water-ladder"></i> Basen, Sauna - Papaj Resort</h2>
-            <p>Relaks w strefie wodnej dostępny <strong> codziennie od 8:00 do 15:00.</strong></p>
+            <p>Relaks w strefie wodnej dostępny <strong>codziennie od 8:00 do 15:00.</strong></p>
             <ul class="icon-list">
                 <li><i class="fa-solid fa-person-swimming"></i> Basen kryty</li>
                 <li><i class="fa-solid fa-hot-tub-person"></i> Strefa saun</li>
                 <li><i class="fa-solid fa-baby"></i> Brodzik dla dzieci</li>
                 <li><i class="fa-solid fa-mountain-sun"></i> Grota solna</li>
             </ul>
-
              <div class="frame">
                 Nie musisz się nigdzie "meldować", wystarczy, że będziesz mieć przy sobie kartę rabatową do Restauracji Papaj. 
             </div>
@@ -105,14 +97,12 @@
             <a href="https://www.youtube.com/shorts/94AWpfgoGmA" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="img/sauna3.jpg" alt="Strefa saun" class="active"><img src="img/basen5.jpg" alt="Basen">
+            <img src="img/sauna3.jpg" alt="Strefa saun" class="active">
             <img src="img/basen1.jpg" alt="Basen">
             <img src="img/sauna2.jpg" alt="Sauna">
             <img src="img/basen2.jpg" alt="Basen">
         </div>
-    </div>
-
-    <div class="row">
+    </div> <div class="row">
         <div class="card">
             <h2><i class="fa-solid fa-spa"></i> Masaże i zabiegi</h2>
             <p>Sprawdź ofertę SPA Papaj Resort i zarezerwuj czas na relaks!</p>
@@ -121,19 +111,17 @@
                 <a href="tel:+48882173366" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Zarezerwuj</a>
             </div>
         </div>
-   <div class="card">
-        <h2><i class="fa-solid fa-bicycle"></i> Rowerownia</h2>
-        <p>Poziom -1. Kieruj się oznaczeniami na ścianach. Rowery i kije Nordic Walking są <strong>bezpłatne</strong>.</p>
-        <div class="frame">Kod do rowerów: <strong>2109</strong></div>
-       <div class="frame">Pamiętaj żeby nie jeździć rowerem po plaży.</div>
-       <a href="trasy" class="btn btn-start"><i class="fa-solid fa-route"></i> Zaplanuj trasę</a>
-    </div>
-    </div>
-
-    <div id="restauracja" class="card big-card">
+        <div class="card">
+            <h2><i class="fa-solid fa-bicycle"></i> Rowerownia</h2>
+            <p>Poziom -1. Kieruj się oznaczeniami na ścianach. Rowery i kije Nordic Walking są <strong>bezpłatne</strong>.</p>
+            <div class="frame">Kod do rowerów: <strong>2109</strong></div>
+            <div class="frame">Pamiętaj żeby nie jeździć rowerem po plaży.</div>
+            <a href="trasy/index.html" class="btn btn-start"><i class="fa-solid fa-route"></i> Planer tras</a>
+        </div>
+    </div> <div id="restauracja" class="card big-card">
         <div>
             <h2><i class="fa-solid fa-bell-concierge"></i> Restauracja Papaj</h2>
-            <p>Restauracja Papaj jest otwarta cały rok i oferuje bufetowe śniadania, dania rybne, wegetariańskie oraz menu dla dzieci. </p>
+            <p>Restauracja Papaj jest otwarta cały rok i oferuje bufetowe śniadania, dania rybne, wegetariańskie oraz menu dla dzieci.</p>
             <div class="frame">
                 Pokaż kartę rabatową <strong>zanim poprosisz o rachunek</strong> aby otrzymać 10% zniżki na śniadania i dania z karty.
             </div>
@@ -145,27 +133,20 @@
             <img src="img/papaj2.jpg" alt="Restauracja">
             <img src="img/papaj3.jpg" alt="Restauracja">
         </div>
-    </div>
-
-    <div class="card big-card">
+    </div> <div class="card big-card">
         <div>
             <h2><i class="fa-solid fa-fire-burner"></i> Wędzarnia Przypiecek</h2>
-            <p>Kultowe miejsce na mapie Jastrzębiej Góry tuż obok Restauracji Papaj. <strong>Otwarta od maja do września.</strong> Oferuje wyśmienite ryby wędzone i smażone w niepowtarzalnej atmosferze. </p>
-         <div class="frame">
-                Zabierz trochę morza do domu! Wędzone przysmaki na podróż pakujemy próżniowo.
-            </div>
+            <p>Kultowe miejsce na mapie Jastrzębiej Góry tuż obok Restauracji Papaj. <strong>Otwarta od maja do września.</strong> Oferuje wyśmienite ryby wędzone i smażone w niepowtarzalnej atmosferze.</p>
+            <div class="frame">Zabierz trochę morza do domu! Wędzone przysmaki na podróż pakujemy próżniowo.</div>
             <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/W%C4%99dzarnia+Przypiecek,+Kaszubska+2,+84-104+Jastrz%C4%99bia+G%C3%B3ra/@54.8330398,18.2986187,18z/data=!3m2!4b1!5s0x46fc4adcaf9f4c63:0x12e4047253bfba3e!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adca8a3a423:0x7bbc34e6f8d9c185!2m2!1d18.2984501!2d54.8340388!3e2?entry=ttu&g_ep=EgoyMDI2MDgwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
             <a href="https://www.wedzarnia-jastrzebiagora.pl/menu-restauracja" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-solid fa-utensils"></i> Menu</a>
         </div>
         <div class="carousel-container carousel" data-interval="3000">
-            <img src="img/wedzarnia1.jpg" alt="Wedzarnia">
-            <img src="img/wedzarnia2.jpg" alt="Wedzarnia">
-            <img src="img/wedzarnia3.jpg" alt="Wedzarnia">
-            
+            <img src="img/wedzarnia1.jpg" alt="Wędzarnia" class="active">
+            <img src="img/wedzarnia2.jpg" alt="Wędzarnia">
+            <img src="img/wedzarnia3.jpg" alt="Wędzarnia">
         </div>
-    </div>
-
-    <div id="przewodnik" class="card big-card">
+    </div> <div id="przewodnik" class="card big-card">
         <div>
             <h2><i class="fa-solid fa-map"></i> Przewodnik Gościa</h2>
             <p>Najlepsze miejsca w okolicy na jednodniowe wypady zebrane w poręczny przewodnik.</p>
@@ -174,15 +155,13 @@
         <div class="pdf-container">
             <iframe src="przewodnik.pdf" width="100%" height="100%" title="PDF"></iframe>
         </div>
-    </div>
-<div id="faq" class="card">
-    <h2 class="faq-title">Często zadawane pytania (FAQ)</h2>
-    
-    <div class="faq-container">
-    <details class="faq-item">
-        <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
-        <p>Jeśli nie masz ze sobą klucza, zadzwoń do nas pod numer widoczny w stopce strony.</p>
-    </details>      
+    </div> <div id="faq" class="card">
+        <h2 class="faq-title">Często zadawane pytania (FAQ)</h2>
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary>Co zrobić jak nie działa mi kod do drzwi?</summary>
+                <p>Jeśli nie masz ze sobą klucza, zadzwoń do nas pod numer widoczny w stopce strony.</p>
+            </details>
 
     <details class="faq-item">
         <summary>Czy na terenie obiektu można palić?</summary>
@@ -196,15 +175,15 @@
 
     <details class="faq-item">
         <summary>Gdzie znajduje się najbliższy sklep?</summary>
-        <p>Delikatesy Skorpion (Rozewska 1) to mały, ale dobrze wyposażony sklep tuż za rogiem, otwarty również w niedziele. 
+        <p>Delikatesy Skorpion (Rozewska 1) to mały, ale dobrze wyposażony sklep tuż za rogiem, otwarty również w niedziele.
             <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Delikatesy+Skorpion+Sklep+Spożywczo-Monopolowy+całodobowy,+Rozewska+1,+84-104+Jastrzębia+Góra/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adb6228eb7b:0x12db8e718bc178e5!2m2!1d18.3002992!2d54.8328395!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </p>
     </details>
 
      <details class="faq-item">
         <summary>Gdzie znajduje się najbliższy market spożywczy?</summary>
-         <p> Najbliżej jest Polo Market, 160 m od Pilic. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/POLOmarket,+Rozewska+1,+84-104+Jastrzębia+Góra/@54.8335061,18.3048659,47m/data=!3m3!1e3!4b1!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adc86070cb1:0x2bd1bc6ae9f49c07!2m2!1d18.3011086!2d54.8334565!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść? </a> <br>
-             W Mieroszynie, 4 km od Pilic jest Biedronka. <a href="https://www.google.com/maps/place/Biedronka/@54.8004866,18.2955787,3009m/am=t/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2sApartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra!2m2!1d18.3013622!2d54.8320816!1m6!1m2!1s0x46fdb536be24117b:0xa218b0607b84c6d!2sBiedronka,+Szkolna+3,+84-103+Mieroszyno!2m2!1d18.3127693!2d54.8004866!3m5!1s0x46fdb536be24117b:0xa218b0607b84c6d!8m2!3d54.8004866!4d18.3127693!16s%2Fg%2F11xvr563n9!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść? </a>
+         <p> Najbliżej jest Polo Market, 160 m od Pilic. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/POLOmarket,+Rozewska+1,+84-104+Jastrzębia+Góra/@54.8335061,18.3048659,47m/data=!3m3!1e3!4b1!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adc86070cb1:0x2bd1bc6ae9f49c07!2m2!1d18.3011086!2d54.8334565!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a> <br>
+             W Mieroszynie, 4 km od Pilic jest Biedronka. <a href="https://www.google.com/maps/place/Biedronka/@54.8004866,18.2955787,3009m/am=t/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2sApartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra!2m2!1d18.3013622!2d54.8320816!1m6!1m2!1s0x46fdb536be24117b:0xa218b0607b84c6d!2sBiedronka,+Szkolna+3,+84-103+Mieroszyno!2m2!1d18.3127693!2d54.8004866!3m5!1s0x46fdb536be24117b:0xa218b0607b84c6d!8m2!3d54.8004866!4d18.3127693!16s%2Fg%2F11xvr563n9!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
          </p>
     </details>
 
@@ -212,7 +191,7 @@
         <summary>Gdzie znajduje się najbliższa stacja paliw?</summary>
         <p>
             Najbliżej w Łebczu, lokalna stacja paliw Renusz, 8 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Renusz,+Pucka+14,+84-103+Łebcz/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb4802199ce3d:0xc464ce5bc63ae8b!2m2!1d18.3400267!2d54.765153!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojechać?</a> <br>
-            Dalej, we Władysławie jest Orlen oraz CircleK, 10 km. <br>
+            Dalej, we Władysławowie jest Orlen oraz CircleK, 10 km. <br>
             <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Stacja+Paliw+ORLEN,+Gdańska+107,+84-120+Władysławowo/@54.8335061,18.3048659,47m/data=!3m3!1e3!4b1!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb31888d83a4f:0x1c8ea6f73e88b07e!2m2!1d18.405257!2d54.7756203!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Orlen-jak dojechać? </a>
             <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Circle+K,+Starowiejska+25,+84-120+Władysławowo/@54.8335061,18.3048659,47m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb32982a1dd83:0xaad8b3a80a8a6cfd!2m2!1d18.424131!2d54.790386!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> CircleK-jak dojechać? </a>
         </p>
@@ -220,22 +199,22 @@
 
     <details class="faq-item">
         <summary>Gdzie znajduje się najbliższa apteka?</summary>
-        <p>Apteka Bursztynowa znajduje się na ulicy Królewskiej 9, około 300 metrów od Apartamentów Pilice. 
-            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Apteka+Bursztynowa,+Królewska+9,+84-104+Jastrzębia+Góra/@54.8325028,18.3078206,819m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adb455c0605:0x7e8aeb1973e6adba!2m2!1d18.2982302!2d54.8324953!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a> 
+        <p>Apteka Bursztynowa znajduje się na ulicy Królewskiej 9, około 300 metrów od Apartamentów Pilice.
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obrońców+Westerplatte+1,+84-104+Jastrzębia+Góra/Apteka+Bursztynowa,+Królewska+9,+84-104+Jastrzębia+Góra/@54.8325028,18.3078206,819m/am=t/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m14!4m13!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc4adb455c0605:0x7e8aeb1973e6adba!2m2!1d18.2982302!2d54.8324953!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </p>
     </details>
-    
+
     <details class="faq-item">
         <summary>Gdzie znajdę najbliższy postój taksówek?</summary>
         <p>Postój znajduje się tuż obok hotelu Ara. Poza sezonem polecamy zamawiać taksówki z Władysławowa.
-            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/54.833583,18.3052729/@54.8335061,18.3048659,47m/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m9!4m8!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m0!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a> 
+            <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/54.833583,18.3052729/@54.8335061,18.3048659,47m/data=!3m2!1e3!5s0x46fc4adc21c9c939:0xeecb4da039b256c5!4m9!4m8!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m0!3e0!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>
         </p>
     </details>
 
      <details class="faq-item">
         <summary>Gdzie znajduje się najbliższy przystanek PKS?</summary>
         <p>Najbliższy przystanek jest naprawdę blisko, bo tylko 190 metrów od Pilic. <a href="https://www.google.com/maps/place/Jastrz%C4%99bia+G%C3%B3ra/@54.8314032,18.2983857,17z/data=!4m23!1m16!4m15!1m6!1m2!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2sApartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra!2m2!1d18.3013622!2d54.8320816!1m6!1m2!1s0x46fc4adc7d001285:0x8e950176aa26ae4f!2zSmFzdHJ6xJliaWEgR8OzcmEsIDg0LTEwNCBKYXN0cnrEmWJpYSBHw7NyYQ!2m2!1d18.301801!2d54.833198!3e0!3m5!1s0x46fc4adc7d001285:0x8e950176aa26ae4f!8m2!3d54.833198!4d18.301801!16s%2Fg%2F11vf1nq_dx?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D"  target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojść?</a>. <br>
-            Do Gdyni i Karwi dojedziesz autobusem PKS linii 650. Do Pucka i do Władysławowa dojedziesz autobusem linii 668. 
+            Do Gdyni i Karwi dojedziesz autobusem PKS linii 650. Do Pucka i do Władysławowa dojedziesz autobusem linii 668.
             <a href="https://pksgdynia.pl/"  target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Sprawdź rozkład tutaj.</a>
         </p>
     </details>
@@ -244,17 +223,16 @@
         <summary>Gdzie znajduje się najbliższy szpital?</summary>
         <p>
             Szpital miejski w Pucku, 18 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Hospital+Puck+Ltd.,+1+Maja+13A,+84-100+Puck/@54.7739152,18.2748339,12z/am=t/data=!3m1!5s0x46fdba23debb45ad:0xa23daf4417c20268!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdb23d9fbc8907:0x37d823db87c58ea3!2m2!1d18.4138439!2d54.7212345!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojechać?</a> <br>
-            Szpital specjalistyczny w Wejherowie, 38 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Szpital+Specjalistyczny+im.+Floriana+Ceynowy,+dr+Alojzego+Jagalskiego+10,+84-200+Wejherowo/@54.72131,18.0826968,11z/am=t/data=!3m2!4b1!5s0x46fdba23debb45ad:0xa23daf4417c20268!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdba2389df4d81:0xe2cdf954fe394542!2m2!1d18.2449269!2d54.6147397!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojechać?</a> 
+            Szpital specjalistyczny w Wejherowie, 38 km. <a href="https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Szpital+Specjalistyczny+im.+Floriana+Ceynowy,+dr+Alojzego+Jagalskiego+10,+84-200+Wejherowo/@54.72131,18.0826968,11z/am=t/data=!3m2!4b1!5s0x46fdba23debb45ad:0xa23daf4417c20268!4m13!4m12!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdba2389df4d81:0xe2cdf954fe394542!2m2!1d18.2449269!2d54.6147397!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-person-walking"></i> Jak dojechać?</a>
         </p>
     </details>
 
-                 <details class="faq-item">
+    <details class="faq-item">
         <summary>Czy na miejscu naładuję samochód elektryczny?</summary>
-        <p> Tak, bezpośrednio przed budynkiem znajdują się dwie ładowarki gdzie za 2 zł za kWh naładujesz swój samochód elektryczny. Skontaktuj się z Recepcją żeby skorzystać z ładowarki.    
-        </p>
+        <p>Tak, bezpośrednio przed budynkiem znajdują się dwie ładowarki gdzie za 2 zł za kWh naładujesz swój samochód elektryczny. Skontaktuj się z Recepcją żeby skorzystać z ładowarki.</p>
     </details>
+        </div>
     </div>
-</div>
 
 </main>
 
@@ -287,15 +265,15 @@
     </div>
 </div>
 
-    <!-- Botón Flotante de Instagram -->
 <div class="ig-floating-container">
     <div class="ig-popup">Pokaż jak świetnie bawisz się w JG i oznacz nas na IG!</div>
-    <a href="https://www.instagram.com/apartamentypilice/" target="_blank" rel="noopener" class="ig-btn">
+    <a href="https://www.instagram.com/apartamentypilice/" target="_blank" rel="noopener" class="ig-btn" aria-label="Instagram">
         <i class="fa-brands fa-instagram"></i>
     </a>
 </div>
 
 <script src="js/main.js"></script>
+
 
 </body>
 </html>

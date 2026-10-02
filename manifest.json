@@ -3,28 +3,20 @@
   "name": "Apartamenty Pilice - Przewodnik Gościa",
   "icons": [
     {
-      "src": "img/icons/icon-192.png",
+      "src": "icon-192.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any"
+      "sizes": "192x192"
     },
     {
-      "src": "img/icons/icon-512.png",
+      "src": "icon-512.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
-    },
-    {
-      "src": "img/icons/icon-maskable-512.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      "sizes": "512x512"
     }
   ],
   "start_url": "index.html",
-  "background_color": "#F4F7F9",
+  "background_color": "#f4f1ea",
   "display": "standalone",
   "scope": "./",
-  "theme_color": "#2C5F78",
+  "theme_color": "#1a5a96",
   "description": "Cyfrowy przewodnik dla gości Apartamenty Pilice"
 }

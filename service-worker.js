@@ -3,23 +3,33 @@
 // wersję strony. Kopia z pamięci podręcznej jest używana tylko offline.
 // Zmiana CACHE_NAME usuwa stare kopie zapisane u gości.
 
-const CACHE_NAME = 'pilice-v4';
+const CACHE_NAME = 'pilice-v5';
 const ASSETS = [
   '/',
   '/index.html',
   '/index_en.html',
   '/index_de.html',
-  '/trasy',
-  '/trasy.js',
+  '/trasy/index.html',
+  '/trasy/trasy.js',
   '/css/style.css',
   '/js/main.js',
   '/manifest.json'
 ];
 
-// Instalacja: zapisz podstawowe strony i od razu przejmij kontrolę
+// Instalacja: zapisz podstawowe strony i od razu przejmij kontrolę.
+// Każdy plik zapisujemy osobno – brak jednego pliku (404) nie blokuje
+// instalacji nowej wersji.
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all(
+        ASSETS.map((url) =>
+          fetch(url, { cache: 'reload' })
+            .then((response) => (response.ok ? cache.put(url, response) : undefined))
+            .catch(() => undefined)
+        )
+      )
+    )
   );
   self.skipWaiting();
 });

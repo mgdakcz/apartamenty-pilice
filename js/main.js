@@ -1,12 +1,12 @@
 /* ==========================================================
    Apartamenty Pilice – wspólne skrypty
-   Used by: index.html, index_en.html, index_de.html, trasy
+   Used by: index.html, index_en.html, index_de.html, trasy/index.html
 
    1. Navigation height
    2. Language selector + flag
    3. Photo carousels            (guide pages)
    4. Search box                 (guide pages)
-   5. Route planner              (trasy – route content lives in trasy.js)
+   5. Route planner              (trasy/index.html – route content lives in trasy/trasy.js)
 
    Every part checks that its elements exist on the page,
    so the same file can be loaded everywhere.
@@ -90,14 +90,20 @@ function filterContent() {
 })();
 
 
-/* ---------- 5. Route planner (trasy) ----------
-   Routes come from TRASY in trasy.js – edit routes there, not here.
+/* ---------- 5. Route planner (trasy/index.html) ----------
+   Routes come from TRASY in trasy/trasy.js – edit routes there, not here.
    This part only runs on the page that has the planner. */
+// Address of the site's main folder, worked out from where this file was loaded.
+// Lets pages in sub-folders (trasy/) find the photos in img/.
+const SITE_ROOT = (function () {
+    try { return new URL('..', document.currentScript.src).href; } catch (e) { return ''; }
+})();
+
 (function initPlanner() {
     if (typeof TRASY === 'undefined' || !document.getElementById('grid')) return;
 
     // Photos are in img/trasy/. ZDJECIA is only set in the single-file version.
-    const IMG = f => (typeof ZDJECIA !== 'undefined' && ZDJECIA[f]) ? ZDJECIA[f] : 'img/trasy/' + f;
+    const IMG = f => (typeof ZDJECIA !== 'undefined' && ZDJECIA[f]) ? ZDJECIA[f] : SITE_ROOT + 'img/trasy/' + f;
     const DMAP = { latwa: 1, srednia: 2, trudna: 3 };
     const DIFF = { 1: 'Łatwa', 2: 'Średnia', 3: 'Trudna' };
 
@@ -120,7 +126,7 @@ function filterContent() {
         tip: t.wskazowka,
         nav: t.nawigacja || '',
         drive: t.dojazd || '',
-        photos: t.zdjecia.map(IMG)
+        photos: (t.zdjecia || []).filter(Boolean).map(IMG)   // routes without photos get an empty list
     }));
 
     const state = { type: 'all', zone: 'all', diff: 'all', kids: false, gondola: false, runner: false, food: false };
@@ -171,7 +177,7 @@ function filterContent() {
         const hasMore = r.why.length > 1 || r.tip || p.length > 1;
 
         return `<article class="route">
-    <div class="photo"><img src="${p[0]}" alt="${esc(r.name)}" loading="lazy"><span class="tag">${zoneLbl}</span></div>
+    <div class="photo">${p[0] ? `<img src="${p[0]}" alt="${esc(r.name)}" loading="lazy">` : ''}<span class="tag">${zoneLbl}</span></div>
     <div class="body">
       <h3>${esc(r.name)}</h3>
       <div class="stats">${d}<span class="stat"><b>${String(r.km).replace('.', ',')} km</b></span><span class="stat">· ok. ${minFmt(r.min)}</span><span class="stat">· ${r.loop ? 'pętla' : 'w jedną stronę'}</span></div>

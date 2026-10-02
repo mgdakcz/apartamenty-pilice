@@ -1,6 +1,6 @@
 /* ==========================================================
    Apartamenty Pilice – wspólny arkusz stylów
-   Used by: index.html, index_en.html, index_de.html, trasy
+   Used by: index.html, index_en.html, index_de.html, trasy/index.html
 
    1. Colours & base
    2. Navigation + language selector
@@ -11,7 +11,7 @@
    7. FAQ
    8. Footer
    9. Instagram button
-   10. Route planner (trasy only, scoped to .page-trasy)
+   10. Route planner (trasy/index.html only, scoped to .page-trasy)
    11. Responsive
    ========================================================== */
 
@@ -138,17 +138,6 @@ select:focus-visible {
 }
 .nav-lang-item:hover #language-selector {
     color: var(--primary);
-}
-/*----------info banner in the top nav---------*/
-
-.construction-banner {
-    background: #F2C94C;
-    color: #3A2F00;
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    margin: -10px 0 10px; /* sits flush with the top of the nav bar */
 }
 
 
@@ -446,7 +435,7 @@ details.faq-item p {
 }
 
 
-/* ---------- 10. Route planner (trasy) ---------- */
+/* ---------- 10. Route planner (trasy/index.html) ---------- */
 .page-trasy *,
 .page-trasy *::before,
 .page-trasy *::after { box-sizing: border-box; }
@@ -659,6 +648,21 @@ textarea#copyfallback {
 @media (max-width: 700px) {
     .intro { grid-template-columns: 1fr; }
     .counts .count { flex: 1; }
+}
+
+/* "Coming soon" strip at the bottom of the nav bar.
+   To remove it: delete the <div class="construction-banner"> line from each page. */
+.construction-banner {
+    background: #F2C94C;
+    color: #3A2F00;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    margin: 10px 0 -10px;   /* flush with the bottom edge of the nav bar */
+}
+@media (max-width: 600px) {
+    .construction-banner { margin: 8px 0 -8px; font-size: 0.75rem; }
 }
 
 @media (max-width: 480px) {
