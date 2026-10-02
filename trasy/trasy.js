@@ -22,7 +22,7 @@
 
 // Link do wspólnej mapy Google My Maps (przycisk w nagłówku).
 const MAPA_WSZYSTKICH_TRAS = "https://www.google.com/maps/d/viewer?mid=1xzSdIRzbyXlEwbVQaBLoFFLmO9Zby0c";
-const FOLDER_ZDJEC = "photos/";
+const FOLDER_ZDJEC = "img/";
 
 const TRASY = [
   {
@@ -44,7 +44,7 @@ const TRASY = [
     wskazowka: "Najlepiej wybrać się tam rano. Latem unikniesz tłumów i zobaczysz pięknie oświetlony porannym słońcem las.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83141,18.19633&waypoints=54.83266,18.27995|54.83051,18.25095|54.83060,18.22510&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["karwia-las-1.jpg", "karwia-las-2.jpg", "karwia-las-3.jpg"],
+    zdjecia: ["img/karwia-las-1.jpg", "img/karwia-las-2.jpg", "img/karwia-las-3.jpg"],
   },
   {
     id: "mechowo",
@@ -65,7 +65,7 @@ const TRASY = [
     wskazowka: "W głębi puszczy brakuje zasięgu i sklepów. Pobierzcie mapę offline na telefon i weźcie ze sobą odpowiedni zapas wody oraz jedzenia.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.71332,18.28417&waypoints=54.80149,18.31330|54.77252,18.32258|54.74545,18.28623&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["mechowo-1.jpg", "mechowo-2.jpg", "mechowo-3.jpg"],
+    zdjecia: ["img/mechowo-1.jpg", "img/mechowo-2.jpg", "img/mechowo-3.jpg"],
   },
   {
     id: "bielawskie",
@@ -86,7 +86,7 @@ const TRASY = [
     wskazowka: "Zabierzcie na trasę lornetkę. To jedno z najlepszych i najspokojniejszych miejsc w regionie do obserwacji rzadkich gatunków ptaków.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.79603,18.22864&waypoints=54.83157,18.26434|54.82411,18.22821|54.79924,18.22696&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["bielawskie-1.jpg", "bielawskie-2.jpg", "bielawskie-3.jpg"],
+    zdjecia: ["img/bielawskie-1.jpg", "img/bielawskie-2.jpg", "img/bielawskie-3.jpg"],
   },
   {
     id: "rzucewo",
@@ -107,7 +107,7 @@ const TRASY = [
     wskazowka: "Szlak tuż nad zatoką może być błotnisty po deszczach. Najlepiej wybrać się tam po co najmniej dwóch dniach suchej, słonecznej pogody.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.68803,18.46482&waypoints=54.80318,18.39049|54.75556,18.39851|54.71605,18.42698&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["rzucewo-1.jpg", "rzucewo-2.jpg", "rzucewo-3.jpg"],
+    zdjecia: ["img/rzucewo-1.jpg", "img/rzucewo-2.jpg", "img/rzucewo-3.jpg"],
   },
   {
     id: "latarnia",
@@ -128,7 +128,7 @@ const TRASY = [
     wskazowka: "Zabierzcie drobne na wstęp do latarni. Widok z tarasu na Bałtyk i Półwysep Helski jest wart wysiłku!",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83080,18.33335&waypoints=54.83348,18.31166|54.83208,18.32250|54.82983,18.33351&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["latarnia-1.jpg", "latarnia-2.jpg", "latarnia-3.jpg"],
+    zdjecia: ["img/atarnia-1.jpg", "img/latarnia-2.jpg", "img/latarnia-3.jpg"],
   },
   {
     id: "krokowa",
@@ -149,7 +149,7 @@ const TRASY = [
     wskazowka: "Warto zaplanować postój w kawiarni na Zamku w Krokowej, zanim ruszycie w drogę powrotną.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.77740,18.16190&waypoints=54.83041,18.24907|54.81121,18.21441|54.78714,18.19877&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["krokowa-1.jpg", "krokowa-2.jpg"],
+    zdjecia: ["img/krokowa-1.jpg", "img/krokowa-2.jpg"],
   },
   {
     id: "hel-rower",
@@ -170,7 +170,7 @@ const TRASY = [
     wskazowka: "Jeśli wystarczy Wam sił, warto popedałować odrobinę dalej do Juraty. Trasa w większości jest bardzo malownicza, aż do samego Helu.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.70023,18.68155&waypoints=54.79803,18.39489|54.76573,18.48929|54.73176,18.58681&travelmode=bicycling",
     dojazd: "",
-    zdjecia: ["hel-rower-1.jpg", "hel-rower-2.jpg", "hel-rower-3.jpg"],
+    zdjecia: ["img/hel-rower-1.jpg", "img/hel-rower-2.jpg", "img/hel-rower-3.jpg"],
   },
   {
     id: "piasnica",
@@ -191,7 +191,7 @@ const TRASY = [
     wskazowka: "Ponieważ leśne skrzyżowania bywają do siebie bardzo podobne, pobierz ślad GPS trasy (w formacie GPX) do swojego zegarka sportowego lub aplikacji.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.67737,18.19850&destination=54.67737,18.19850&waypoints=54.67266,18.19260|54.67413,18.17872|54.67569,18.18641&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.67737,18.19850&travelmode=driving",
-    zdjecia: ["piasnica-1.jpg", "piasnica-2.jpg", "piasnica-3.jpg"],
+    zdjecia: ["img/piasnica-1.jpg", "img/piasnica-2.jpg", "img/piasnica-3.jpg"],
   },
   {
     id: "lisi-jar",
@@ -212,7 +212,7 @@ const TRASY = [
     wskazowka: "Na odcinkach utwardzonych użyj gumowych nakładek na groty kijków, ale w samym jarze zdejmij je, by zyskać lepsze odbicie na leśnej ściółce.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83360,18.32066&waypoints=54.83360,18.32066|54.83172,18.32504|54.83464,18.32465&travelmode=walking",
     dojazd: "",
-    zdjecia: ["lisi-jar-1.jpg", "lisi-jar-2.jpg", "lisi-jar-3.jpg"],
+    zdjecia: ["img/lisi-jar-1.jpg", "img/lisi-jar-2.jpg", "img/lisi-jar-3.jpg"],
   },
   {
     id: "karwia-plaza",
@@ -233,7 +233,7 @@ const TRASY = [
     wskazowka: "Na odcinkach utwardzonych użyj gumowych nakładek na groty kijków, ale w samym jarze zdejmij je, by zyskać lepsze odbicie na leśnej ściółce.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83209,18.30089&waypoints=54.83317,18.25074|54.83258,18.21273|54.83243,18.25425&travelmode=walking",
     dojazd: "",
-    zdjecia: ["karwia-plaza-1.jpg", "karwia-plaza-2.jpg", "karwia-plaza-3.jpg"],
+    zdjecia: ["img/karwia-plaza-1.jpg", "img/karwia-plaza-2.jpg", "img/karwia-plaza-3.jpg"],
   },
   {
     id: "beka",
@@ -254,7 +254,7 @@ const TRASY = [
     wskazowka: "Obszar słynie z olbrzymiej liczby ptaków brodzących. Koniecznie weźcie ze sobą lornetkę i zaplanujcie krótką przerwę przy wieżach widokowych.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.65838,18.46123&destination=54.63665,18.46579&waypoints=54.65160,18.47226|54.64666,18.46036|54.63781,18.45598&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.65838,18.46123&travelmode=driving",
-    zdjecia: ["beka-1.jpg", "beka-2.jpg", "beka-3.jpg"],
+    zdjecia: ["img/beka-1.jpg", "img/beka-2.jpg", "img/beka-3.jpg"],
   },
   {
     id: "rozewie",
@@ -275,7 +275,7 @@ const TRASY = [
     wskazowka: "Zejdźcie schodami na dół wąwozu prosto na plażę. Znajduje się tam betonowa opaska ochronna u stóp klifu, po której wspaniale maszeruje się tuż przy falach.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83257,18.33645&waypoints=54.83414,18.31101|54.83448,18.31922|54.83371,18.32881&travelmode=walking",
     dojazd: "",
-    zdjecia: ["rozewie-1.jpg", "rozewie-2.jpg", "rozewie-3.jpg"],
+    zdjecia: ["img/rozewie-1.jpg", "img/rozewie-2.jpg", "img/rozewie-3.jpg"],
   },
   {
     id: "faleza",
@@ -296,7 +296,7 @@ const TRASY = [
     wskazowka: "Trasa idealna na „przystawkę” przed obiadem lub kolacją w całorocznej restauracji w hotelu Faleza.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.83326,18.32833&waypoints=54.83427,18.30771|54.83360,18.32066|54.83464,18.32465&travelmode=walking",
     dojazd: "",
-    zdjecia: ["faleza-1.jpg", "faleza-2.jpg", "faleza-3.jpg"],
+    zdjecia: ["img/faleza-1.jpg", "img/faleza-2.jpg", "img/faleza-3.jpg"],
   },
   {
     id: "wawoz",
@@ -317,7 +317,7 @@ const TRASY = [
     wskazowka: "Wiosną i wczesnym latem rozkwitają tu zarośla żarnowca. Cały wąwóz mieni się wtedy na żółto.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.83209,18.30089&destination=54.82523,18.34031&waypoints=54.83397,18.31462|54.83463,18.32671|54.83062,18.33959&travelmode=walking",
     dojazd: "",
-    zdjecia: ["wawoz-1.jpg", "wawoz-2.jpg", "wawoz-3.jpg"],
+    zdjecia: ["img/wawoz-1.jpg", "img/wawoz-2.jpg", "img/wawoz-3.jpg"],
   },
   {  
     id: "hel-spacer",
@@ -338,7 +338,7 @@ const TRASY = [
     wskazowka: "Polecamy odwiedzić foki podczas ich przerwy na jedzenie :) Sprawdźcie na stronie Fokarium, albo zapytajcie na miejscu o godziny karmienia. ",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.61091,18.79897&destination=54.60962,18.80106&waypoints=54.60474,18.80155|54.60994,18.81429|54.61277,18.81348&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.61091,18.79897&travelmode=driving",
-    zdjecia: ["hel-spacer-1.jpg", "hel-spacer-2.jpg"],
+    zdjecia: ["img/hel-spacer-1.jpg", "img/hel-spacer-2.jpg"],
   },
   { 
     id: "puck",
@@ -359,7 +359,7 @@ const TRASY = [
     wskazowka: "Zaplanujcie czas na kawę na Zielonym Mostku lub w okolicy Starego Rynku, gdzie znajdziecie też pierogarnię i kilka innych miejsc na obiad.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.72185,18.41854&destination=54.72250,18.41782&waypoints=54.72286,18.40273|54.72964,18.39335|54.72444,18.40276&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.72185,18.41854&travelmode=driving",
-    zdjecia: ["puck-1.jpg"],
+    zdjecia: ["img/puck-1.jpg"],
   },
   {
     id: "bialogora-rowerem", 
