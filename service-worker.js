@@ -9,8 +9,13 @@ const ASSETS = [
   '/index.html',
   '/index_en.html',
   '/index_de.html',
+<<<<<<< HEAD
+  '/trasy.html',
+  '/trasy.js',
+=======
   '/trasy/index.html',
   '/trasy/trasy.js',
+>>>>>>> a8eedfada9fd74ea2157b1f2cf894fa3d23cccf9
   '/css/style.css',
   '/js/main.js',
   '/manifest.json'
