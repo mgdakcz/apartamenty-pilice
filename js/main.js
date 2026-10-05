@@ -7,6 +7,7 @@
    3. Photo carousels            (guide pages)
    4. Search box                 (guide pages)
    5. Route planner              (trasy/index.html – route content lives in trasy/trasy.js)
+   6. Offline mode               (starts service-worker.js)
 
    Every part checks that its elements exist on the page,
    so the same file can be loaded everywhere.
@@ -102,8 +103,9 @@ const SITE_ROOT = (function () {
 (function initPlanner() {
     if (typeof TRASY === 'undefined' || !document.getElementById('grid')) return;
 
-    // Photos are in img/trasy/. ZDJECIA is only set in the single-file version.
-    const IMG = f => (typeof ZDJECIA !== 'undefined' && ZDJECIA[f]) ? ZDJECIA[f] : SITE_ROOT + 'img/trasy/' + f;
+    // Photos are in img/. Only the file name is used, so "latarnia-1.jpg" and
+    // "img/latarnia-1.jpg" in trasy.js both work. ZDJECIA is only set in the single-file version.
+    const IMG = f => (typeof ZDJECIA !== 'undefined' && ZDJECIA[f]) ? ZDJECIA[f] : SITE_ROOT + 'img/' + f.split('/').pop();
     const DMAP = { latwa: 1, srednia: 2, trudna: 3 };
     const DIFF = { 1: 'Łatwa', 2: 'Średnia', 3: 'Trudna' };
 
@@ -353,3 +355,14 @@ const SITE_ROOT = (function () {
     renderGrid();
     renderPlan();
 })();
+
+
+/* ---------- 6. Offline mode ----------
+   Starts service-worker.js (in the site's main folder). It keeps a copy of
+   the pages on the guest's phone, so the guide still opens without internet
+   and can be added to the home screen as an app. */
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register(SITE_ROOT + 'service-worker.js').catch(() => {});
+    });
+}

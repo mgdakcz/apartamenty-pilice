@@ -1,10 +1,6 @@
 /* ==========================================================
    Apartamenty Pilice – wspólny arkusz stylów
-<<<<<<< HEAD
-   Used by: index.html, index_en.html, index_de.html, trasy.html
-=======
    Used by: index.html, index_en.html, index_de.html, trasy/index.html
->>>>>>> a8eedfada9fd74ea2157b1f2cf894fa3d23cccf9
 
    1. Colours & base
    2. Navigation + language selector
@@ -439,13 +435,8 @@ details.faq-item p {
 }
 
 
-<<<<<<< HEAD
-/* ---------- 10. Route planner (trasy) ---------- */
-.page-trasy.html *,
-=======
 /* ---------- 10. Route planner (trasy/index.html) ---------- */
 .page-trasy *,
->>>>>>> a8eedfada9fd74ea2157b1f2cf894fa3d23cccf9
 .page-trasy *::before,
 .page-trasy *::after { box-sizing: border-box; }
 .page-trasy img { max-width: 100%; }
