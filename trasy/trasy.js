@@ -379,7 +379,7 @@ const TRASY = [
     wskazowka: "To trasa w jedną stronę więc zaplanuj siły i czas na powrót tą samą drogą.",
     nawigacja: "https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Black+Water+Mouth,+Ostrowo/Bia%C5%82og%C3%B3ra+Beach,+Bia%C5%82og%C3%B3ra/@54.8278459,18.0054018,12z/data=!4m20!4m19!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc35aa3f53858f:0xc79998016a8553a6!2m2!1d18.2356206!2d54.8331365!1m5!1m1!1s0x46fdcdbaa0c9e783:0x9badbcaddf772e76!2m2!1d17.9546199!2d54.8293909!3e1?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
     dojazd: "",
-    zdjecia: [""],
+    zdjecia: ["białogóra1.jpg", "białogóra2.jpg"],
   },
   {
     id: "nadole-jezioro-zarnowieckie", 
@@ -421,7 +421,7 @@ const TRASY = [
     wskazowka: "Wodne Ogrody to park wodny. Poza sezonem działa tylko w piątki, soboty i niedziele.",
     nawigacja: "https://maps.app.goo.gl/YJgsP2XqyRzRoRwdA",
     dojazd: "https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Wodne+Ogrody,+Kalwaryjska+12,+84-200+Wejherowo/@54.6013357,18.2304222,16z/data=!3m1!5s0x46fdca4254c3d031:0xde900d6e1bec656b!4m15!4m14!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdbb41bb0da541:0x12de905167706049!2m2!1d18.2271897!2d54.5980973!3e0!5i1?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
-    zdjecia: [""],
+    zdjecia: ["wejherowo1.jpg", "wejherowo-kalwaria1.jpg", "wejherowo2.jpg"],
   },
   {
     id: "cypel-rewski", 
