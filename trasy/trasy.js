@@ -358,7 +358,7 @@ const TRASY = [
     wskazowka: "Zaplanujcie czas na kawę na Zielonym Mostku lub w okolicy Starego Rynku, gdzie znajdziecie też pierogarnię i kilka innych miejsc na obiad.",
     nawigacja: "https://www.google.com/maps/dir/?api=1&origin=54.72185,18.41854&destination=54.72250,18.41782&waypoints=54.72286,18.40273|54.72964,18.39335|54.72444,18.40276&travelmode=walking",
     dojazd: "https://www.google.com/maps/dir/?api=1&destination=54.72185,18.41854&travelmode=driving",
-    zdjecia: ["puck-1.jpg"],
+    zdjecia: ["puck-zatoka.jpg", "puck-1.jpg"],
   },
   {
     id: "bialogora-rowerem", 
