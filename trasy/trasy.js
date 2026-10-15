@@ -400,7 +400,7 @@ const TRASY = [
     wskazowka: "Końcówka do Gniewina to wyraźny podjazd. Zostaw siły na ostatnie kilometry.",
     nawigacja: "https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Krokowa+Castle,+Zamkowa+1,+84-110+Krokowa/Lookout+Tower+%22Kashubian+Eye%22,+84-250+Gniewino/@54.7748363,18.0937098,12z/data=!3m1!5s0x46fdca4254c3d031:0xde900d6e1bec656b!4m20!4m19!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fdca4254bce44f:0x942d6cc0c57000e4!2m2!1d18.1639774!2d54.7770511!1m5!1m1!1s0x46fdc8df8ee81a93:0xaaa6d2c80e758935!2m2!1d18.0521597!2d54.7179279!3e1?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
     dojazd: "",
-    zdjecia: [""],
+    zdjecia: ["jezioro-zarnowieckie1.jpg", "Nadole-skansen1.jpg", "Nadole-skansen2.jpg"],
   },
   {
     id: "wejherowo-wodne-ogrody", 
@@ -442,6 +442,6 @@ const TRASY = [
     wskazowka: "Ostatni odcinek prowadzi po piasku, a na cyplu zwykle mocno wieje, jak to na cyplu :)",
     nawigacja: "https://www.google.com/maps/dir/54.6309778,18.493056/Cypel+Rewski,+81-198+Rewa/@54.6359576,18.4994278,16z/data=!3m2!4b1!5s0x46fdca4254c3d031:0xde900d6e1bec656b!4m9!4m8!1m0!1m5!1m1!1s0x46fdaf25a35054ab:0x42627197fb9490cc!2m2!1d18.5160992!2d54.6409132!3e2?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
     dojazd: "https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/54.6309778,18.493056/@54.6292532,18.4891642,17z/data=!3m1!5s0x46fdca4254c3d031:0xde900d6e1bec656b!4m9!4m8!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m0!3e0?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
-    zdjecia: ["cypel-1.jpg", "cypel-2.jpg", "cypel-3.jpg"],
+    zdjecia: ["rewa1.jpg", "rewa2.jpg"],
   },
 ];
