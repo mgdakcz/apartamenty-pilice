@@ -375,7 +375,7 @@ const TRASY = [
     dzieci: false, 
     dzieciOdLat: null,
     jedzenie: true, 
-    opis: ["Długa wycieczka rowerowa na zachód wzdłuż wybrzeża: przez Karwię i Ostrowo do ujścia Czarnej Wody, a dalej przez Dębki do Białogóry.", "Na miejscu czeka szeroka, spokojna plaża z jasnym piaskiem i wydmami – jedna z mniej zatłoczonych w okolicy."], // ?
+    opis: ["Długa wycieczka rowerowa na zachód wzdłuż wybrzeża: przez Karwię i Ostrowo do ujścia Czarnej Wody, a dalej przez Dębki do Białogóry.", "Na miejscu czeka szeroka, spokojna plaża z jasnym piaskiem i wydmami.", "Jedna z mniej zatłoczonych w okolicy."], 
     wskazowka: "To trasa w jedną stronę więc zaplanuj siły i czas na powrót tą samą drogą.",
     nawigacja: "https://www.google.com/maps/dir/Apartamenty+Pilice,+Obro%C5%84c%C3%B3w+Westerplatte+1,+84-104+Jastrz%C4%99bia+G%C3%B3ra/Black+Water+Mouth,+Ostrowo/Bia%C5%82og%C3%B3ra+Beach,+Bia%C5%82og%C3%B3ra/@54.8278459,18.0054018,12z/data=!4m20!4m19!1m5!1m1!1s0x46fc4b25f61af6b7:0x723d35ade4be6874!2m2!1d18.3013622!2d54.8320816!1m5!1m1!1s0x46fc35aa3f53858f:0xc79998016a8553a6!2m2!1d18.2356206!2d54.8331365!1m5!1m1!1s0x46fdcdbaa0c9e783:0x9badbcaddf772e76!2m2!1d17.9546199!2d54.8293909!3e1?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D",
     dojazd: "",
